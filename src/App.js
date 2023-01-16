@@ -1,13 +1,13 @@
-import NavBar from "./components/NavBar";
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import MainRoutes from "./MainRoutes";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <NavBar />
+        <Navbar />
         <MainRoutes />
         <Footer />
       </AuthContextProvider>

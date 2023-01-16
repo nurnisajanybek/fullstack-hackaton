@@ -1,0 +1,37 @@
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root{
+    background-color: white !important;
+    position: fixed;
+  
+
+ /* align-items: center; */
+   
+}
+.css-hyum1k-MuiToolbar-root{
+  margin: 0 100px
+}
+.icon{
+    width: 200px;
+  margin-right: 300px;
+}
+@media all and (max-width: 1024px){
+    .css-130f8nx{
+     width:200% !important;    
+    }
+   
+}
+@media all and (max-width: 768px){
+    .css-336mxg-MuiButtonBase-root-MuiButton-root{
+     width: 5%;
+     margin-left: 2%
+    }
+}
+
+@media all and (max-width: 320px){
+ /* .button{
+  display: none;  
+  
+ } */
+ .css-1fj6ncr-MuiButtonBase-root-MuiButton-root{
+    display: block;
+ }
+}
