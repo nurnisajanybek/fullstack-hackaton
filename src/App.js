@@ -1,7 +1,8 @@
 import AuthContextProvider from "./contexts/AuthContextProvider";
 import MainRoutes from "./MainRoutes";
-import Footer from "./components/Footer";
+
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
