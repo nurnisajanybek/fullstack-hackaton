@@ -21,8 +21,6 @@
   width: 19%;
   height: 50px;
   padding: 0.2%;
-}
-.each-link > span {
   color: black;
 }
 
@@ -40,12 +38,64 @@ a {
     no-repeat;
   background-size: contain;
   background-position: center;
-  height: 100vh;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .search {
-  /* margin-top: 34%; */
-  align-self: center;
+  z-index: 3;
+  font-size: 1.5rem;
+  padding: 20px 30px;
+  padding-left: 7%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.search-container {
+  z-index: 3;
+  position: relative;
+  width: 70%;
+  height: 15%;
+}
+
+.search-icon {
+  z-index: 3;
+  position: absolute;
+  background: url("../../../public/icons/search.svg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 28px;
+  height: 28px;
+  left: 2%;
+  top: 50%;
+  margin-top: -14px;
+  transition: 200ms;
+}
+
+@media screen and (max-width: 768px) {
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    left: 4%;
+  }
+
+  .search {
+    padding: 10px 20px;
+    padding-left: 40px;
+    font-size: smaller;
+  }
+}
+
+.search:focus {
+  outline: none;
+}
+
 /* sixth block */
 .sixth-block {
   display: flex;
@@ -70,4 +120,86 @@ a {
 }
 .sova {
   width: 40%;
+}
+/* test */
+.test-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2% auto;
+  width: 100%;
+}
+.test {
+  display: flex;
+  width: 22%;
+  height: auto;
+  padding-left: 1%;
+  padding-top: 10%;
+  background: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cf/f9/eb/caption.jpg?w=600&h=600&s=1&cx=941&cy=299&chk=v1_18cfa51ea9b832b15689")
+    no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+.test:hover {
+  opacity: 0.6;
+}
+/* test with rating  */
+.test-card-rating {
+  width: 17%;
+  color: black;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 0;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  transition: 150ms;
+  cursor: pointer;
+}
+.test-card-rating > img {
+  border-radius: 5px;
+}
+.test-card-rating :nth-of-type(2) {
+  font-size: smaller;
+}
+.test-card-rating:hover {
+  text-decoration: underline;
+  scale: 1.03;
+}
+
+.bold {
+  font-weight: bold;
+}
+/* best trip block */
+.best-trip-block {
+  background: url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=1200&h=1600&s=1)
+    no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.best-trip-txt {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 15%;
+  margin-left: 2%;
+  background-color: rgba(100, 100, 111, 0.2);
+}
+.best-trip-txt:nth-of-type(1) {
+  font-size: xx-large;
+  width: 50%;
+}
+
+.best-trip-shadow {
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background-color: rgba(100, 100, 111, 0);
 }
