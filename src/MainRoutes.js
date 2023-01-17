@@ -1,12 +1,17 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-
+import ProductsList from "./products/ProductsList";
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
     {
       link: "/",
       element: <HomePage />,
+      id: 1,
+    },
+    {
+      link: "/hotels",
+      element: <ProductsList />,
       id: 1,
     },
   ];
