@@ -61,7 +61,7 @@ export default function RecipeReviewCard() {
         <Typography>Обратная связь</Typography>
         <Typography>Заявление о доступности платформы</Typography>
         </Typography>
-        <Typography sx={{marginLeft:"900px", marginTop:"-170px"}}>Получить советы:
+        <Typography sx={{marginLeft:"500px", marginTop:"-170px"}}>Получить советы:
           <Typography>Написать отзыв</Typography>
           <Typography>Добавить место</Typography>
           <Typography>Зарегистрироваться </Typography>
@@ -69,7 +69,7 @@ export default function RecipeReviewCard() {
           <Typography>ЭкоЛидеры</Typography>
           <Typography>Справочный центр</Typography>
           <Typography>Статьи о путешествиях</Typography>
-          <Typography sx={{marginLeft:"600px", marginTop:"-190px"}} >Сотрудничайте с нами:
+          <Typography sx={{marginLeft:"500px", marginTop:"-190px"}} >Сотрудничайте с нами:
             <Typography>Владельцы объектов</Typography>
             <Typography>Бизнес плюс</Typography>
             <Typography>Платные объявления</Typography>
