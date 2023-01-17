@@ -3,14 +3,17 @@ import MainRoutes from "./MainRoutes";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ServicesContextProvider from "./contexts/ServicesContextProvider";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <Navbar />
-        <MainRoutes />
-        <Footer />
+        <ServicesContextProvider>
+          <NavBar />
+          <MainRoutes />
+          <Footer />
+        </ServicesContextProvider>
       </AuthContextProvider>
     </>
   );
