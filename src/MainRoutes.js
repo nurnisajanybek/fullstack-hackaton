@@ -10,7 +10,7 @@ const MainRoutes = () => {
       id: 1,
     },
     {
-      link: "/products",
+      link: "/hotels",
       element: <ProductsList />,
       id: 1,
     },

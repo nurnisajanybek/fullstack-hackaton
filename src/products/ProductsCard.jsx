@@ -22,7 +22,8 @@ export default function ProductsCard() {
     <Box className='box'>
 
     <Card sx={{ display: 'flex', }}   >
-             <CardMedia
+             <CardMedia 
+             className='media'
         component="img"
         sx={{ width: 250 }}
         image="https://media-cdn.tripadvisor.com/media/photo-s/0a/6e/6a/95/gray-wolf-deluxe-double.jpg"
