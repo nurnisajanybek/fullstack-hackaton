@@ -12,10 +12,18 @@
 }
 .icon{
     width: 200px;
+    margin-top: 5px;
 
 }
 .css-i4bv87-MuiSvgIcon-root{
     color: black;
+}
+.birie{
+display: flex;
+}
+.birdie1{
+    width: 5%;
+    color: white;
 }
 @media all and (max-width: 1024px){
     

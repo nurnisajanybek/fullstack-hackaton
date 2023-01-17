@@ -11,7 +11,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -75,8 +74,13 @@ function Navbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block'  } }}
             >
-            <img className='icon'  src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="" />
+
+<div className='birie'> <img className='birdie1' src="https://static.thenounproject.com/png/3677-200.png" alt="" />
+            <Typography className='icon' sx={{color:"black", fontWeight:"500", fontSize:"100%"}}>TAPTYM_KG</Typography>
+      </div>
+       
           </Typography>
+
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
                 <Button key={item} sx={{ color: 'black', fontWeight:"bold" }}>
