@@ -10,7 +10,7 @@ function App() {
     <>
       <AuthContextProvider>
         <ServicesContextProvider>
-          <NavBar />
+          <Navbar />
           <MainRoutes />
           <Footer />
         </ServicesContextProvider>
