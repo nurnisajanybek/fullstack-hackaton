@@ -75,21 +75,116 @@ const HomePage = () => {
       </div>
       {/* second block */}
       <div className="container second-block">
-        <input type="search" name="" className="search" />
+        <div className="search-container">
+          <i class="fa fa-search search-icon"></i>
+          <input
+            type="search"
+            name=""
+            className="search"
+            placeholder="Search..."
+          />
+        </div>
       </div>
       {/* third block*/}
       <h2 className="container">Ваши последние поисковые запросы</h2>
       {/* forth block*/}
       <h2 className="container">Вам также может понравиться</h2>
+      {/* test cards with rating */}
+      <div className="container">
+        <div className="test-block">
+          <a className="test-card-rating" href="#">
+            <img
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              alt=""
+            />
+            <span className="bold">(Place)</span>
+            <div>rating</div>
+            <span className="bold"> (type) </span>
+          </a>
+          <a className="test-card-rating" href="#">
+            <img
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              alt=""
+            />
+            <span className="bold">(Place)</span>
+            <div>rating</div>
+            <span className="bold"> (type) </span>
+          </a>
+          <a className="test-card-rating" href="#">
+            <img
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              alt=""
+            />
+            <span className="bold">(Place)</span>
+            <div>rating</div>
+            <span className="bold">(type) </span>
+          </a>
+          <a className="test-card-rating" href="#">
+            <img
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              alt=""
+            />
+            <span className="bold">(Place)</span>
+            <div>rating</div>
+            <span className="bold"> (type) </span>
+          </a>
+        </div>
+      </div>
+      {/* before fifth block button for layout of best trips */}
+      <div className="container">
+        <div className="best-trip-block">
+          <div className="best-trip-txt">
+            <source
+              media="(max-width: 400px)"
+              srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
+            ></source>
+            <span className="bold">Plan your best trip ever</span>
+            <span>We’ve got everything you need to go big in 2023.</span>
+            <button>Explore now</button>
+          </div>
+          <div className="best-trip-shadow"></div>
+        </div>
+      </div>
       {/* fifth block*/}
       <div className="container">
         <h2>Лучшие направления для Вашего следующего отпуска</h2>
-        <div>
+        {/* <div>
           {cards.map((card) => (
-            <div className="" style={{ background: 'url("url_here")' }}>
+            <div
+              className="card-with-title"
+              style={{
+                background:
+                  "url(`https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cf/f9/eb/caption.jpg?w=600&h=600&s=1&cx=941&cy=299&chk=v1_18cfa51ea9b832b15689`)",
+              }}
+            >
               hello {card}
             </div>
           ))}
+        </div> */}
+      </div>
+      {/* test */}
+      <div className="container ">
+        <div className="test-block">
+          <div className="test">
+            <h2 className="test-title">
+              Йеллоустонский национальный парк, Вайоминг
+            </h2>
+          </div>
+          <div className="test">
+            <h2 className="test-title">
+              Йеллоустонский национальный парк, Вайоминг
+            </h2>
+          </div>
+          <div className="test">
+            <h2 className="test-title">
+              Йеллоустонский национальный парк, Вайоминг
+            </h2>
+          </div>
+          <div className="test">
+            <h2 className="test-title">
+              Йеллоустонский национальный парк, Вайоминг
+            </h2>
+          </div>
         </div>
       </div>
       {/* sixth block*/}
