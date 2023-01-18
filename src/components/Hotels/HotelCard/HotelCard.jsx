@@ -44,18 +44,14 @@ export default function HotelCard({ hotel, key }) {
             <Typography
               component="div"
               variant="h6"
-              sx={{ fontSize: "20px", fontWeight: "700", color: "black" }}
+              sx={{ fontSize: "20px", fontWeight: "700", color: "black", marginLeft:"12%"}}
             >
               {hotel.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-                <img
-                  className="icons"
-                  src="https://static.tacdn.com/img2/branding/hotels/booking%20logo.png"
-                  alt=""
-                />
+              
                 <Typography className="num">22 736 KGS</Typography>
                 <Button
                   className="btn"
@@ -65,86 +61,13 @@ export default function HotelCard({ hotel, key }) {
                 </Button>
                 <div className="check">
                   {" "}
-                  <div>
-                    <CheckIcon />
-                  </div>
-                  <div>
-                    <Typography>Бесплатная отмена</Typography>
-                  </div>
+               
+                
                 </div>
               </Box>
               <hr className="hr" />
 
-              <Box
-                sx={{
-                  marginTop: "10px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <div className="check">
-                  {" "}
-                  <Typography sx={{ fontSize: "80%", marginLeft: "25px" }}>
-                    Expedia.com{" "}
-                  </Typography>
-                  <NorthEastIcon sx={{ fontSize: "70%", marginTop: "5%" }} />
-                </div>
-                <Typography
-                  sx={{
-                    fontSize: "80%",
-                    fontWeight: "bold",
-                    marginLeft: "25px",
-                  }}
-                >
-                  13 420 KGS
-                </Typography>
-
-                <div className="check">
-                  {" "}
-                  <Typography sx={{ fontSize: "80%", marginLeft: "30px" }}>
-                    Agoda.com{" "}
-                  </Typography>
-                  <NorthEastIcon sx={{ fontSize: "70%", marginTop: "5%" }} />
-                </div>
-                <Typography
-                  sx={{
-                    fontSize: "80%",
-                    fontWeight: "bold",
-                    marginLeft: "30px",
-                  }}
-                >
-                  13 420 KGS
-                </Typography>
-
-                <div className="check">
-                  {" "}
-                  <Typography sx={{ fontSize: "80%", marginLeft: "35px" }}>
-                    Trip.com{" "}
-                  </Typography>
-                  <NorthEastIcon sx={{ fontSize: "70%", marginTop: "5%" }} />
-                </div>
-                <Typography
-                  sx={{
-                    fontSize: "80%",
-                    fontWeight: "bold",
-                    marginLeft: "35px",
-                  }}
-                >
-                  Trip.com
-                </Typography>
-                <hr />
-                <Typography
-                  sx={{
-                    fontSize: "70%",
-                    fontWeight: "800",
-                    marginLeft: "20px",
-                  }}
-                >
-                  {" "}
-                  Показать все предложения (5) от 11 041 KGS
-                </Typography>
-              </Box>
-              <hr />
+           
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
                 <div className="rating">
@@ -156,23 +79,10 @@ export default function HotelCard({ hotel, key }) {
                 <div>
                   <LocationOnIcon />
                   <b>53,7 км </b>" от: Йеллоустонский национальный парк"
-                  <div
-                    className="uest"
-                    data-clicksource="PopIndex"
-                    onclick="widgetEvCall('handlers.clickPopIndex', event, this);"
-                  >
-                    № 15 из 41 отеля в Уэст-Йеллоустоун
-                  </div>
+                
                 </div>
                 <div className="div">
-                  <div>
-                    <WifiIcon sx={{ fontSize: "100%" }} />
-                    <span class="text">Бесплатный Wi-Fi</span>
-                  </div>
-                  <div>
-                    <LocalParkingIcon sx={{ fontSize: "100%" }} />
-                    <span class="text">Бесплатная парковка</span>
-                  </div>
+                 
                   <div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
                     <span class="text">Перейти на&nbsp;сайт отеля</span>

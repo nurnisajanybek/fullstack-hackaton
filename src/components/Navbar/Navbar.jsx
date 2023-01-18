@@ -75,8 +75,10 @@ function Navbar(props) {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block'  } }}
             >
 
-<div className='birie'> <img className='birdie1' src="https://static.thenounproject.com/png/3677-200.png" alt="" />
-            <Typography className='icon' sx={{color:"black", fontWeight:"500", fontSize:"100%"}}>TAPTYM_KG</Typography>
+            <div className='birie'> 
+           <img className='birdie1' src="./components/Navbar/LOGO.png" alt="" />
+
+           
       </div>
        
           </Typography>

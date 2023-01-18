@@ -46,15 +46,16 @@ body {
   font-size: 80%;
   margin-top: 3%;
 }
-.div {
-  margin-top: 15px;
-}
 
-.divv {
-  display: flex;
+
+
+.box{
+margin-top: 4%;
 }
 .box:hover {
   box-shadow: 8px 10px 5px 2px rgba(0, 0, 255, 0.2);
+
+
 }
 
 @media all and (max-width: 1024px) {
