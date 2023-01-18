@@ -15,9 +15,11 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import "./HotelCard.css";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function HotelCard({ hotel, key }) {
   const theme = useTheme();
+  const navigate= useNavigate()
 
   return (
     <Box className="box" key={key}>
@@ -55,7 +57,7 @@ export default function HotelCard({ hotel, key }) {
                   alt=""
                 />
                 <Typography className="num">22 736 KGS</Typography>
-                <Button className="btn">Показать</Button>
+                <Button onClick={()=>navigate("/hoteldetails")} className="btn">Показать</Button>
                 <div className="check">
                   {" "}
                

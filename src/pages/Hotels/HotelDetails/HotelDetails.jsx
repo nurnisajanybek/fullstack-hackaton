@@ -16,6 +16,7 @@ const HotelDetails = () => {
 
     <img className="img1" src="https://media-cdn.tripadvisor.com/media/photo-s/0a/6e/6a/95/gray-wolf-deluxe-double.jpg" alt="" />
 
+ 
     <div className="detail1">
 
 
