@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import AdminPage from "./pages/AdminPage/AdminPage";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
@@ -44,6 +45,11 @@ const MainRoutes = () => {
       link: "/login",
       element: <Login />,
       id: 7,
+    },
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 8,
     },
   ];
 
