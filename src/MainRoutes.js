@@ -24,11 +24,6 @@ const MainRoutes = () => {
       id: 3,
     },
     {
-      link: "/productdetails",
-      element: <ProductDetails />,
-      id: 4,
-    },
-    {
       link: "/register",
       element: <Register />,
       id: 5,
