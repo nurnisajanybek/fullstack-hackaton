@@ -21,9 +21,11 @@ export default function HotelCard({ hotel, key }) {
   const theme = useTheme();
   const navigate= useNavigate()
 
+
+
   return (
     <Box className="box" key={key}>
-      <Card sx={{ display: "flex" }}>
+      <Card className="display" sx={{ display: "flex" }}>
         <CardMedia
           className="media"
           component="img"
@@ -48,7 +50,7 @@ export default function HotelCard({ hotel, key }) {
             >
               {hotel.name}
             </Typography>
-            <Box sx={{ display: "flex", width: "320px" }}>
+            <Box  sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
                 <img
@@ -57,7 +59,12 @@ export default function HotelCard({ hotel, key }) {
                   alt=""
                 />
                 <Typography className="num">22 736 KGS</Typography>
-                <Button onClick={()=>navigate("/hoteldetails")} className="btn">Показать</Button>
+                <Button
+                  className="btn"
+                  onClick={() => navigate(`/hotels/${hotel.id}`)}
+                >
+                  Показать
+                </Button>
                 <div className="check">
                   {" "}
                

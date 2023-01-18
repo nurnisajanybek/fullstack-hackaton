@@ -3,8 +3,9 @@ import MainRoutes from "./MainRoutes";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import ServicesContextProvider from "./contexts/ServicesContextProvider";
 import Login from "./components/Login";
+import ServicesContextProvider from "./contexts/ServicesContextProvider";
+
 function App() {
   return (
     <>

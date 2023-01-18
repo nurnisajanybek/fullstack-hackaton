@@ -143,7 +143,7 @@ const HomePage = () => {
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <Button sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}}>Explore now</Button>
+            <Button sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}} onClick={()=>navigate("/aboutus")}>Explore now</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>

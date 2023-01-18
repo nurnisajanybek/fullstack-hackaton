@@ -1,11 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import AboutUs from "./components/AboutUs/AboutUs";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
-
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -17,23 +17,27 @@ const MainRoutes = () => {
     {
       link: "/hotels",
       element: <Hotels />,
-      id: 1,
+      id: 2,
     },
- 
     {
-      link: "/hoteldetails",
-      element: <HotelDetails/>,
-      id: 3,  
+      link: "/hotels/:id",
+      element: <HotelDetails />,
+      id: 3,
     },
     {
       link: "/register",
-      element: <Register/>,
-      id: 4,
+      element: <Register />,
+      id: 5,
     },
     {
       link: "/login",
-      element: <Login/>,
-      id: 5,
+      element: <Login />,
+      id: 6,
+    },
+    {
+      link: "/aboutus",
+      element: <AboutUs/>,
+      id: 7,
     }
   ];
 

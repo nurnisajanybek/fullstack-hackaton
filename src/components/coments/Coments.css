@@ -1,4 +1,6 @@
 .best{
-    font-weight: bold;
-    margin-left: 10%;
+    font-weight: bold !important;
+    margin-left: 10% !important;
+
+    
 }

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gothic+A1&family=Inter:wght@400;500&family=Montserrat:wght@300;400&family=Open+Sans:ital,wght@1,700&family=Roboto+Condensed&family=Roboto+Mono:wght@300&display=swap');
+.css-1v5gx7r-MuiGrid-root{
+    background-color: #deded5;
+}
+
+.title {
+    width: 50%;
+ 
+}
+.title h1 {
+    margin-left: 80px;
+    color : #ffff;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 45px;
+    font-family: 'Bebas Neue', cursive;
+font-family: 'Gothic A1', sans-serif;
+font-family: 'Inter', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto Mono', monospace;
+}
+.title__ul li{
+    font-size: 20px;
+    line-height: 26px;
+    text-shadow: 2px 0 5px rgb(0 0 0 / 75%);
+    padding: 0;
+    
+}
+.title__ul {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+.title__product{
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    
+}
+.product__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+    padding-top: 50px;
+    margin-bottom: 100px;
+}
+
+.about__img img{
+    width: 250px;
+}
+
+
+.about__back{
+        background: url(https://tripplanet.ru/wp-content/uploads/asia/kyrgyzstan/bishkek/dostoprimechatelnosti-bishkeka.jpg);
+        background-size: 130%;
+        background-repeat: no-repeat;
+         width: 100%;
+         background-position: center;
+         height: 480px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 80px;
+         
+}
+
+
+
+@media all and (max-width: 1025px){
+    .about__img img {
+        width: 100px;
+    }
+    .about__back{
+        background-size: 180%;
+    }
+
+}
+
+
+
+
+@media all and (max-width: 769px){
+    .about__img img {
+        width: 50px;
+    }
+    .about__back{
+        background-size: 240%;
+    }
+.title{
+    font-size: 12px;
+}
+.title__ul li{
+    font-size: 15px;
+}
+}
+@media all and (max-width: 426px){
+    .about__img img {
+        width: 80px;
+    }
+    .about__back{
+display: none;    
+
+}
+.title{
+    font-size: 12px;
+}
+.title__ul li{
+    font-size: 15px;
+}
+.product__item{
+    display: flex;
+    flex-wrap: wrap;
+}
+}
