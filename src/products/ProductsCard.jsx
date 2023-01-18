@@ -9,17 +9,20 @@ import Typography from '@mui/material/Typography';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProductsCard() {
   const theme = useTheme();
+  const navigate = useNavigate()
 
   return (
-    <Card sx={{ display: 'flex' }}>
+    <Card sx={{ display: 'flex' }} onClick={()=>navigate('/productdetails')}>
              <CardMedia
         component="img"
         sx={{ width: 151 }}
         image="https://i.pinimg.com/736x/b1/3b/81/b13b81d79fe91e35008feeaf4c5b04d7.jpg"
         alt="Live from space album cover"
+       
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       
