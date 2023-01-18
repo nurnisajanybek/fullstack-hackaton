@@ -19,10 +19,12 @@ const HotelList = () => {
   const [inputValue, setInputValue] = React.useState("");
 
   return (
-    <>
+    < >
       <Container>
+        <div className="div1">
+
         <div className="divv">
-          <br />
+          
           <Autocomplete
             value={value}
             onChange={(event, newValue) => {
@@ -37,13 +39,14 @@ const HotelList = () => {
             sx={{ width: 300 }}
             renderInput={(params) => (
               <TextField {...params} label="Controllable" />
-            )}
-          />
+              )}
+              />
 
           {hotelList?.map((hotel, index) => (
             <HotelCard hotel={hotel} key={index} />
-          ))}
+            ))}
         </div>
+            </div>
       </Container>
     </>
   );
