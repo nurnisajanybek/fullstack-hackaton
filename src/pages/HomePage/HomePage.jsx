@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
@@ -142,7 +143,7 @@ const HomePage = () => {
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <button>Explore now</button>
+            <Button onClick={()=>navigate("/aboutus")}>Explore now</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>
