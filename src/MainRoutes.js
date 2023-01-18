@@ -4,6 +4,8 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import EntertainmentDetails from "./pages/Entertainments/EntertainmentDetails/EntertainmentDetails";
+import Entertainments from "./pages/Entertainments/Entertainments";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
@@ -35,6 +37,16 @@ const MainRoutes = () => {
     {
       link: "/place/:id",
       element: <RestaurantDetails />,
+      id: 5,
+    },
+    {
+      link: "/fun",
+      element: <Entertainments />,
+      id: 4,
+    },
+    {
+      link: "/fun/:id",
+      element: <EntertainmentDetails />,
       id: 5,
     },
     {

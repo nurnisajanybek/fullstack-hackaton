@@ -22,6 +22,10 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, restaurantList: action.payload };
     case "GET_RESTAURANT_DETAILS":
       return { ...state, restaurantDetails: action.payload };
+    case "GET_ENTERTAINMENTS":
+      return { ...state, entertainmentList: action.payload };
+    case "GET_ENTERTAINMENT_DETAILS":
+      return { ...state, entertainmentDetails: action.payload };
 
     default:
       return state;
@@ -90,6 +94,43 @@ const ServicesContextProvider = ({ children }) => {
     dispatch(action);
   };
 
+  const addRestaurant = async (newRestaurant) => {
+    try {
+      let res = await axios.post(`${API}place/`, newRestaurant, config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // entertainments
+  const getEntertainments = async () => {
+    let { data } = await axios(`${API}fun/`);
+    let action = {
+      type: "GET_ENTERTAINMENTS",
+      payload: data.results,
+    };
+    dispatch(action);
+  };
+
+  const getEntertainmentDetails = async (id) => {
+    let { data } = await axios(`${API}place/${id}`);
+    let action = {
+      type: "GET_ENTERTAINMENT_DETAILS",
+      payload: data,
+    };
+    dispatch(action);
+  };
+
+  const addEntertainment = async (newEntertainment) => {
+    try {
+      let res = await axios.post(`${API}fun/`, newEntertainment, config);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const cloud = {
     getHotels,
     hotelList: state.hotelList,
@@ -100,6 +141,12 @@ const ServicesContextProvider = ({ children }) => {
     restaurantList: state.restaurantList,
     getRestaurantDetails,
     restaurantDetails: state.restaurantDetails,
+    addRestaurant,
+    getEntertainments,
+    entertainmentList: state.entertainmentList,
+    getEntertainmentDetails,
+    entertainmentDetails: state.entertainmentDetails,
+    addEntertainment,
   };
   return (
     <servicesContext.Provider value={cloud}>

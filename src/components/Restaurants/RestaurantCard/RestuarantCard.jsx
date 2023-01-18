@@ -82,7 +82,7 @@ export default function RestaurantCard({ place, key }) {
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
                     <a href={place?.place_link}></a>
-                    <span class="text">Перейти на&nbsp;сайт отеля</span>
+                    <span class="text">Посетить веб-сайт</span>
                   </div>
                 </div>
               </Box>
