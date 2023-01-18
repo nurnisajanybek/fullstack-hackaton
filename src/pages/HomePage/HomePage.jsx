@@ -5,13 +5,13 @@ import "./HomePage.css";
 const cards = [1, 2, 3, 4];
 
 const HomePage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   return (
     <>
       <div className="first-block container">
         {/* first section */}
         <a className="each-link" href="#">
-          <span onClick={navigate("/hotels")}  >Отели</span>
+          <span onClick={navigate("/hotels")}>Отели</span>
           <svg viewBox="0 0 24 24" width="24px" height="24px" class="">
             <path
               fill-rule="evenodd"
@@ -23,7 +23,7 @@ const HomePage = () => {
 
         {/* second section  */}
         <a className="each-link" href="#">
-          <span  >Развлечения</span>
+          <span>Развлечения</span>
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
               fill-rule="evenodd"
@@ -36,7 +36,7 @@ const HomePage = () => {
 
         {/* third section */}
         <a className="each-link" href="#">
-          <span>Рестораны</span>
+          <span onClick={navigate("/place")}>Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
