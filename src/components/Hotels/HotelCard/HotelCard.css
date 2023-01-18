@@ -75,3 +75,63 @@ a {
     width: 10% !important;
   }
 }
+@media all and (max-width: 320px) {
+  .display{
+     display: block !important;
+  }
+  .media{
+    width: 100% !important;
+  }
+  .css-1afk19q{
+      font-size: 20px !important;
+  }
+  .css-1g3t681-MuiTypography-root{
+    font-size: 400% !important;
+  }
+ 
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+   width: 100% !important;
+   font-size: 200% !important;
+  }
+
+}
+@media all and (max-width: 375px) {
+  .display{
+    display: block !important;
+ }
+ .media{
+   width: 100% !important;
+ }
+ .css-1afk19q{
+     font-size: 20px !important;
+ }
+ .css-1g3t681-MuiTypography-root{
+   font-size: 400% !important;
+ }
+
+ .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  width: 100% !important;
+  font-size: 200% !important;
+ }
+
+}
+@media all and (max-width: 425px) {
+  .display{
+    display: block !important;
+ }
+ .media{
+   width: 100% !important;
+ }
+ .css-1afk19q{
+     font-size: 20px !important;
+ }
+ .css-1g3t681-MuiTypography-root{
+   font-size: 400% !important;
+ }
+
+ .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+  width: 100% !important;
+  font-size: 200% !important;
+ }
+
+}

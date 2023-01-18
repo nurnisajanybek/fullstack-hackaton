@@ -146,27 +146,23 @@ a {
 }
 /* test with rating  */
 .test-card-rating {
-  width: 17%;
-  color: black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 10px;
+  width: 25%;
+
   padding: 10px 20px;
   margin: 0;
-  margin-bottom: 40px;
+
   display: flex;
   flex-direction: column;
   transition: 150ms;
   cursor: pointer;
 }
-.test-card-rating > img {
-  border-radius: 5px;
-}
+
 .test-card-rating :nth-of-type(2) {
   font-size: smaller;
 }
 .test-card-rating:hover {
   text-decoration: underline;
-  scale: 1.03;
+  opacity: 0.8;
 }
 
 .bold {

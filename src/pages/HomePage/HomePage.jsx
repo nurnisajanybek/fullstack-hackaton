@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
@@ -22,8 +23,10 @@ const HomePage = () => {
         </a>
 
         {/* second section  */}
+
         <a className="each-link">
           <span onClick={() => navigate("/fun")}>Развлечения</span>
+
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
               fill-rule="evenodd"
@@ -142,7 +145,7 @@ const HomePage = () => {
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <button>Explore now</button>
+            <Button sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}} onClick={()=>navigate("/aboutus")}>Explore now</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>

@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -22,6 +23,7 @@ import { Container } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { isAdmin } from "../../helpers/consts";
 
+
 const drawerWidth = 240;
 const navItems = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
@@ -31,9 +33,16 @@ const navItems = [
 ];
 
 function Navbar(props) {
+
+  
   const { window } = props;
-  const navigate = useNavigate();
+
+
+
+ 
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate=useNavigate()
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -106,51 +115,7 @@ function Navbar(props) {
             </Typography>
             {isAdmin ? <p style={{ color: "black" }}>admin</p> : <></>}
 
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}>
-                  {item}
-                </Button>
-              ))}
-            </Box>
-            <Button
-              className="button"
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                borderRadius: "30%",
-                fontWeight: "bold",
-                height: "100%",
-              }}
-              onClick={() => navigate("/register")}
-            >
-              Войти
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Box component="nav">
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": {
-                boxSizing: "border-box",
-                width: drawerWidth,
-              },
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Box>
-        <Box component="main" sx={{ p: 3 }}>
-          <Toolbar />
-        </Box>
+
       </Box>
     </Container>
   );

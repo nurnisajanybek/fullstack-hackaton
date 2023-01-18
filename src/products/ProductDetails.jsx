@@ -88,7 +88,6 @@ export default function MediaCard() {
         <Typography  sx={{marginLeft:"500px"}}>Предложите поправки для улучшения показанных данных.</Typography>
       </CardContent>
     </Card>
-   
     </Card>
   );
 }
