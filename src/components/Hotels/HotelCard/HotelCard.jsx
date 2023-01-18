@@ -11,6 +11,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import LanguageIcon from "@mui/icons-material/Language";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 import "./HotelCard.css";
 import { Button } from "@mui/material";
@@ -28,8 +29,7 @@ export default function HotelCard({ hotel, key }) {
           className="media"
           component="img"
           sx={{ width: 250 }}
-          image="https://media-cdn.tripadvisor.com/media/photo-s/0a/6e/6a/95/gray-wolf-deluxe-double.jpg"
-          alt="Live from space album cover"
+          image={hotel.image}
         />
 
         <Box
@@ -44,30 +44,28 @@ export default function HotelCard({ hotel, key }) {
             <Typography
               component="div"
               variant="h6"
-              sx={{ fontSize: "20px", fontWeight: "700", color: "black", marginLeft:"12%"}}
+              sx={{
+                fontSize: "20px",
+                fontWeight: "700",
+                color: "black",
+                marginLeft: "12%",
+              }}
             >
               {hotel.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-              
-                <Typography className="num">22 736 KGS</Typography>
+                <Typography className="num">{hotel.price}</Typography>
                 <Button
                   className="btn"
                   onClick={() => navigate(`/hotels/${hotel.id}`)}
                 >
                   Показать
                 </Button>
-                <div className="check">
-                  {" "}
-               
-                
-                </div>
+                <div className="check"> </div>
               </Box>
               <hr className="hr" />
-
-           
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
                 <div className="rating">
@@ -78,13 +76,16 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b>53,7 км </b>" от: Йеллоустонский национальный парк"
-                
+                  <b>{hotel.address}</b>
                 </div>
                 <div className="div">
-                 
                   <div>
+                    <div>
+                      <CalendarMonthIcon sx={{ fontSize: "100%" }} />
+                      <span class="text">Время работы : {hotel.hours}</span>
+                    </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
+                    <a href={hotel.hotel_link}></a>
                     <span class="text">Перейти на&nbsp;сайт отеля</span>
                   </div>
                 </div>

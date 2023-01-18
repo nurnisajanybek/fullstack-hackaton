@@ -39,6 +39,7 @@ const ServicesContextProvider = ({ children }) => {
       payload: data,
     };
     dispatch(action);
+    console.log(data.result);
   };
 
   const cloud = {
