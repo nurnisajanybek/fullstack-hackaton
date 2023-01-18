@@ -3,9 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import AdminPage from "./pages/AdminPage/AdminPage";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
+import RestaurantDetails from "./pages/Restaurants/RestaurantDetails/RestaurantDetail";
+import Restaurants from "./pages/Restaurants/Restaurants";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -25,14 +28,29 @@ const MainRoutes = () => {
       id: 3,
     },
     {
+      link: "/place",
+      element: <Restaurants />,
+      id: 4,
+    },
+    {
+      link: "/place/:id",
+      element: <RestaurantDetails />,
+      id: 5,
+    },
+    {
       link: "/register",
       element: <Register />,
-      id: 5,
+      id: 6,
     },
     {
       link: "/login",
       element: <Login />,
-      id: 6,
+      id: 7,
+    },
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 8,
     },
     {
       link: "/aboutus",
