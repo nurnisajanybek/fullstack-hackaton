@@ -138,12 +138,13 @@ const HomePage = () => {
         <div className="best-trip-block">
           <div className="best-trip-txt">
             <source
+            className="picture"
               media="(max-width: 400px)"
               srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <Button sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}} onClick={()=>navigate("/aboutus")}>Explore now</Button>
+            <Button className="explor" sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}} onClick={()=>navigate("/aboutus")}>Explore now</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>
@@ -166,30 +167,30 @@ const HomePage = () => {
         </div> */}
       </div>
       {/* test */}
-      <div className="container ">
-        <div className="test-block">
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
+        <div className="container ">
+          <div className="test-block">
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
       {/* sixth block*/}
       <div className="sixth-block ">
         <div className="sixth-block-left">

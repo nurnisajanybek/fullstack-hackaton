@@ -199,3 +199,12 @@ a {
   width: 100%;
   background-color: rgba(100, 100, 111, 0);
 }
+
+@media all and ( max-width:768px ){
+  .best-trip-txt:nth-of-type(1){
+    font-size: 100%;
+  }
+  .explor{
+    width: 50% !important;
+  }
+  }

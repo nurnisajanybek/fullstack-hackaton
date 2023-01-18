@@ -1,8 +1,36 @@
+@media all and (max-width: 425px){
+    .text{
+        width: 80% !important;
+    }
+}
+@media all and (max-width: 425px){
+
+    .text{
+        width: 100% !important;
+    }
+}
+@media all and (max-width: 425px){
+    .text{
+        width: 150% !important;
+    }
+}
+@media all and (max-width: 375px){
+    .text{
+        width: 150% !important;
+    }
+}
 @media all and (max-width: 320px){
+    .text{
+        width: 200% !important;
+    }
     /* .detail{
 
         width: 10%;
     } */
+}
+.divv1{
+    margin-top: 10%;
+    
 }
 
 
@@ -33,4 +61,5 @@
     margin-top: 3%;
     margin-bottom: 2%;
     margin-left: 10%;
+
 }
