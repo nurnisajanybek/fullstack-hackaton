@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
@@ -32,6 +34,16 @@ const MainRoutes = () => {
       link: "/place/:id",
       element: <RestaurantDetails />,
       id: 5,
+    },
+    {
+      link: "/register",
+      element: <Register />,
+      id: 6,
+    },
+    {
+      link: "/login",
+      element: <Login />,
+      id: 7,
     },
   ];
 
