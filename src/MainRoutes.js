@@ -1,6 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import HomePage from "./pages/HomePage/HomePage";
+import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
 
 
@@ -14,9 +17,24 @@ const MainRoutes = () => {
     {
       link: "/hotels",
       element: <Hotels />,
-      id: 2,
+      id: 1,
     },
-    
+ 
+    {
+      link: "/hoteldetails",
+      element: <HotelDetails/>,
+      id: 3,  
+    },
+    {
+      link: "/register",
+      element: <Register/>,
+      id: 4,
+    },
+    {
+      link: "/login",
+      element: <Login/>,
+      id: 5,
+    }
   ];
 
   return (

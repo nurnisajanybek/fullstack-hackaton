@@ -19,15 +19,16 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Container } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
 import "./Navbar.css"
-
 const drawerWidth = 240;
 const navItems = [ < DriveFileRenameOutlineIcon sx={{marginLeft:"100%"}}/>,'Отзывы', <FavoriteBorderIcon  sx={{marginLeft:"100%"}} />,  'Избранная',];
+
 
 
 function Navbar(props) {
 
   
   const { window } = props;
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate=useNavigate()
 
@@ -38,7 +39,7 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center',}}>
       <Typography variant="h6" sx={{ my: 2,  }}>
-      <Button   sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}}>Войти</Button>
+      <Button  sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} > Войти</Button>
       </Typography>
       <Divider />
       <List>
@@ -93,7 +94,7 @@ function Navbar(props) {
               </Button>
             ))}
           </Box>
-          <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}}>Войти</Button>
+          <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} onClick={()=>navigate('/register')} >Войти</Button>
         </Toolbar>
       </AppBar>
       <Box component="nav">

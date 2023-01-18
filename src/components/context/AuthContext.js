@@ -29,7 +29,7 @@ const AuthContextProvider = ({ children }) => {
 
   const login = async (formData, email) => {
     try {
-      const res = await axios.post(`${API}token/`, formData);
+      const res = await axios.post(`${API}login/`, formData);
       console.log(res);
       localStorage.setItem("token", JSON.stringify(res.data));
       localStorage.setItem("username", email);
@@ -40,7 +40,6 @@ const AuthContextProvider = ({ children }) => {
       setError(error.response.data.detail);
     }
   };
-
 
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
