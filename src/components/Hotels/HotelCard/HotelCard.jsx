@@ -11,6 +11,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import LanguageIcon from "@mui/icons-material/Language";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import "./HotelCard.css";
 import { Button } from "@mui/material";
@@ -41,14 +42,18 @@ export default function HotelCard({ hotel, key }) {
             <Typography
               component="div"
               variant="h6"
-              sx={{ fontSize: "20px", fontWeight: "700", color: "black", marginLeft:"12%"}}
+              sx={{ fontSize: "20px", fontWeight: "700", color: "black" }}
             >
               {hotel.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-              
+                <img
+                  className="icons"
+                  src="https://static.tacdn.com/img2/branding/hotels/booking%20logo.png"
+                  alt=""
+                />
                 <Typography className="num">22 736 KGS</Typography>
                 <Button className="btn">Показать</Button>
                 <div className="check">
@@ -71,10 +76,14 @@ export default function HotelCard({ hotel, key }) {
                 <div>
                   <LocationOnIcon />
                   <b>53,7 км </b>" от: Йеллоустонский национальный парк"
-                
+                 
                 </div>
                 <div className="div">
                  
+                  <div>
+                    <CalendarMonthIcon sx={{ fontSize: "100%" }} />
+                    <span class="text">Время работы</span>
+                  </div>
                   <div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
                     <span class="text">Перейти на&nbsp;сайт отеля</span>

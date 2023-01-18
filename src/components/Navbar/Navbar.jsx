@@ -16,17 +16,20 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
-import "./Navbar.css"
 import { Container } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
+import "./Navbar.css"
 
 const drawerWidth = 240;
 const navItems = [ < DriveFileRenameOutlineIcon sx={{marginLeft:"100%"}}/>,'Отзывы', <FavoriteBorderIcon  sx={{marginLeft:"100%"}} />,  'Избранная',];
 
 
 function Navbar(props) {
+
+  
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate=useNavigate()
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -76,7 +79,7 @@ function Navbar(props) {
             >
 
             <div className='birie'> 
-           <img className='birdie1' src="./components/Navbar/LOGO.png" alt="" />
+           <img onClick={()=>navigate("/")}    className='birdie1' src="/icons/LOGO.png"  />
 
            
       </div>
