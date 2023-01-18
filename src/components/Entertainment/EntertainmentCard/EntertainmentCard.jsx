@@ -9,11 +9,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-import "./RestuarantCard.css";
+import "./EntertainmentCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function RestaurantCard({ place, key }) {
+export default function EntertainmentCard({ fun, key }) {
   const theme = useTheme();
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function RestaurantCard({ place, key }) {
           className="media"
           component="img"
           sx={{ width: 250 }}
-          image={place?.image}
+          image={fun?.image}
         />
 
         <Box
@@ -47,15 +47,15 @@ export default function RestaurantCard({ place, key }) {
                 marginLeft: "12%",
               }}
             >
-              {place?.name}
+              {fun?.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-                <Typography className="num">{place?.price}</Typography>
+                <Typography className="num">{fun?.price}</Typography>
                 <Button
                   className="btn"
-                  onClick={() => navigate(`/place/${place?.id}`)}
+                  onClick={() => navigate(`/fun/${fun?.id}`)}
                 >
                   Показать
                 </Button>
@@ -72,16 +72,16 @@ export default function RestaurantCard({ place, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b>{place?.address}</b>
+                  <b>{fun?.address}</b>
                 </div>
                 <div className="div">
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {place?.hours}</span>
+                      <span class="text">Время работы : {fun?.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={place?.place_link}></a>
+                    <a href={fun?.fun_link}></a>
                     <span class="text">Посетить веб-сайт</span>
                   </div>
                 </div>

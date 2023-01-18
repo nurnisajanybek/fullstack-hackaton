@@ -72,7 +72,7 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b>{hotel.address}</b>
+                  <a href={hotel.map_link}>{hotel.address}</a>
                 </div>
                 <div className="div">
                   <div>
@@ -81,8 +81,9 @@ export default function HotelCard({ hotel, key }) {
                       <span class="text">Время работы : {hotel.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link}></a>
-                    <span class="text">Перейти на&nbsp;сайт отеля</span>
+                    <a href={hotel.hotel_link}>
+                      <span class="text">Перейти на&nbsp;сайт отеля</span>
+                    </a>
                   </div>
                 </div>
               </Box>

@@ -10,8 +10,8 @@ const HomePage = () => {
     <>
       <div className="first-block container">
         {/* first section */}
-        <a className="each-link" href="#">
-          <span onClick={navigate("/hotels")}>Отели</span>
+        <a className="each-link">
+          <span onClick={() => navigate("/hotels")}>Отели</span>
           <svg viewBox="0 0 24 24" width="24px" height="24px" class="">
             <path
               fill-rule="evenodd"
@@ -22,8 +22,8 @@ const HomePage = () => {
         </a>
 
         {/* second section  */}
-        <a className="each-link" href="#">
-          <span>Развлечения</span>
+        <a className="each-link">
+          <span onClick={() => navigate("/fun")}>Развлечения</span>
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
               fill-rule="evenodd"
@@ -35,8 +35,8 @@ const HomePage = () => {
         </a>
 
         {/* third section */}
-        <a className="each-link" href="#">
-          <span onClick={navigate("/place")}>Рестораны</span>
+        <a className="each-link">
+          <span onClick={() => navigate("/place")}>Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
@@ -49,7 +49,7 @@ const HomePage = () => {
 
         {/* forth section */}
 
-        <a className="each-link" href="#">
+        <a className="each-link">
           <span>Форумы о&nbsp;путешествиях</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
@@ -63,7 +63,7 @@ const HomePage = () => {
 
         {/* fifth section */}
 
-        <a className="each-link" href="#">
+        <a className="each-link">
           <span>Авиабилеты</span>
           <svg
             viewBox="0 0 20.43 20.58"
@@ -94,7 +94,7 @@ const HomePage = () => {
       {/* test cards with rating */}
       <div className="container">
         <div className="test-block">
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
@@ -103,7 +103,7 @@ const HomePage = () => {
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
@@ -112,7 +112,7 @@ const HomePage = () => {
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
@@ -121,7 +121,7 @@ const HomePage = () => {
             <div>rating</div>
             <span className="bold">(type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
