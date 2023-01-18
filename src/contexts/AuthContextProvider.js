@@ -3,8 +3,8 @@ import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
-export const useAuth =()=>{
-  return useContext(authContext)
+export const useAuth = () => {
+  return useContext(authContext);
 };
 
 const API = "http://34.123.240.158/account/";
@@ -21,6 +21,7 @@ const AuthContextProvider = ({ children }) => {
       console.log(res);
       navigate("/login");
     } catch (error) {
+      window.alert("error");
       console.log(Object.values(error.response.data).flat(2));
       console.log(error);
       setError(Object.values(error.response.data).flat(2));
@@ -40,7 +41,6 @@ const AuthContextProvider = ({ children }) => {
       setError(error.response.data.detail);
     }
   };
-
 
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
@@ -94,4 +94,3 @@ const AuthContextProvider = ({ children }) => {
 };
 
 export default AuthContextProvider;
-
