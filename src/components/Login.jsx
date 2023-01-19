@@ -31,6 +31,7 @@ const theme = createTheme();
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, error, setError } = useAuth();
 
   function handleSave() {
     if (!email.trim() || !password.trim()) {
@@ -45,7 +46,6 @@ export default function Login() {
     login(formData, email);
   }
 
-  const { login, error, setError } = useAuth();
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

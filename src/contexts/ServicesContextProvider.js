@@ -76,9 +76,16 @@ const ServicesContextProvider = ({ children }) => {
     }
   };
   const deleteHotel = async (id) => {
-    await axios.delete(`${API}hotel/${id}`);
-    navigate("/hotels");
+    console.log(config);
+    try {
+      let res = await axios.delete(`${API}hotel/${id}/`, config);
+      navigate("/hotels");
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
   const updateHotel = async (editedHotel) => {
     await axios.patch(`${API}/${editedHotel.id}`, editedHotel);
   };

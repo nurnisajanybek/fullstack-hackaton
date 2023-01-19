@@ -10,7 +10,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const HotelDetails = (hotel) => {
-  const { getHotelDetails, hotelDetails } = useServices();
+  const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
 
   useEffect(() => {
@@ -81,6 +81,7 @@ const HotelDetails = (hotel) => {
                 marginTop: "-5%",
                 marginBottom: "3%",
               }}
+              onClick={() => deleteHotel(id)}
             >
               Delete
             </Button>
