@@ -9,7 +9,7 @@ import Entertainments from "./pages/Entertainments/Entertainments";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
-import RestaurantDetails from "./pages/Restaurants/RestaurantDetails/RestaurantDetail";
+import RestaurantDetails from "./pages/Restaurants/RestaurantDetails/RestaurantDetails";
 import Restaurants from "./pages/Restaurants/Restaurants";
 
 const MainRoutes = () => {
@@ -66,9 +66,9 @@ const MainRoutes = () => {
     },
     {
       link: "/aboutus",
-      element: <AboutUs/>,
+      element: <AboutUs />,
       id: 7,
-    }
+    },
   ];
 
   return (

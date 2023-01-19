@@ -1,32 +1,38 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useServices } from "../../../contexts/ServicesContextProvider";
-import "./HotelDetails.css";
+import "./RestaurantDetails.css";
 import { Button, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import Coments from "../../../components/coments/Coments";
 
-const HotelDetails = () => {
-  const { getHotelDetails, hotelDetails } = useServices();
+const RestaurantDetails = () => {
+  const { getRestaurantDetails, restaurantDetails } = useServices();
   const { id } = useParams();
 
   useEffect(() => {
-    getHotelDetails(id);
+    getRestaurantDetails(id);
   }, []);
-  console.log(hotelDetails);
+  console.log(restaurantDetails);
   return (
     <Container fixed>
       <Box>
         <div className="detail">
-          <img className="img1" src={hotelDetails?.image} />
+          <img
+            className="img1"
+            src="https://media-cdn.tripadvisor.com/media/photo-s/0a/6e/6a/95/gray-wolf-deluxe-double.jpg"
+            alt=""
+          />
 
           <hr className="line" />
           <div className="detail1">
-            <Typography className="num">{hotelDetails?.name} </Typography>
+            <Typography className="num">{restaurantDetails?.name} </Typography>
             <hr />
-            <Typography className="num">{hotelDetails?.price}</Typography>
+            <Typography className="num">
+              {restaurantDetails?.avg_price}
+            </Typography>
             <hr />
-            <Typography>{hotelDetails?.info}</Typography>
+            <Typography>{restaurantDetails?.info}</Typography>
 
             <Button
               sx={{
@@ -60,4 +66,4 @@ const HotelDetails = () => {
   );
 };
 
-export default HotelDetails;
+export default RestaurantDetails;
