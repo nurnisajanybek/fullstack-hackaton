@@ -79,6 +79,9 @@ const ServicesContextProvider = ({ children }) => {
     await axios.delete(`${API}hotel/${id}`);
     navigate("/hotels");
   };
+  const updateHotel = async (editedHotel) => {
+    await axios.patch(`${API}/${editedHotel.id}`, editedHotel);
+  };
 
   // restaurants
 
@@ -144,6 +147,7 @@ const ServicesContextProvider = ({ children }) => {
     hotelDetails: state.hotelDetails,
     addHotel,
     deleteHotel,
+    updateHotel,
     getRestaurants,
     restaurantList: state.restaurantList,
     getRestaurantDetails,
