@@ -1,91 +1,65 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import React from 'react';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Typography } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import "./footer.css"
 
-export default function RecipeReviewCard() {
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
-
+const Footer = () => {
   return (
-    <Card sx={{ maxWidth: 1945 }}>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500]}} aria-label="recipe">
-            <img src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_logoset_solid_green.svg" alt="" />
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-          </IconButton>
-        }
-        title="© Tripadvisor LLC, 2023 г. Все права защищены."
-        subheader="September 14, 2016"
-      />
-      <CardContent>
-        <Typography sx={{marginLeft:"10px", marginTop:"-1px"}} >
-        О Tripadvisor:
+    <div className='divv1' >
+    
+      <div className='div3'>
+      <div className='birie'> 
+
+           
+      </div>
+
+      <div className='div4'  > <Typography  >
+        О TAPTYM_KG:
+        </Typography>
         <Typography>О нас</Typography>
         <Typography>СМИ</Typography>
         <Typography>Источники и правила</Typography>
         <Typography>Безопасность и доверие путешественников</Typography>
         <Typography>Обратная связь</Typography>
-        <Typography>Заявление о доступности платформы</Typography>
+        <Typography>Заявление о доступности платформы</Typography></div>
+      <div className='div5'> <Typography >Получить советы:
         </Typography>
-        <Typography sx={{marginLeft:"500px", marginTop:"-170px"}}>Получить советы:
           <Typography>Написать отзыв</Typography>
           <Typography>Добавить место</Typography>
           <Typography>Зарегистрироваться </Typography>
           <Typography>Travellers' Choice</Typography>
           <Typography>ЭкоЛидеры</Typography>
           <Typography>Справочный центр</Typography>
-          <Typography>Статьи о путешествиях</Typography>
-          <Typography sx={{marginLeft:"500px", marginTop:"-190px"}} >Сотрудничайте с нами:
+          <Typography>Статьи о путешествиях</Typography></div>
+      <div className='div6'> <Typography  >Сотрудничайте с нами:
+          </Typography>
             <Typography>Владельцы объектов</Typography>
             <Typography>Бизнес плюс</Typography>
             <Typography>Платные объявления</Typography>
             <Typography>Реклама на нашем сайте</Typography>
-            <Typography>Доступ к содержанию API</Typography>
-          </Typography>
+            <Typography>Доступ к содержанию API</Typography></div>
+     
+       
+         
+      </div>
+        <Typography sx={{marginTop:"5%", marginLeft:"10%"}}> Наши социальный сети:
         </Typography>
-        <Typography sx={{marginTop:"50px"}}> Наши социальный сети:
-        </Typography>
+
+        <div className='network'>
+
         <a href='https://www.facebook.com/Tripadvisor/'><FacebookIcon/> </a>
-        <a href='https://twitter.com/TripAdvisor'><TwitterIcon/> </a>
-        <a href='https://www.instagram.com/tripadvisor/'><InstagramIcon/> </a>
-        <Typography variant="body2" color="text.secondary" sx={{marginTop:"60px"}}>
-        Эта версия нашего веб-сайта предназначена для пользователей из страны Россия, для которых основным языком является Русский. Если Вы живете в другой стране или регионе, выберите соответствующую версию Tripadvisor для своей страны или региона в выпадающем меню.
+        <a href='https://www.instagram.com/tripadvisor/'>
+          <InstagramIcon/> </a>
+        <WhatsAppIcon/> <Typography >0706041505</Typography>
+        </div>
+        <Typography className='text' variant="body2" color="text.secondary" sx={{marginTop:"60px", }}>
+        Эта версия нашего веб-сайта предназначена для пользователей из страны Кыргызстана, для которых основным языком является Кыргызский и Русский. Если Вы живете в другой стране или регионе, выберите соответствующую версию TAPTYM_KG для своей страны или региона в выпадающем меню.
         </Typography>
-      </CardContent>
-    </Card>
+    </div>
   );
-}
+};
+
+export default Footer;

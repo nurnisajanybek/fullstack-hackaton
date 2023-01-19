@@ -22,6 +22,7 @@
   height: 50px;
   padding: 0.2%;
   color: black;
+  cursor: pointer;
 }
 
 a {
@@ -29,7 +30,11 @@ a {
 }
 .each-link :hover {
   color: white;
-  background-color: black;
+  /* background-color: black; */
+}
+
+.icon6:hover{
+color: white;
 }
 /* second block */
 
@@ -75,6 +80,14 @@ a {
   top: 50%;
   margin-top: -14px;
   transition: 200ms;
+}
+
+.each-link:hover {
+  color: #fff;
+  background: black;
+  tansition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear; 
 }
 
 @media screen and (max-width: 768px) {
@@ -146,27 +159,23 @@ a {
 }
 /* test with rating  */
 .test-card-rating {
-  width: 17%;
-  color: black;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 10px;
+  width: 25%;
+
   padding: 10px 20px;
   margin: 0;
-  margin-bottom: 40px;
+
   display: flex;
   flex-direction: column;
   transition: 150ms;
   cursor: pointer;
 }
-.test-card-rating > img {
-  border-radius: 5px;
-}
+
 .test-card-rating :nth-of-type(2) {
   font-size: smaller;
 }
 .test-card-rating:hover {
   text-decoration: underline;
-  scale: 1.03;
+  opacity: 0.8;
 }
 
 .bold {
@@ -203,3 +212,27 @@ a {
   width: 100%;
   background-color: rgba(100, 100, 111, 0);
 }
+
+@media all and ( max-width:768px ){
+  .best-trip-txt:nth-of-type(1){
+    font-size: 100%;
+  }
+  .explor{
+    width: 50% !important;
+  }
+  .container{
+    width: 100%;
+  }
+
+  }
+  @media all and ( max-width:425px ){
+    .test-title{
+     font-size: 60%; 
+    }
+    .test-block{
+      flex-wrap: wrap  !important
+    }
+   
+
+
+  }

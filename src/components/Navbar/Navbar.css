@@ -22,8 +22,10 @@
 display: flex;
 }
 .birdie1{
-    width: 5%;
-    color: white;
+width: 3    0%;
+height: 50px;
+
+   
 }
 @media all and (max-width: 1024px){
     

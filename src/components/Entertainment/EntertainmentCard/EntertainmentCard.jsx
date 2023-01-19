@@ -9,11 +9,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-import "./HotelCard.css";
+import "./EntertainmentCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function HotelCard({ hotel, key }) {
+export default function EntertainmentCard({ fun, key }) {
   const theme = useTheme();
 
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export default function HotelCard({ hotel, key }) {
           className="media"
           component="img"
           sx={{ width: 250 }}
-          image={hotel.image}
+          image={fun.image}
         />
 
         <Box
@@ -47,15 +47,15 @@ export default function HotelCard({ hotel, key }) {
                 marginLeft: "12%",
               }}
             >
-              {hotel.name}
+              {fun.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-                <Typography className="num">{hotel.price}</Typography>
+                <Typography className="num">{fun.price}</Typography>
                 <Button
                   className="btn"
-                  onClick={() => navigate(`/hotels/${hotel.id}`)}
+                  onClick={() => navigate(`/fun/${fun.id}`)}
                 >
                   Показать
                 </Button>
@@ -73,18 +73,18 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <a href={hotel.map_link} className="hotel-adress">
-                    {hotel.address}
+                  <a href={fun.map_link} className="fun-adress">
+                    {fun.address}
                   </a>
                 </div>
                 <div className="div">
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {hotel.hours}</span>
+                      <span class="text">Время работы : {fun.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link} class="textt">
+                    <a href={fun.fun_link} class="textt">
                       Перейти на&nbsp;сайт отеля
                     </a>
                   </div>

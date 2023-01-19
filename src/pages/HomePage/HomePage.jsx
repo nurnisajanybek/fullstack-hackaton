@@ -6,15 +6,15 @@ import "./HomePage.css";
 const cards = [1, 2, 3, 4];
 
 const HomePage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   return (
     <>
       <div className="first-block container">
         {/* first section */}
-        <a className="each-link" href="#">
-          <span onClick={navigate("/hotels")}  >Отели</span>
+        <a className="each-link">
+          <span onClick={() => navigate("/hotels")}>Отели</span>
           <svg viewBox="0 0 24 24" width="24px" height="24px" class="">
-            <path
+            <path className="icon6"
               fill-rule="evenodd"
               // clip-rule="evenodd"
               d="M2.832 5.228c0-.469.38-.85.85-.85h15.624c.47 0 .85.381.85.85v6.65c.68.561 1.22 1.392 1.22 2.543v4.847h-1.5v-1.673H3.284v1.673h-1.5V14.394c.025-.655.304-1.589 1.049-2.351V5.228zm2.634 5.587c.264-.034.542-.051.837-.051h3.896c-.503-.483-1.31-.931-2.433-.931-1.09 0-1.83.467-2.3.982zm7.39-.051h4.468l.036.003c.161.016.343.042.536.082a2.36 2.36 0 00-.221-.233c-.447-.41-1.18-.783-2.254-.783-1.078 0-1.751.273-2.181.584a2.395 2.395 0 00-.385.347zm5.8-1.283c-.726-.651-1.812-1.148-3.235-1.148-1.347 0-2.339.347-3.06.868-.342.248-.61.525-.821.802-.736-.86-2.005-1.67-3.774-1.67-1.629 0-2.733.712-3.434 1.503V5.878h14.324v3.603zM3.283 16.095h16.594V14.42c0-.703-.355-1.188-.888-1.545-.56-.374-1.263-.561-1.74-.612H6.304c-1.118 0-1.81.316-2.237.677-.57.482-.765 1.123-.783 1.496v1.658z"
@@ -23,8 +23,10 @@ const HomePage = () => {
         </a>
 
         {/* second section  */}
-        <a className="each-link" href="#">
-          <span  >Развлечения</span>
+
+        <a className="each-link">
+          <span onClick={() => navigate("/fun")}>Развлечения</span>
+
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
               fill-rule="evenodd"
@@ -36,8 +38,8 @@ const HomePage = () => {
         </a>
 
         {/* third section */}
-        <a className="each-link" href="#">
-          <span>Рестораны</span>
+        <a className="each-link">
+          <span onClick={() => navigate("/place")}>Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
@@ -50,7 +52,7 @@ const HomePage = () => {
 
         {/* forth section */}
 
-        <a className="each-link" href="#">
+        <a className="each-link">
           <span>Форумы о&nbsp;путешествиях</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
@@ -64,7 +66,7 @@ const HomePage = () => {
 
         {/* fifth section */}
 
-        <a className="each-link" href="#">
+        <a className="each-link">
           <span>Авиабилеты</span>
           <svg
             viewBox="0 0 20.43 20.58"
@@ -95,7 +97,9 @@ const HomePage = () => {
       {/* test cards with rating */}
       <div className="container">
         <div className="test-block">
-          <a className="test-card-rating" href="#">
+
+          {/* <div className="class1"> */}
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
@@ -104,33 +108,37 @@ const HomePage = () => {
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+            {/* </div> */}
+            {/* <div className="class2"> */}
+
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold">(type) </span>
           </a>
-          <a className="test-card-rating" href="#">
+          <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
+              {/* </div> */}
         </div>
       </div>
       {/* before fifth block button for layout of best trips */}
@@ -138,12 +146,13 @@ const HomePage = () => {
         <div className="best-trip-block">
           <div className="best-trip-txt">
             <source
+            className="picture"
               media="(max-width: 400px)"
               srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <Button sx={{zIndex: "6"}} variant="contained" color="success"  onClick={()=>navigate("/aboutus")}>О нас</Button>
+            <Button className="explor" sx={{ color:"black", backgroundColor:"white", borderRadius:"20px",width:"30%", fontWeight:"bold", height:"160%"}} onClick={()=>navigate("/aboutus")}>Explore now</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>
@@ -166,30 +175,36 @@ const HomePage = () => {
         </div> */}
       </div>
       {/* test */}
-      <div className="container ">
-        <div className="test-block">
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
-          </div>
-          <div className="test">
-            <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
-            </h2>
+        <div className="container ">
+          <div className="test-block">
+            {/* <div className="class1"> */}
+
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            {/* </div> */}
+            {/* <div className="class2"> */}
+
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            </div>
+            <div className="test">
+              <h2 className="test-title">
+                Йеллоустонский национальный парк, Вайоминг
+              </h2>
+            {/* </div> */}
+            </div>
           </div>
         </div>
-      </div>
       {/* sixth block*/}
       <div className="sixth-block ">
         <div className="sixth-block-left">
