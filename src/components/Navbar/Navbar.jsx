@@ -1,11 +1,7 @@
-
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -19,10 +15,10 @@ import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutli
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import "./Navbar.css";
-import { Container } from "@mui/system";
+import { Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
 import { isAdmin } from "../../helpers/consts";
-
 
 const drawerWidth = 240;
 const navItems = [
@@ -33,16 +29,10 @@ const navItems = [
 ];
 
 function Navbar(props) {
-
-  
   const { window } = props;
 
-
-
- 
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -82,51 +72,43 @@ function Navbar(props) {
 
   return (
     <Container maxWidth="sm">
-      <Box sx={{ display: "flex" }}>
+      <Box>
         <CssBaseline />
         <AppBar component="nav">
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
+          {/* <Toolbar> */}
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+            <img
+              className="icon"
+              src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+              alt=""
+            />
+          </IconButton>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          >
+            <div className="birie">
               <img
-                className="icon"
-                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                className="birdie1"
+                src="./components/Navbar/LOGO.png"
                 alt=""
               />
-            </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-            >
-              <div className="birie">
-                <img
-                  className="birdie1"
-                  src="./components/Navbar/LOGO.png"
-                  alt=""
-                />
-              </div>
-            </Typography>
-            {isAdmin ? <p style={{ color: "black" }}>admin</p> : <></>}
-
-
+            </div>
+          </Typography>
+          {isAdmin ? <p style={{ color: "black" }}>admin</p> : <></>}
+          {/* <Toolbar/> */}
+        </AppBar>
       </Box>
     </Container>
   );
 }
-
-Navbar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default Navbar;

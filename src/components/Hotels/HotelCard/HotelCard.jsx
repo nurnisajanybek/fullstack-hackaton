@@ -7,11 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
-
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-
 
 import "./HotelCard.css";
 import { Button } from "@mui/material";
@@ -19,9 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function HotelCard({ hotel, key }) {
   const theme = useTheme();
-  const navigate= useNavigate()
-
-
+  const navigate = useNavigate();
 
   return (
     <Box className="box" key={key}>
@@ -45,23 +39,18 @@ export default function HotelCard({ hotel, key }) {
             <Typography
               component="div"
               variant="h6"
-
-              sx={{ fontSize: "20px", fontWeight: "700", color: "black" }}
-
               sx={{
                 fontSize: "20px",
                 fontWeight: "700",
                 color: "black",
                 marginLeft: "12%",
               }}
-
             >
               {hotel.name}
             </Typography>
-            <Box  sx={{ display: "flex", width: "320px" }}>
+            <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-
                 <img
                   className="icons"
                   src="https://static.tacdn.com/img2/branding/hotels/booking%20logo.png"
@@ -90,24 +79,17 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-
-
                   <b>53,7 км </b>" от: Йеллоустонский национальный парк"
-
                   <b>{hotel.address}</b>
-
-
                   <a href={hotel.map_link}>{hotel.address}</a>
-
                 </div>
                 <div className="div">
                   <div>
-
                     <CalendarMonthIcon sx={{ fontSize: "100%" }} />
                     <span class="text">Время работы</span>
                   </div>
                   <div>
-          <div>
+                    <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
                       <span class="text">Время работы : {hotel.hours}</span>
                     </div>
