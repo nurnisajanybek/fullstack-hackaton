@@ -64,16 +64,21 @@ a {
 
   .media {
     /* height: 10% !important; */
-    width: 20% !important;
+    width: 200% !important;
   }
 
   .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
-    font-size: 90% !important;
+    font-size: 100px !important;
     width: 10%;
   }
+  
   .MuiBox-rootcss-0 {
-    width: 10% !important;
+    width: 100% !important;
   }
+  .css-1afk19q{
+    font-size: 15px;
+  }
+
 }
 @media all and (max-width: 320px) {
   .display{
@@ -119,7 +124,7 @@ a {
   .display{
     display: block !important;
  }
- .media{
+ .mediaa{
    width: 100% !important;
  }
  .css-1afk19q{

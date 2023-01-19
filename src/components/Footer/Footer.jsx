@@ -9,7 +9,7 @@ import "./footer.css"
 const Footer = () => {
   return (
     <div className='divv1' >
-           <img className='tap' src="/icons/LOGO.png"  />
+    
       <div className='div3'>
       <div className='birie'> 
 
@@ -55,7 +55,7 @@ const Footer = () => {
           <InstagramIcon/> </a>
         <WhatsAppIcon/> <Typography >0706041505</Typography>
         </div>
-        <Typography variant="body2" color="text.secondary" sx={{marginTop:"60px", width:"200%"}}>
+        <Typography className='text' variant="body2" color="text.secondary" sx={{marginTop:"60px", }}>
         Эта версия нашего веб-сайта предназначена для пользователей из страны Кыргызстана, для которых основным языком является Кыргызский и Русский. Если Вы живете в другой стране или регионе, выберите соответствующую версию TAPTYM_KG для своей страны или региона в выпадающем меню.
         </Typography>
     </div>
