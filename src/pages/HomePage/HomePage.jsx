@@ -97,6 +97,8 @@ const HomePage = () => {
       {/* test cards with rating */}
       <div className="container">
         <div className="test-block">
+
+          <div className="class1">
           <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
@@ -110,16 +112,19 @@ const HomePage = () => {
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
+            </div>
+            <div className="class2">
+
           <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold">(type) </span>
@@ -128,11 +133,12 @@ const HomePage = () => {
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
-            />
+              />
             <span className="bold">(Place)</span>
             <div>rating</div>
             <span className="bold"> (type) </span>
           </a>
+              </div>
         </div>
       </div>
       {/* before fifth block button for layout of best trips */}
@@ -171,6 +177,8 @@ const HomePage = () => {
       {/* test */}
         <div className="container ">
           <div className="test-block">
+            <div className="class1">
+
             <div className="test">
               <h2 className="test-title">
                 Йеллоустонский национальный парк, Вайоминг
@@ -181,6 +189,9 @@ const HomePage = () => {
                 Йеллоустонский национальный парк, Вайоминг
               </h2>
             </div>
+            </div>
+            <div className="class2">
+
             <div className="test">
               <h2 className="test-title">
                 Йеллоустонский национальный парк, Вайоминг
@@ -190,6 +201,7 @@ const HomePage = () => {
               <h2 className="test-title">
                 Йеллоустонский национальный парк, Вайоминг
               </h2>
+            </div>
             </div>
           </div>
         </div>

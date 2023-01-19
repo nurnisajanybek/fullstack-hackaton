@@ -1,4 +1,4 @@
-/* first block */
+first block
 .container {
   width: 80%;
   margin: 0 auto;
@@ -76,6 +76,15 @@ a {
   margin-top: -14px;
   transition: 200ms;
 }
+.test-card-rating{
+width: 60% !important;
+}
+.test{
+  width: 50% !important;
+  margin-top: 3%;
+  margin-left: 20%;
+}
+
 
 @media screen and (max-width: 768px) {
   .search-icon {
@@ -210,7 +219,27 @@ a {
   .container{
     width: 100%;
   }
+  .test-block{
+    display: block;
+  }
+.class1{
+  display: flex;
+}
+.class2{
+  display: flex;
+}
+.test-title{
+ font-size: 100%;
+ align-items: center !important;
+}
+.test{
+  margin: 5% 5%;
+width: 30%;
 
+}
+.test-card-rating{
+width: 40%;
+}
   }
   @media all and ( max-width:425px ){
     .test-title{
