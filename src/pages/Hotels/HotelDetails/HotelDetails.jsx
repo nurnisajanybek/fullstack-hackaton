@@ -63,7 +63,7 @@ const HotelDetails = ( hotel) => {
                 color: "white",
                 borderRadius: "10px",
                 marginRight: "3%",
-                marginTop: "3%",
+                marginTop: "-5%",
                 marginBottom: "3%",
                 marginLeft:"60%"
               }}
@@ -75,7 +75,7 @@ const HotelDetails = ( hotel) => {
                 backgroundColor: "black",
                 color: "white",
                 borderRadius: "10px",
-                marginTop: "3%",
+                marginTop: "-5%",
                 marginBottom: "3%",
               }}
             >
