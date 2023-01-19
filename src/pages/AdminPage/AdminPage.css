@@ -1,0 +1,9 @@
+.admin-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+.admin-page form {
+  display: flex;
+  flex-direction: column;
+}

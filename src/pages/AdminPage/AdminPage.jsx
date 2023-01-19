@@ -17,7 +17,7 @@ const AdminPage = () => {
     category: 1,
   });
   const [newRestaurant, setNewRestaurant] = useState({
-    group: "restaurant",
+    group: "food",
     name: "",
     info: "",
     address: "",
@@ -30,7 +30,7 @@ const AdminPage = () => {
     sub_category: 1,
   });
   const [newEntertainment, setNewEntertainment] = useState({
-    group: "entertainment",
+    group: "fun",
     name: "",
     info: "",
     address: "",
@@ -53,16 +53,10 @@ const AdminPage = () => {
     addEntertainment(newEntertainment);
   };
   return (
-    <div>
+    <div className="admin-page">
       {/* hotel */}
       <form action="">
-        <select
-          value={newHotel.group}
-          onChange={(e) => setNewHotel({ ...newHotel, group: e.target.value })}
-        >
-          <option value="hotel">hotel</option>
-        </select>
-
+        <h3>add hotel</h3>
         <input
           type="text"
           value={newHotel.name}
@@ -129,15 +123,7 @@ const AdminPage = () => {
 
       {/* restaurants */}
       <form action="">
-        <select
-          value={newRestaurant.group}
-          onChange={(e) =>
-            setNewHotel({ ...newRestaurant, group: e.target.value })
-          }
-        >
-          <option value="hotel">hotel</option>
-        </select>
-
+        <h3>add restaurant</h3>
         <input
           type="text"
           value={newRestaurant.name}
@@ -227,15 +213,7 @@ const AdminPage = () => {
       </form>
       {/* entertainment */}
       <form action="">
-        <select
-          value={newEntertainment.group}
-          onChange={(e) =>
-            setNewHotel({ ...newEntertainment, group: e.target.value })
-          }
-        >
-          <option value="hotel">hotel</option>
-        </select>
-
+        <h3>add entertainment</h3>
         <input
           type="text"
           value={newEntertainment.name}
