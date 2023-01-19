@@ -6,11 +6,12 @@ import { Container } from '@mui/system';
 
 const AboutUs = () => {
     return (
-        <>
+      <Box>
+
         <Container fixed>
         <div sx={{backgroundColor: "#fdffa1"}}
         className='about__back'
-       >
+        >
 
         <Grid  className='title'>
             <h1>Здесь мы расскажем о TAPTYN</h1>
@@ -32,7 +33,7 @@ const AboutUs = () => {
              </div>
              <div  className='about__img'>
              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cc/d8/d2/caption.jpg?w=500&h=300&s=1&cx=1044&cy=579&chk=v1_b146d5ba9c439d00a5eb" alt="" />
-                <p>Остров Мауи</p>
+             <p>Остров Мауи</p>
              </div>
              <div className='about__img'>
              <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/c2/7b/93/caption.jpg?w=700&h=-1&s=1" alt="" />                <p>Пунта-Кана</p>
@@ -90,7 +91,8 @@ TAPTYM работает в 49 странах на 28 языках, обслуж�
         </Container>
 
        
-             </>
+       
+             </Box>
     );
 };
 

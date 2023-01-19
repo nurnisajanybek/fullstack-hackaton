@@ -6,6 +6,8 @@ import Register from "./components/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
+import ForgotPasssword from "./components/ForgotPassword"
+import NewLogin from "./components/NewLogin"
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -38,6 +40,16 @@ const MainRoutes = () => {
       link: "/aboutus",
       element: <AboutUs/>,
       id: 7,
+    },
+    {
+      link: "/forgotpassword",
+      element: <ForgotPasssword/>,
+      id: 8,
+    },
+    {
+      link: "/newlogin",
+      element: <NewLogin/>,
+      id: 9,
     }
   ];
 

@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useAuth } from "../contexts/AuthContextProvider";
+import   { useAuth } from "../contexts/AuthContextProvider";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -37,22 +37,21 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+    const navigate = useNavigate()
  
-  const navigate = useNavigate()
+ const {forgotpassword} = useAuth()
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   function handleSave() {
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim()) {
       alert("Заполните поля!");
       return;
     }
 
     let formData = new FormData();
     formData.append("email", email);
-    formData.append("password", password);
 
-    login(formData, email);
+    forgotpassword(formData);
   }
 
   const { login, error, setError } = useAuth();
@@ -73,7 +72,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign In
+            Forgot Password
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
@@ -88,44 +87,11 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              onClick={handleSave}
-            >
-              Sign in
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link onClick={()=>navigate("/forgotpassword")} href="" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
+            <Button  sx={{width: "400px"}} variant="contained" onClick={()=>{
+                handleSave()
+                navigate("/newlogin")
+            }}>Отправить пароль на почту</Button>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>

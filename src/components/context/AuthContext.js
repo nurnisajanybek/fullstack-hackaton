@@ -41,6 +41,17 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+  const forgotpasword = async (email) => {
+    try {
+      const res = await axios.post(`${API}forgot_password/`, email);
+      console.log(res);
+      navigate("/");
+    } catch (error) {
+      console.log(error.response.data.detail);
+    }
+  };
+
+
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
     console.log(token);
@@ -87,6 +98,7 @@ const AuthContextProvider = ({ children }) => {
     login,
     user,
     logout,
+    forgotpasword
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;

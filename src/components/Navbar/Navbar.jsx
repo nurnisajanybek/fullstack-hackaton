@@ -20,6 +20,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import "./Navbar.css"
 import { Container } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContextProvider';
 
 const drawerWidth = 240;
 const navItems = [ < DriveFileRenameOutlineIcon sx={{marginLeft:"100%"}}/>,'Отзывы', <FavoriteBorderIcon  sx={{marginLeft:"100%"}} />,  'Избранная',];
@@ -30,6 +31,7 @@ function Navbar(props) {
   const { window } = props;
   const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const {user, email} = useAuth()
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -38,7 +40,7 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center',}}>
       <Typography variant="h6" sx={{ my: 2,  }}>
-      <Button  sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} > Войти</Button>
+      {/* <Button  sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} > Войти</Button> */}
       </Typography>
       <Divider />
       <List>
@@ -93,7 +95,10 @@ function Navbar(props) {
               </Button>
             ))}
           </Box>
-          <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} onClick={()=>navigate('/register')} >Войти</Button>
+          
+          <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} onClick={()=>navigate('/login')} >Войти</Button>
+          {/* <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} onClick={()=>navigate('/register')} >Авторизация</Button> */}
+          {user ? <Box>{user.email}</Box> : <Button className='button'    sx={{ color:"white", backgroundColor:"black", borderRadius:"30%", fontWeight:"bold", height:"100%"}} onClick={()=>navigate('/register')} >Авторизация</Button>}
         </Toolbar>
       </AppBar>
       <Box component="nav">

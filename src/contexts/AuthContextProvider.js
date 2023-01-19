@@ -12,7 +12,7 @@ const API = "http://34.123.240.158/account/";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
-
+  const [email] = useState("")
   const navigate = useNavigate();
 
   const register = async (formData) => {
@@ -40,6 +40,17 @@ const AuthContextProvider = ({ children }) => {
       setError(error.response.data.detail);
     }
   };
+
+  const forgotpassword = async (email) => {
+    try {
+      const res = await axios.post(`${API}forgot_password/`, email);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response.data.detail);
+      setError(error.response.data.detail);
+    }
+  };
+
 
 
   async function checkAuth() {
@@ -81,6 +92,7 @@ const AuthContextProvider = ({ children }) => {
   }
 
   let values = {
+    forgotpassword,
     checkAuth,
     register,
     error,
@@ -88,6 +100,7 @@ const AuthContextProvider = ({ children }) => {
     login,
     user,
     logout,
+    email,
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;

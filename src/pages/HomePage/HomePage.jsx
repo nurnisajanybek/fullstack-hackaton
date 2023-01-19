@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "./HomePage.css";
 
 const cards = [1, 2, 3, 4];
@@ -143,7 +143,7 @@ const HomePage = () => {
             ></source>
             <span className="bold">Plan your best trip ever</span>
             <span>We’ve got everything you need to go big in 2023.</span>
-            <Button onClick={()=>navigate("/aboutus")}>Explore now</Button>
+            <Button sx={{zIndex: "6"}} variant="contained" color="success"  onClick={()=>navigate("/aboutus")}>О нас</Button>
           </div>
           <div className="best-trip-shadow"></div>
         </div>
@@ -203,6 +203,7 @@ const HomePage = () => {
           className="sixth-block-right"
           src="https://static.tacdn.com/img2/brand/feed/tc_cards_desktop2x.jpeg"
         />
+        
       </div>
       ;
     </>
