@@ -27,6 +27,16 @@
 
         width: 10%;
     } */
+    .div5{
+        display: none !important;
+
+    }
+    .div6{
+        display: none !important;
+    }
+    .text{
+        display: none !important;
+    }
 }
 .divv1{
     margin-top: 10%;

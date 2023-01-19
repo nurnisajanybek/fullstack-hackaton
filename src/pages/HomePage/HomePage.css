@@ -207,4 +207,14 @@ a {
   .explor{
     width: 50% !important;
   }
+  .container{
+    width: 100%;
+  }
+
+  }
+  @media all and ( max-width:425px ){
+    .test-title{
+      width: 10px !important; 
+    }
+  
   }
