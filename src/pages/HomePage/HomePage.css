@@ -210,7 +210,27 @@ a {
   .container{
     width: 100%;
   }
+  .test-block{
+    display: block;
+  }
+.class1{
+  display: flex;
+}
+.class2{
+  display: flex;
+}
+.test-title{
+ font-size: 100%;
+ align-items: center !important;
+}
+.test{
+  margin: 5% 5%;
+width: 30%;
 
+}
+.test-card-rating{
+width: 40%;
+}
   }
   @media all and ( max-width:425px ){
     .test-title{
