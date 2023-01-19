@@ -76,6 +76,15 @@ a {
   margin-top: -14px;
   transition: 200ms;
 }
+.test-card-rating{
+width: 60% !important;
+}
+.test{
+  width: 50% !important;
+  margin-top: 3%;
+  margin-left: 20%;
+}
+
 
 @media screen and (max-width: 768px) {
   .search-icon {
