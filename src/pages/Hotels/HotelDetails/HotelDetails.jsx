@@ -5,9 +5,12 @@ import "./HotelDetails.css";
 import { Button, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import Coments from "../../../components/coments/Coments";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import LanguageIcon from "@mui/icons-material/Language";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const HotelDetails = () => {
-  const { getHotelDetails, hotelDetails } = useServices();
+const HotelDetails = ( hotel) => {
+  const { getHotelDetails, hotelDetails,  } = useServices();
   const { id } = useParams();
 
   useEffect(() => {
@@ -28,6 +31,32 @@ const HotelDetails = () => {
             <hr />
             <Typography>{hotelDetails?.info}</Typography>
 
+
+            <Box sx={{ width: "100% ", marginLeft: "10px" }}>
+                
+                <div className="rating">
+                  {" "}
+                  <span>Рейтинг</span>
+                  <span className="feedback">999 отзывов</span>
+                </div>
+
+                <div>
+                  <LocationOnIcon />
+                  <b className="hotel-adress">{hotelDetails?.address}</b>
+                </div>
+                <div className="div">
+                  <div>
+                    <div>
+                      <CalendarMonthIcon sx={{ fontSize: "100%" }} />
+                      <span class="text">Время работы : {hotelDetails?.hours}</span>
+                    </div>
+                    <LanguageIcon sx={{ fontSize: "100%" }} />
+                    <a href={hotelDetails?.hotel_link}></a>
+                    <span class="textt">Перейти на&nbsp;сайт отеля</span>
+                  </div>
+                </div>
+              </Box>
+
             <Button
               sx={{
                 backgroundColor: "black",
@@ -36,6 +65,7 @@ const HotelDetails = () => {
                 marginRight: "3%",
                 marginTop: "3%",
                 marginBottom: "3%",
+                marginLeft:"60%"
               }}
             >
               Edit

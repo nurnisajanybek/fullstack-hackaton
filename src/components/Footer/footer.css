@@ -8,10 +8,17 @@
     .text{
         width: 100% !important;
     }
+
 }
 @media all and (max-width: 425px){
     .text{
         width: 150% !important;
+    }
+    .div6{
+        display: none !important;
+    }
+    .text{
+        width: 80% !important;
     }
 }
 @media all and (max-width: 375px){
