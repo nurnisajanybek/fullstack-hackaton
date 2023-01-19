@@ -1,4 +1,4 @@
-first block
+/* first block */
 .container {
   width: 80%;
   margin: 0 auto;
@@ -22,6 +22,7 @@ first block
   height: 50px;
   padding: 0.2%;
   color: black;
+  cursor: pointer;
 }
 
 a {
@@ -29,7 +30,11 @@ a {
 }
 .each-link :hover {
   color: white;
-  background-color: black;
+  /* background-color: black; */
+}
+
+.icon6:hover{
+color: white;
 }
 /* second block */
 
@@ -76,15 +81,14 @@ a {
   margin-top: -14px;
   transition: 200ms;
 }
-.test-card-rating{
-width: 60% !important;
-}
-.test{
-  width: 50% !important;
-  margin-top: 3%;
-  margin-left: 20%;
-}
 
+.each-link:hover {
+  color: #fff;
+  background: black;
+  tansition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear; 
+}
 
 @media screen and (max-width: 768px) {
   .search-icon {
@@ -219,31 +223,16 @@ width: 60% !important;
   .container{
     width: 100%;
   }
-  .test-block{
-    display: block;
-  }
-.class1{
-  display: flex;
-}
-.class2{
-  display: flex;
-}
-.test-title{
- font-size: 100%;
- align-items: center !important;
-}
-.test{
-  margin: 5% 5%;
-width: 30%;
 
-}
-.test-card-rating{
-width: 40%;
-}
   }
   @media all and ( max-width:425px ){
     .test-title{
-      width: 10px !important; 
+     font-size: 60%; 
     }
-  
+    .test-block{
+      flex-wrap: wrap  !important
+    }
+   
+
+
   }
