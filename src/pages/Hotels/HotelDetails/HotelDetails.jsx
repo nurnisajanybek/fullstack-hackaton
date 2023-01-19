@@ -40,7 +40,9 @@ const HotelDetails = (hotel) => {
 
               <div>
                 <LocationOnIcon />
-                <b className="hotel-adress">{hotelDetails?.address}</b>
+                <a href={hotelDetails?.map_link} className="hotel-adress">
+                  {hotelDetails?.address}
+                </a>
               </div>
               <div className="div">
                 <div>
@@ -51,8 +53,9 @@ const HotelDetails = (hotel) => {
                     </span>
                   </div>
                   <LanguageIcon sx={{ fontSize: "100%" }} />
-                  <a href={hotelDetails?.hotel_link}></a>
-                  <span class="textt">Перейти на&nbsp;сайт отеля</span>
+                  <a href={hotelDetails?.hotel_link} class="textt">
+                    Перейти на&nbsp;сайт отеля
+                  </a>
                 </div>
               </div>
             </Box>

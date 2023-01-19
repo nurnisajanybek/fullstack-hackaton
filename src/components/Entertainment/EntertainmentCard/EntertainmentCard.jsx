@@ -25,7 +25,7 @@ export default function EntertainmentCard({ fun, key }) {
           className="media"
           component="img"
           sx={{ width: 250 }}
-          image={fun?.image}
+          image={fun.image}
         />
 
         <Box
@@ -47,20 +47,21 @@ export default function EntertainmentCard({ fun, key }) {
                 marginLeft: "12%",
               }}
             >
-              {fun?.name}
+              {fun.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-                <Typography className="num">{fun?.price}</Typography>
+                <Typography className="num">{fun.price}</Typography>
                 <Button
                   className="btn"
-                  onClick={() => navigate(`/fun/${fun?.id}`)}
+                  onClick={() => navigate(`/fun/${fun.id}`)}
                 >
                   Показать
                 </Button>
                 <div className="check"> </div>
               </Box>
+
               <hr className="hr" />
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
@@ -72,17 +73,20 @@ export default function EntertainmentCard({ fun, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b>{fun?.address}</b>
+                  <a href={fun.map_link} className="fun-adress">
+                    {fun.address}
+                  </a>
                 </div>
                 <div className="div">
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {fun?.hours}</span>
+                      <span class="text">Время работы : {fun.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={fun?.fun_link}></a>
-                    <span class="text">Посетить веб-сайт</span>
+                    <a href={fun.fun_link} class="textt">
+                      Перейти на&nbsp;сайт отеля
+                    </a>
                   </div>
                 </div>
               </Box>
