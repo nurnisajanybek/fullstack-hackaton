@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useServices } from "../../contexts/ServicesContextProvider";
 import "./AdminPage.css";
 
 const AdminPage = () => {
+  const navigate = useNavigate();
   const { addHotel, addRestaurant, addEntertainment } = useServices();
   const [newHotel, setNewHotel] = useState({
     group: "hotel",
@@ -43,14 +45,17 @@ const AdminPage = () => {
   const handleAddHotel = (e) => {
     e.preventDefault();
     addHotel(newHotel);
+    navigate("/hotels");
   };
   const handleAddRestaurant = (e) => {
     e.preventDefault();
     addRestaurant(newRestaurant);
+    navigate("/place");
   };
   const handleAddEntertainment = (e) => {
     e.preventDefault();
     addEntertainment(newEntertainment);
+    navigate("/fun");
   };
   return (
     <div className="admin-page">
@@ -81,7 +86,7 @@ const AdminPage = () => {
           type="text"
           value={newHotel.hours}
           placeholder={"hours"}
-          onChange={(e) => setNewHotel({ ...newHotel, name: e.target.value })}
+          onChange={(e) => setNewHotel({ ...newHotel, hours: e.target.value })}
         />
 
         <input
@@ -89,23 +94,21 @@ const AdminPage = () => {
           value={newHotel.map_link}
           placeholder={"map link"}
           onChange={(e) =>
-            setNewHotel({ ...newHotel, address: e.target.value })
+            setNewHotel({ ...newHotel, map_link: e.target.value })
           }
         />
         <input
-          type="number"
+          type="text"
           value={newHotel.price}
           placeholder={"price"}
-          onChange={(e) =>
-            setNewHotel({ ...newHotel, category: e.target.value })
-          }
+          onChange={(e) => setNewHotel({ ...newHotel, price: e.target.value })}
         />
         <span> image </span>
         <input
           type="file"
           value={newHotel.image}
           placeholder={"image"}
-          onChange={(e) => setNewHotel({ ...newHotel, info: e.target.value })}
+          onChange={(e) => setNewHotel({ ...newHotel, image: e.target.value })}
         />
         <input
           type="number"
@@ -129,7 +132,7 @@ const AdminPage = () => {
           value={newRestaurant.name}
           placeholder={"name"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, name: e.target.value })
+            setNewRestaurant({ ...newRestaurant, name: e.target.value })
           }
         />
         <input
@@ -137,7 +140,7 @@ const AdminPage = () => {
           value={newRestaurant.info}
           placeholder={"info"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, info: e.target.value })
+            setNewRestaurant({ ...newRestaurant, info: e.target.value })
           }
         />
         <input
@@ -145,7 +148,7 @@ const AdminPage = () => {
           value={newRestaurant.address}
           placeholder={"address"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, address: e.target.value })
+            setNewRestaurant({ ...newRestaurant, address: e.target.value })
           }
         />
         <input
@@ -153,7 +156,7 @@ const AdminPage = () => {
           value={newRestaurant.hours}
           placeholder={"hours"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, name: e.target.value })
+            setNewRestaurant({ ...newRestaurant, hours: e.target.value })
           }
         />
 
@@ -162,23 +165,23 @@ const AdminPage = () => {
           value={newRestaurant.map_link}
           placeholder={"map link"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, address: e.target.value })
+            setNewRestaurant({ ...newRestaurant, map_link: e.target.value })
           }
         />
         <input
           type="text"
           value={newRestaurant.place_link}
-          placeholder={"map link"}
+          placeholder={"place link"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, address: e.target.value })
+            setNewRestaurant({ ...newRestaurant, place_link: e.target.value })
           }
         />
         <input
-          type="number"
+          type="text"
           value={newRestaurant.avg_price}
           placeholder={"price"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, category: e.target.value })
+            setNewRestaurant({ ...newRestaurant, avg_price: e.target.value })
           }
         />
         <span> image </span>
@@ -187,7 +190,7 @@ const AdminPage = () => {
           value={newRestaurant.image}
           placeholder={"image"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, info: e.target.value })
+            setNewRestaurant({ ...newRestaurant, image: e.target.value })
           }
         />
         <input
@@ -195,7 +198,7 @@ const AdminPage = () => {
           value={newRestaurant.category}
           placeholder={"category"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, category: e.target.value })
+            setNewRestaurant({ ...newRestaurant, category: e.target.value })
           }
         />
         <input
@@ -203,7 +206,7 @@ const AdminPage = () => {
           value={newRestaurant.sub_category}
           placeholder={"category"}
           onChange={(e) =>
-            setNewHotel({ ...newRestaurant, category: e.target.value })
+            setNewRestaurant({ ...newRestaurant, sub_category: e.target.value })
           }
         />
 
@@ -219,7 +222,7 @@ const AdminPage = () => {
           value={newEntertainment.name}
           placeholder={"name"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, name: e.target.value })
+            setNewEntertainment({ ...newEntertainment, name: e.target.value })
           }
         />
         <input
@@ -227,7 +230,7 @@ const AdminPage = () => {
           value={newEntertainment.info}
           placeholder={"info"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, info: e.target.value })
+            setNewEntertainment({ ...newEntertainment, info: e.target.value })
           }
         />
         <input
@@ -235,7 +238,10 @@ const AdminPage = () => {
           value={newEntertainment.address}
           placeholder={"address"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, address: e.target.value })
+            setNewEntertainment({
+              ...newEntertainment,
+              address: e.target.value,
+            })
           }
         />
         <input
@@ -243,7 +249,7 @@ const AdminPage = () => {
           value={newEntertainment.hours}
           placeholder={"hours"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, name: e.target.value })
+            setNewEntertainment({ ...newEntertainment, hours: e.target.value })
           }
         />
 
@@ -252,7 +258,10 @@ const AdminPage = () => {
           value={newEntertainment.map_link}
           placeholder={"map link"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, address: e.target.value })
+            setNewEntertainment({
+              ...newEntertainment,
+              map_link: e.target.value,
+            })
           }
         />
 
@@ -262,7 +271,7 @@ const AdminPage = () => {
           value={newEntertainment.image}
           placeholder={"image"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, info: e.target.value })
+            setNewEntertainment({ ...newEntertainment, image: e.target.value })
           }
         />
         <input
@@ -270,7 +279,10 @@ const AdminPage = () => {
           value={newEntertainment.category}
           placeholder={"category"}
           onChange={(e) =>
-            setNewHotel({ ...newEntertainment, category: e.target.value })
+            setNewEntertainment({
+              ...newEntertainment,
+              category: e.target.value,
+            })
           }
         />
 
