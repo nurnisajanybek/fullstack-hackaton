@@ -7,7 +7,7 @@ import { Box, Container } from "@mui/system";
 import Coments from "../../../components/coments/Coments";
 
 const HotelDetails = () => {
-  const { getHotelDetails, hotelDetails } = useServices();
+  const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const HotelDetails = () => {
                 marginTop: "3%",
                 marginBottom: "3%",
               }}
+              onClick={() => deleteHotel(id)}
             >
               Delete
             </Button>
