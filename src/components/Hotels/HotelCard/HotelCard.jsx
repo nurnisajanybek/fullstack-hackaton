@@ -8,23 +8,21 @@ import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-
 import "./HotelCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function HotelCard({ hotel, key }) {
+export default function HotelCard({ hotel }) {
   const theme = useTheme();
 
   const navigate = useNavigate();
 
   return (
-    <Box className="box" key={key}>
-      <Card sx={{ display: "flex" }}>
+    <Box className="box-hotel">
+      <Card className="cards-hotels">
         <CardMedia
-          className="media"
+          className="media-hotel"
           component="img"
-          sx={{ width: 250 }}
           image={hotel.image}
         />
 
@@ -49,12 +47,12 @@ export default function HotelCard({ hotel, key }) {
             >
               {hotel.name}
             </Typography>
-            <Box sx={{ display: "flex", width: "320px" }}>
+            <Box className="boxes-number1">
               <br />
-              <Box>
-                <Typography className="num">{hotel.price}</Typography>
+              <Box className="boxes-hotel">
+                <Typography className="type-hotel">{hotel.price}</Typography>
                 <Button
-                  className="btn"
+                  className="btn-hotel"
                   onClick={() => navigate(`/hotels/${hotel.id}`)}
                 >
                   Показать
@@ -81,10 +79,10 @@ export default function HotelCard({ hotel, key }) {
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {hotel.hours}</span>
+                      <span className="text">Время работы : {hotel.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link} class="textt">
+                    <a href={hotel.hotel_link} className="textt">
                       Перейти на&nbsp;сайт отеля
                     </a>
                   </div>

@@ -395,11 +395,11 @@ const AdminPage = () => {
           }
         />
 
-        {/* <TextField id="standard-basic" label="Image" variant="standard" /> */}
+         <TextField id="standard-basic" label="Image" variant="standard" /> 
         <input
           className="input"
           type="file"
-          // value={newEntertainment.image}
+           value={newEntertainment.image}
           placeholder={"image"}
           onChange={(e) =>
             setNewEntertainment({
@@ -409,10 +409,12 @@ const AdminPage = () => {
           }
         />
 
+
         <TextField
           sx={{ marginTop: "10px" }}
           defaultValue="Small"
           size="small"
+
           className="inputt"
           id="outlined-number"
           label="Category"

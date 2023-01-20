@@ -11,9 +11,11 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
   });
 
   function handleSave() {
+    if (typeof editedHotel.image == "string") {
+      delete editedHotel.image;
+    }
     updateHotel(editedHotel);
     // setShowInps(false);
-    window.location.reload();
   }
 
   return (
@@ -56,7 +58,6 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
       <input
         style={{ marginTop: "10px" }}
         type="file"
-        value={editedHotel.image}
         label="image"
         onChange={(e) =>
           setEditedHotel({ ...editedHotel, image: e.target.files[0] })
@@ -99,7 +100,7 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
         }
       />
 
-      <button onClick={() => handleSave()}>SAVE</button>
+      <button onClick={handleSave}>SAVE</button>
     </div>
   );
 };

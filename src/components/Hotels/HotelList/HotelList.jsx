@@ -19,34 +19,32 @@ const HotelList = () => {
   const [inputValue, setInputValue] = React.useState("");
 
   return (
-    < >
+    <>
       <Container>
         <div className="div1">
-
-        <div className="divv">
-          
-          <Autocomplete
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-            inputValue={inputValue}
-            onInputChange={(event, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
-            id="controllable-states-demo"
-            options={options}
-            sx={{ width: 300 }}
-            renderInput={(params) => (
-              <TextField {...params} label="Controllable" />
+          <div className="divv">
+            <Autocomplete
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+              inputValue={inputValue}
+              onInputChange={(event, newInputValue) => {
+                setInputValue(newInputValue);
+              }}
+              id="controllable-states-demo"
+              options={options}
+              sx={{ width: 300 }}
+              renderInput={(params) => (
+                <TextField {...params} label="Controllable" />
               )}
-              />
+            />
 
-          {hotelList?.map((hotel, index) => (
-            <HotelCard hotel={hotel} key={index} />
+            {hotelList?.map((hotel, index) => (
+              <HotelCard hotel={hotel} key={index} />
             ))}
+          </div>
         </div>
-            </div>
       </Container>
     </>
   );
