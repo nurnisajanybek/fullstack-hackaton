@@ -87,7 +87,8 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const updateHotel = async (editedHotel) => {
-    await axios.patch(`${API}/${editedHotel.id}`, editedHotel);
+    await axios.patch(`${API}/${editedHotel.id}/`, editedHotel);
+    getHotels();
   };
 
   // restaurants

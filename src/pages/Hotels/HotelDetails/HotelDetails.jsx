@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useServices } from "../../../contexts/ServicesContextProvider";
 import "./HotelDetails.css";
@@ -8,10 +8,12 @@ import Coments from "../../../components/coments/Coments";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import HotelUpdate from "../../../components/Hotels/HotelUpdate/HotelUpdate";
 
 const HotelDetails = (hotel) => {
   const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
+  const [showInps, setShowInps] = useState(false);
 
   useEffect(() => {
     getHotelDetails(id);
@@ -70,6 +72,7 @@ const HotelDetails = (hotel) => {
                 marginBottom: "3%",
                 marginLeft: "60%",
               }}
+              onClick={() => setShowInps(!showInps)}
             >
               Edit
             </Button>
@@ -88,7 +91,16 @@ const HotelDetails = (hotel) => {
           </div>
         </div>
         ;
-        <Coments />
+        <div className="bottom-card-info">
+          <Coments />
+          {showInps ? (
+            <>
+              <HotelUpdate hotel={hotelDetails} />
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       </Box>
     </Container>
   );

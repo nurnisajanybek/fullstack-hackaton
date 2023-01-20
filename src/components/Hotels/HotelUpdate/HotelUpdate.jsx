@@ -1,7 +1,10 @@
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useServices } from "../../../contexts/ServicesContextProvider";
 
-const HotelUpdate = ({ hotel, setsetShowInps }) => {
+import "./HotelUpdate.css";
+
+const HotelUpdate = ({ hotel, setShowInps }) => {
   const { updateHotel, getHotel } = useServices();
   const [editedHotel, setEditedHotel] = useState({
     ...hotel,
@@ -9,73 +12,96 @@ const HotelUpdate = ({ hotel, setsetShowInps }) => {
 
   function handleSave() {
     updateHotel(editedHotel);
-    setShowInps(false);
+    // setShowInps(false);
     window.location.reload();
   }
 
   return (
-    <div>
-      <input
+    <div className="update-inps">
+      <TextField
         type="text"
         value={editedHotel.name}
+        label="name"
         onChange={(e) =>
           setEditedHotel({ ...editedHotel, name: e.target.value })
         }
       />
-      <input
+      <TextField
+        sx={{ marginTop: "10px" }}
         type="text"
+        value={editedHotel.info}
+        label="info"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, info: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.address}
+        label="address:"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, address: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.hours}
+        label="hours"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, hours: e.target.value })
+        }
+      />
+      <input
+        style={{ marginTop: "10px" }}
+        type="file"
         value={editedHotel.image}
+        label="image"
         onChange={(e) =>
-          setEditedHotel({ ...editedHotel, image: e.target.value })
+          setEditedHotel({ ...editedHotel, image: e.target.files[0] })
         }
       />
-      <input
+      <TextField
+        sx={{ marginTop: "10px" }}
         type="text"
-        value={editedHotel.class}
+        value={editedHotel.map_link}
+        label="map link"
         onChange={(e) =>
-          setEditedHotel({ ...editedHotel, class: e.target.value })
+          setEditedHotel({ ...editedHotel, map_link: e.target.value })
         }
       />
-      <button onClick={handleSave}>SAVE</button>
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.hotel_link}
+        label="hotel link"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, hotel_link: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.price}
+        label="price"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, price: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.category}
+        label=" category"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, category: e.target.value })
+        }
+      />
+
+      <button onClick={() => handleSave()}>SAVE</button>
     </div>
   );
 };
 
 export default HotelUpdate;
-
-// const UpdateDuck = ({ duck, setShowInps }) => {
-//     const { updateOneDuck, getOneDuck } = useDucks();
-//   const [editedDuck, setEditedDuck] = useState({
-//     ...duck,
-//   });
-
-//   function handleSave() {
-//     updateOneDuck(editedDuck);
-//     setShowInps(false);
-//     window.location.reload();
-//   }
-
-//   return (
-//     <div>
-//       <input
-//         type="text"
-//         value={editedDuck.name}
-//         onChange={(e) => setEditedDuck({ ...editedDuck, name: e.target.value })}
-//       />
-//       <input
-//         type="text"
-//         value={editedDuck.image}
-//         onChange={(e) =>
-//           setEditedDuck({ ...editedDuck, image: e.target.value })
-//         }
-//       />
-//       <input
-//         type="text"
-//         value={editedDuck.class}
-//         onChange={(e) =>
-//           setEditedDuck({ ...editedDuck, class: e.target.value })
-//         }
-//       />
-//       <button onClick={handleSave}>SAVE</button>
-//     </div>
-//   );
