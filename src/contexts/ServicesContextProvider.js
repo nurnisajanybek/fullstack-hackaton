@@ -87,6 +87,7 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const updateHotel = async (editedHotel) => {
+
     try {
       console.log(editedHotel);
       let res = await axios.patch(
@@ -98,6 +99,7 @@ const ServicesContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+
   };
 
   // restaurants
