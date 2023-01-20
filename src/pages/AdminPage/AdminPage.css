@@ -48,3 +48,13 @@ background-color: white;
   margin-top: 2%;
   border: 2px solid black;
 }
+@media all and (max-width: 768px) {
+  .admin-page{
+      width: 150%;
+  }
+}
+@media all and (max-width: 425px) {
+  .admin-page{
+    flex-wrap: wrap;
+  }
+}
