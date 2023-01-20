@@ -12,18 +12,17 @@ import "./HotelCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function HotelCard({ hotel, key }) {
+export default function HotelCard({ hotel }) {
   const theme = useTheme();
 
   const navigate = useNavigate();
 
   return (
-    <Box className="box-hotel" key={key}>
+    <Box className="box-hotel">
       <Card className="cards-hotels">
         <CardMedia
-         className="media-hotel"
+          className="media-hotel"
           component="img"
-         
           image={hotel.image}
         />
 
@@ -48,10 +47,10 @@ export default function HotelCard({ hotel, key }) {
             >
               {hotel.name}
             </Typography>
-            <Box className="boxes-number1" >
+            <Box className="boxes-number1">
               <br />
               <Box className="boxes-hotel">
-                <Typography  className="type-hotel" >{hotel.price}</Typography>
+                <Typography className="type-hotel">{hotel.price}</Typography>
                 <Button
                   className="btn-hotel"
                   onClick={() => navigate(`/hotels/${hotel.id}`)}
@@ -80,10 +79,10 @@ export default function HotelCard({ hotel, key }) {
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {hotel.hours}</span>
+                      <span className="text">Время работы : {hotel.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link} class="textt">
+                    <a href={hotel.hotel_link} className="textt">
                       Перейти на&nbsp;сайт отеля
                     </a>
                   </div>

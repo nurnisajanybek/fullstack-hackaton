@@ -11,9 +11,13 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
   });
 
   function handleSave() {
+    if (typeof editedHotel.image == "string") {
+      delete editedHotel.image;
+    }
     updateHotel(editedHotel);
     // setShowInps(false);
-    window.location.reload();
+
+
   }
 
   return (
@@ -28,6 +32,7 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
       />
       <TextField
         sx={{ marginTop: "10px" }}
+
         type="text"
         value={editedHotel.info}
         label="info"
@@ -35,9 +40,11 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
           setEditedHotel({ ...editedHotel, info: e.target.value })
         }
       />
+
       <TextField
         sx={{ marginTop: "10px" }}
         type="text"
+
         value={editedHotel.address}
         label="address:"
         onChange={(e) =>
@@ -56,7 +63,9 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
       <input
         style={{ marginTop: "10px" }}
         type="file"
+
         value={editedHotel.image}
+
         label="image"
         onChange={(e) =>
           setEditedHotel({ ...editedHotel, image: e.target.files[0] })
@@ -64,6 +73,7 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
       />
       <TextField
         sx={{ marginTop: "10px" }}
+
         type="text"
         value={editedHotel.map_link}
         label="map link"
@@ -87,11 +97,38 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
         label="price"
         onChange={(e) =>
           setEditedHotel({ ...editedHotel, price: e.target.value })
+
+        type="text"
+        value={editedHotel.map_link}
+        label="map link"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, map_link: e.target.value })
+
         }
       />
       <TextField
         sx={{ marginTop: "10px" }}
         type="text"
+
+        value={editedHotel.hotel_link}
+        label="hotel link"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, hotel_link: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+        value={editedHotel.price}
+        label="price"
+        onChange={(e) =>
+          setEditedHotel({ ...editedHotel, price: e.target.value })
+        }
+      />
+      <TextField
+        sx={{ marginTop: "10px" }}
+        type="text"
+
         value={editedHotel.category}
         label=" category"
         onChange={(e) =>
@@ -99,7 +136,8 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
         }
       />
 
-      <button onClick={() => handleSave()}>SAVE</button>
+      <button onClick={handleSave}>SAVE</button>
+
     </div>
   );
 };
