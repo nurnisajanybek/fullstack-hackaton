@@ -59,13 +59,11 @@ export default function HotelCard({ hotel, key }) {
                   Показать
                 </Button>
                 <div className="check"> </div>
-                
               </Box>
-              
+
               <hr className="hr" />
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
-                
                 <div className="rating">
                   {" "}
                   <span>Рейтинг</span>
@@ -74,7 +72,9 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b className="hotel-adress">{hotel.address}</b>
+                  <a href={hotel.map_link} className="hotel-adress">
+                    {hotel.address}
+                  </a>
                 </div>
                 <div className="div">
                   <div>
@@ -83,8 +83,9 @@ export default function HotelCard({ hotel, key }) {
                       <span class="text">Время работы : {hotel.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link}></a>
-                    <span class="textt">Перейти на&nbsp;сайт отеля</span>
+                    <a href={hotel.hotel_link} class="textt">
+                      Перейти на&nbsp;сайт отеля
+                    </a>
                   </div>
                 </div>
               </Box>

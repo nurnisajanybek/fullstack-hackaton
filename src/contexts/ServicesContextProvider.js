@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import { API } from "../helpers/consts";
 
 const servicesContext = createContext();
@@ -33,6 +34,7 @@ const reducer = (state = INIT_STATE, action) => {
 };
 
 const ServicesContextProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const token = JSON.parse(localStorage.getItem("token"))
@@ -72,6 +74,20 @@ const ServicesContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+  const deleteHotel = async (id) => {
+    console.log(config);
+    try {
+      let res = await axios.delete(`${API}hotel/${id}/`, config);
+      navigate("/hotels");
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const updateHotel = async (editedHotel) => {
+    await axios.patch(`${API}/${editedHotel.id}`, editedHotel);
   };
 
   // restaurants
@@ -137,6 +153,8 @@ const ServicesContextProvider = ({ children }) => {
     getHotelDetails,
     hotelDetails: state.hotelDetails,
     addHotel,
+    deleteHotel,
+    updateHotel,
     getRestaurants,
     restaurantList: state.restaurantList,
     getRestaurantDetails,
