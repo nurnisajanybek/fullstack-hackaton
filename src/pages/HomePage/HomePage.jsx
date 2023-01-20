@@ -2,6 +2,8 @@ import { Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
+import SingleBedIcon from '@mui/icons-material/SingleBed';
+
 
 const cards = [1, 2, 3, 4];
 
@@ -13,13 +15,8 @@ const HomePage = () => {
         {/* first section */}
         <a className="each-link">
           <span onClick={() => navigate("/hotels")}>Отели</span>
-          <svg viewBox="0 0 24 24" width="24px" height="24px" class="">
-            <path className="icon6"
-              fill-rule="evenodd"
-              // clip-rule="evenodd"
-              d="M2.832 5.228c0-.469.38-.85.85-.85h15.624c.47 0 .85.381.85.85v6.65c.68.561 1.22 1.392 1.22 2.543v4.847h-1.5v-1.673H3.284v1.673h-1.5V14.394c.025-.655.304-1.589 1.049-2.351V5.228zm2.634 5.587c.264-.034.542-.051.837-.051h3.896c-.503-.483-1.31-.931-2.433-.931-1.09 0-1.83.467-2.3.982zm7.39-.051h4.468l.036.003c.161.016.343.042.536.082a2.36 2.36 0 00-.221-.233c-.447-.41-1.18-.783-2.254-.783-1.078 0-1.751.273-2.181.584a2.395 2.395 0 00-.385.347zm5.8-1.283c-.726-.651-1.812-1.148-3.235-1.148-1.347 0-2.339.347-3.06.868-.342.248-.61.525-.821.802-.736-.86-2.005-1.67-3.774-1.67-1.629 0-2.733.712-3.434 1.503V5.878h14.324v3.603zM3.283 16.095h16.594V14.42c0-.703-.355-1.188-.888-1.545-.56-.374-1.263-.561-1.74-.612H6.304c-1.118 0-1.81.316-2.237.677-.57.482-.765 1.123-.783 1.496v1.658z"
-            ></path>
-          </svg>
+          <SingleBedIcon />
+        
         </a>
 
         {/* second section  */}
@@ -52,31 +49,10 @@ const HomePage = () => {
 
         {/* forth section */}
 
-        <a className="each-link">
-          <span>Форумы о&nbsp;путешествиях</span>
-
-          <svg viewBox="0 0 24 24" width="24px" height="24px">
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M21.75 3.25V13h-1.5V4.75L8 4.755v-1.5l13.75-.005zm-18.5 4h14.501l-.019 10.625H8.008L4.971 20.75H3.25V7.25zm1.5 1.5v10.143l2.66-2.518h8.825l.014-7.625H4.75z"
-            ></path>
-          </svg>
-        </a>
-
+        
         {/* fifth section */}
 
-        <a className="each-link">
-          <span>Авиабилеты</span>
-          <svg
-            viewBox="0 0 20.43 20.58"
-            width="24px"
-            height="24px"
-            data-name="Layer 1"
-          >
-            <path d="M7.63 20.58L0 12.69l1.87-1.87 3.39.6c.08 0 .5 0 .73-.21l2.15-2.08c.02-.05.04-.13.04-.16 0-.02-.07-.1-.26-.19L.72 5.46l2.74-2.68 8.83 1.59c.2.02.49.02.62 0l3.21-3.24c.86-.78 2.58-1.75 3.76-.58 1.17 1.17.24 2.88-.49 3.71l-3.16 3.23c-.02.06-.05.24.01.61l1.52 8.83-2.7 2.43-3.29-6.84a.518.518 0 00-.18-.14L9.1 14.71s-.01.15.01.3l.55 3.62-2.04 1.95zM2.1 12.71l5.57 5.75.4-.38-.43-2.85c-.16-1.04.25-1.5.51-1.68l2.42-2.24c.45-.42.91-.46 1.2-.43.73.08 1.18.69 1.27.81l.06.1 2.45 5.1.59-.54-1.38-8.01c-.21-1.22.19-1.75.44-1.96l3.09-3.15c.25-.29.89-1.26.53-1.63-.36-.36-1.36.32-1.66.6l-3.27 3.29c-.47.45-1.35.42-1.83.35l-8.1-1.45-.63.62 5.21 2.4c.73.33.99.82 1.08 1.17.2.75-.23 1.38-.28 1.45l-.09.11-2.24 2.17c-.78.71-1.85.62-1.96.6l-2.67-.47-.27.27z"></path>
-          </svg>
-        </a>
+        
       </div>
       {/* second block */}
       <div className="container second-block">
@@ -120,15 +96,7 @@ const HomePage = () => {
             {/* </div> */}
             {/* <div className="class2"> */}
 
-          <a className="test-card-rating">
-            <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
-              alt=""
-              />
-            <span className="bold">(Place)</span>
-            <div>rating</div>
-            <span className="bold">(type) </span>
-          </a>
+          
           <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
@@ -159,7 +127,7 @@ const HomePage = () => {
       </div>
       {/* fifth block*/}
       <div className="container">
-        <h2>Лучшие направления для Вашего следующего отпуска</h2>
+        <h2 className="h2-home">Лучшие направления для Вашего следующего отпуска</h2>
         {/* <div>
           {cards.map((card) => (
             <div
@@ -179,11 +147,7 @@ const HomePage = () => {
           <div className="test-block">
             {/* <div className="class1"> */}
 
-            <div className="test">
-              <h2 className="test-title">
-                Йеллоустонский национальный парк, Вайоминг
-              </h2>
-            </div>
+          
             <div className="test">
               <h2 className="test-title">
                 Йеллоустонский национальный парк, Вайоминг
@@ -212,7 +176,7 @@ const HomePage = () => {
             className="sova"
             src="https://static.tacdn.com/img2/travelers_choice/TC_logomark_solid_cream.svg"
           />
-          <h2>Travellers' Choice: лучшее из лучшего</h2>
+          <h2 className="h2-travel">Travellers' Choice: лучшее из лучшего</h2>
         </div>
         <img
           className="sixth-block-right"

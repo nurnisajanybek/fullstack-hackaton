@@ -25,6 +25,9 @@
     .text{
         width: 150% !important;
     }
+    .text{
+        display: none !important;
+    }
 }
 @media all and (max-width: 320px){
     .text{

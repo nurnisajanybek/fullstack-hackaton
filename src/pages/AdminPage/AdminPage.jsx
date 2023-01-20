@@ -448,10 +448,10 @@ sx={{marginTop:"10px"}}
         />
         
         <TextField  
-sx={{marginTop:"10px"}}
-  defaultValue="Small"
-  size="small"
- className="inputt"
+         sx={{marginTop:"10px"}}
+            defaultValue="Small"
+           size="small"
+          className="inputt"
           id="outlined-number"
           label="Category"
           type="number"

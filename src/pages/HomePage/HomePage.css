@@ -18,24 +18,23 @@
   justify-content: space-evenly;
   border: 1px solid black;
   border-radius: 10px;
-  width: 19%;
+  width: 30%;
   height: 50px;
   padding: 0.2%;
   color: black;
   cursor: pointer;
+      background-color: var(--secondaryButtonFill);
 }
 
 a {
   text-decoration: none;
 }
-.each-link :hover {
-  color: white;
-  /* background-color: black; */
-}
 
-.icon6:hover{
-color: white;
-}
+/* .bedicon :hover {
+  color: white;
+  background-color: black;
+} */
+
 /* second block */
 
 .second-block {
@@ -83,14 +82,19 @@ color: white;
 }
 
 .each-link:hover {
+
   color: #fff;
   background: black;
   tansition: all .3s linear;
   -webkit-transition: all .3s linear;
   -moz-transition: all .3s linear; 
+
+}
+.icon6:hover{
+  color: white;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) { */
   .search-icon {
     width: 20px;
     height: 20px;
@@ -103,7 +107,7 @@ color: white;
     padding-left: 40px;
     font-size: smaller;
   }
-}
+
 
 .search:focus {
   outline: none;
@@ -144,8 +148,8 @@ color: white;
 }
 .test {
   display: flex;
-  width: 22%;
-  height: auto;
+  width: 300px;
+  
   padding-left: 1%;
   padding-top: 10%;
   background: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cf/f9/eb/caption.jpg?w=600&h=600&s=1&cx=941&cy=299&chk=v1_18cfa51ea9b832b15689")
@@ -226,13 +230,64 @@ color: white;
 
   }
   @media all and ( max-width:425px ){
+    .container{
+        font-size: 80%;
+      }
+      .class1{
+      display: block !important;
+
+    }
+    .explor{
+    font-size: 60% !important;
+    }
     .test-title{
      font-size: 60%; 
     }
     .test-block{
       flex-wrap: wrap  !important
     }
-   
+   .test-card-rating{
 
+   width: 30%;
+   margin-bottom: -20%;
+  }
+  .h2-home{
+    margin-top: -20%;
+  }
+  .test{
+    width:  30%;
+  }
+
+}
+  @media all and ( max-width:376px ){
+   
+   .test{
+    margin-left: 20%;
+    width: 50%;
+    height: 130px;
+  
+    margin-top: 4%;
+   }
+    .test-block{
+  display: block;
+ 
+    }
+    .test-title{
+    margin-top: 30%;
+    font-size: 80%;
+    }
+    .test-card-rating{
+      margin-left: 15%;
+    width: 70%;
+   
+  
+    margin-top: 15%;
+    }
+    .sixth-block-right{
+      margin-left: 5%;
+    }
+    .h2-travel{
+  font-size: 70%;
+    }
 
   }
