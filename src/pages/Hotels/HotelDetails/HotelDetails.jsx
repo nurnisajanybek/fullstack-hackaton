@@ -10,7 +10,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HotelUpdate from "../../../components/Hotels/HotelUpdate/HotelUpdate";
 
-const HotelDetails = (hotel) => {
+const HotelDetails = () => {
   const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
   const [showInps, setShowInps] = useState(false);

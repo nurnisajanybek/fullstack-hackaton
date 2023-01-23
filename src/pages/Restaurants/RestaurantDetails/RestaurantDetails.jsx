@@ -10,7 +10,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import RestaurantUpdate from "../../../components/Restaurants/RestaurantUpdate/RestaurantUpdate";
 
-const RestaurantDetails = (restaurant) => {
+const RestaurantDetails = () => {
   const { getRestaurantDetails, restaurantDetails, deleteRestaurant } =
     useServices();
   const { id } = useParams();

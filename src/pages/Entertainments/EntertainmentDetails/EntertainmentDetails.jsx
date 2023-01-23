@@ -9,7 +9,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EntertainmentUpdate from "../../../components/Entertainment/EntertainmentUpdate/EntertainmentUpdate";
 
-const EntertainmentDetails = (entertainment) => {
+const EntertainmentDetails = () => {
   const { getEntertainmentDetails, entertainmentDetails, deleteEntertainment } =
     useServices();
   const { id } = useParams();
