@@ -12,8 +12,8 @@ const HomePage = () => {
     <>
       <div className="first-block container">
         {/* first section */}
-        <a className="each-link">
-          <span onClick={() => navigate("/hotels")}>Отели</span>
+        <a  onClick={() => navigate("/hotels")} className="each-link">
+          <span>Отели</span>
 
           <svg  className="svg-active"  viewBox="0 0 24 24" width="24px" height="24px" class="">
             <path
@@ -27,8 +27,8 @@ const HomePage = () => {
 
         {/* second section  */}
 
-        <a className="each-link">
-          <span onClick={() => navigate("/fun")}>Развлечения</span>
+        <a onClick={() => navigate("/fun")} className="each-link">
+          <span >Развлечения</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
@@ -42,7 +42,7 @@ const HomePage = () => {
 
         {/* third section */}
         <a className="each-link">
-          <span onClick={() => navigate("/place")}>Рестораны</span>
+          <span >Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
