@@ -37,6 +37,7 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
           setEditedHotel({ ...editedHotel, info: e.target.value })
         }
       />
+
       <TextField
         sx={{ marginTop: "10px" }}
         type="text"
