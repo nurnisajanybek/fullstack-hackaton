@@ -90,9 +90,9 @@ export default function HotelCard({ hotel, key }) {
               </Box>
             </Box>
           </CardContent>
-          <Box
+          {/* <Box
             sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-          ></Box>
+          ></Box> */}
         </Box>
       </Card>
     </Box>

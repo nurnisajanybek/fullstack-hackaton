@@ -15,14 +15,16 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { Alert } from "@mui/material";
 import { useAuth } from "../contexts/AuthContextProvider";
+import {  useNavigate } from "react-router-dom";
+
 
 function Copyright(props) {
   return (
     <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
+    variant="body2"
+    color="text.secondary"
+    align="center"
+    {...props}
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
@@ -38,7 +40,8 @@ const theme = createTheme();
 
 export default function Register() {
   const {register , error} = useAuth()
-
+  
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -124,7 +127,7 @@ export default function Register() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleSave}
+              onClick={()=>{navigate("/")}}
             >
               Register
             </Button>

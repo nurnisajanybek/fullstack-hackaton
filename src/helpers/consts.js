@@ -7,3 +7,5 @@ export const isAdmin = () => {
     return false;
   }
 };
+
+export const ADMIN = "aidarmedina@gmail.com";

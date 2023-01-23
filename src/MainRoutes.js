@@ -1,8 +1,13 @@
+
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Reviews from "./components/reviews/Reviews";
+import Revievs from "./components/reviews/Reviews";
+import { useAuth } from "./contexts/AuthContextProvider";
+import { ADMIN } from "./helpers/consts";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import EntertainmentDetails from "./pages/Entertainments/EntertainmentDetails/EntertainmentDetails";
 import Entertainments from "./pages/Entertainments/Entertainments";
@@ -13,6 +18,7 @@ import RestaurantDetails from "./pages/Restaurants/RestaurantDetails/RestaurantD
 import Restaurants from "./pages/Restaurants/Restaurants";
 
 const MainRoutes = () => {
+  const { user } = useAuth();
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -68,7 +74,21 @@ const MainRoutes = () => {
       link: "/aboutus",
       element: <AboutUs />,
       id: 7,
+    }, 
+    {
+      link: "/reviews",
+      element: <Reviews />,
+      id: 7,
     },
+  ];
+
+  const PRIVATE_ROUTES = [
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      id: 1,
+    },
+   
   ];
 
   return (
@@ -76,6 +96,21 @@ const MainRoutes = () => {
       {PUBLIC_ROUTES.map((route) => (
         <Route path={route.link} element={route.element} key={route.id} />
       ))}
+      {user
+          ? PRIVATE_ROUTES.map((route) => (
+              <Route
+                path={route.link}
+                element={
+                  user.email === ADMIN ? (
+                    route.element
+                  ) : (
+                    <Navigate replace to="*" />
+                  )
+                }
+                key={route.id}
+              />
+            ))
+          : null}
     </Routes>
   );
 };

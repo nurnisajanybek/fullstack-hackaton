@@ -1,0 +1,42 @@
+.h1-reviews{
+    color: #2c2c2c;
+    font-size: 1.9335em;
+    font-weight: 400;
+    margin-bottom: 15px;
+  margin-left: 6%;
+
+}
+.h2-reviews{
+    color: #00aa6c;
+    font-size: 110%;
+    font-weight: bold;
+    margin-left: 6%;
+    margin-top: -1%;
+
+}
+
+
+.poiTypes li {
+    margin-left: 3%;
+    background: #fff;
+    background: -moz-linear-gradient(top,#fff 0,hsla(0,0%,100%,.57) 85%,rgba(233,232,226,.5) 100%);
+    background: -o-linear-gradient(top,#fff 0,hsla(0,0%,100%,.57) 85%,rgba(233,232,226,.5) 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fff),color-stop(85%,hsla(0,0%,100%,.57)),color-stop(100%,rgba(233,232,226,.5)));
+    background: -webkit-linear-gradient(top,#fff,hsla(0,0%,100%,.57) 85%,rgba(233,232,226,.5));
+    background: linear-gradient(180deg,#fff 0,hsla(0,0%,100%,.57) 85%,rgba(233,232,226,.5));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFF",endColorstr="#80E9E8E2",GradientType=0);
+    border-radius: 3px;
+    border: 1px solid #e9e8e2;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 25%);
+    color: #2c2c2c;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.167em;
+    margin-right: 6px;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+.h1-reviews1{
+text-align: center;
+font-size: 370%;
+}

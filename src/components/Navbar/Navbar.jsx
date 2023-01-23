@@ -17,18 +17,22 @@ import Button from "@mui/material/Button";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Container } from "@mui/system";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import { ADMIN } from "../../helpers/consts";
 const drawerWidth = 240;
-const navItems = [
+const navItem = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
   "Отзывы",
-  <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
-  "Избранная",
+ 
 ];
+const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
+ "Избранная",]
 
 function Navbar(props) {
   const { window } = props;
+  const { user} = useAuth();
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -38,6 +42,7 @@ function Navbar(props) {
   };
 
   const drawer = (
+    
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         <Button
@@ -52,6 +57,8 @@ function Navbar(props) {
           {" "}
           Войти
         </Button>
+        
+        {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Автор</Box>}
       </Typography>
       <Divider />
       <List>
@@ -59,6 +66,14 @@ function Navbar(props) {
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
               <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {navItem.map((item) => (
+          
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText   onClick={() => navigate("/reviews")} primary={item} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -85,7 +100,7 @@ function Navbar(props) {
               <MenuIcon />
               <img
                 className="icon"
-                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                src="/icons/LOGO.png"
                 alt=""
               />
             </IconButton>
@@ -104,8 +119,15 @@ function Navbar(props) {
             </Typography>
 
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItem.map((item) => (
+
+                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   onClick={() => navigate("/reviews")}>
+                  {item}
+                </Button>
+              ))}
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}>
+
+                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   >
                   {item}
                 </Button>
               ))}
@@ -123,6 +145,19 @@ function Navbar(props) {
             >
               Войти
             </Button>
+            {user.email == ADMIN ? ( 
+            <Link 
+              style={{ 
+                color: "white", 
+                margin: "0 10px", 
+              
+              }} 
+              to="/admin" 
+            > 
+              Admin 
+            </Link> 
+          ) : null} 
+            {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Авторизация</Box>}
           </Toolbar>
         </AppBar>
         <Box component="nav">
