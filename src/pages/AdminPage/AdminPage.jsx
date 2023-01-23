@@ -1,10 +1,13 @@
 import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContextProvider";
 import { useServices } from "../../contexts/ServicesContextProvider";
 import "./AdminPage.css";
 
 const AdminPage = () => {
+
+  const {user}= useAuth()
   const navigate = useNavigate();
   const { addHotel, addRestaurant, addEntertainment } = useServices();
   const [newHotel, setNewHotel] = useState({
@@ -59,7 +62,10 @@ const AdminPage = () => {
     navigate("/fun");
   };
   return (
-    <div className="admin-page">
+
+    <>
+    { user == "admin@admin.com" ? (
+      <div className="admin-page">
       {/* hotel */}
       <form action="">
         <h3 className="add-hotel">Add hotel</h3>
@@ -74,7 +80,7 @@ const AdminPage = () => {
           value={newHotel.name}
           autoComplete="current-password"
           onChange={(e) => setNewHotel({ ...newHotel, name: e.target.value })}
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -85,7 +91,7 @@ const AdminPage = () => {
           autoComplete="current-password"
           value={newHotel.info}
           onChange={(e) => setNewHotel({ ...newHotel, info: e.target.value })}
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -98,7 +104,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewHotel({ ...newHotel, address: e.target.value })
           }
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -109,7 +115,7 @@ const AdminPage = () => {
           autoComplete="current-password"
           value={newHotel.hours}
           onChange={(e) => setNewHotel({ ...newHotel, hours: e.target.value })}
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -134,7 +140,7 @@ const AdminPage = () => {
           autoComplete="current-password"
           value={newHotel.price}
           onChange={(e) => setNewHotel({ ...newHotel, price: e.target.value })}
-        />
+          />
 
         {/* <TextField id="standard-basic" label="Image" variant="standard" /> */}
         <input
@@ -146,7 +152,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewHotel({ ...newHotel, image: e.target.files[0] })
           }
-        />
+          />
 
         <TextField
           sx={{ marginTop: "10px" }}
@@ -163,13 +169,13 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewHotel({ ...newHotel, category: e.target.value })
           }
-        />
+          />
 
         <Button
           type="submit"
           variant="contained"
           onClick={(e) => handleAddHotel(e)}
-        >
+          >
           {" "}
           Add
         </Button>
@@ -189,7 +195,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, name: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -202,7 +208,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, info: e.target.value })
           }
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -214,7 +220,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, address: e.target.value })
           }
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -226,7 +232,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, hours: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -239,7 +245,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, map_link: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -252,7 +258,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, place_link: e.target.value })
           }
-        />
+          />
         <TextField
           defaultValue="Small"
           size="small"
@@ -264,7 +270,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, avg_price: e.target.value })
           }
-        />
+          />
 
         {/*   */}
 
@@ -277,7 +283,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, image: e.target.files[0] })
           }
-        />
+          />
         <TextField
           sx={{ marginTop: "10px" }}
           defaultValue="Small"
@@ -293,7 +299,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, category: e.target.value })
           }
-        />
+          />
         <TextField
           sx={{ marginTop: "10px" }}
           defaultValue="Small"
@@ -309,13 +315,13 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewRestaurant({ ...newRestaurant, sub_category: e.target.value })
           }
-        />
+          />
 
         <Button
           type="submit"
           variant="contained"
           onClick={(e) => handleAddRestaurant(e)}
-        >
+          >
           {" "}
           Add
         </Button>
@@ -335,7 +341,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewEntertainment({ ...newEntertainment, name: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -348,7 +354,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewEntertainment({ ...newEntertainment, info: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -364,7 +370,7 @@ const AdminPage = () => {
               address: e.target.value,
             })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -377,7 +383,7 @@ const AdminPage = () => {
           onChange={(e) =>
             setNewEntertainment({ ...newEntertainment, hours: e.target.value })
           }
-        />
+          />
 
         <TextField
           defaultValue="Small"
@@ -393,13 +399,13 @@ const AdminPage = () => {
               map_link: e.target.value,
             })
           }
-        />
+          />
 
          <TextField id="standard-basic" label="Image" variant="standard" /> 
         <input
           className="input"
           type="file"
-           value={newEntertainment.image}
+          value={newEntertainment.image}
           placeholder={"image"}
           onChange={(e) =>
             setNewEntertainment({
@@ -407,14 +413,14 @@ const AdminPage = () => {
               image: e.target.files[0],
             })
           }
-        />
+          />
 
 
         <TextField
           sx={{ marginTop: "10px" }}
           defaultValue="Small"
           size="small"
-
+          
           className="inputt"
           id="outlined-number"
           label="Category"
@@ -429,19 +435,24 @@ const AdminPage = () => {
               category: e.target.value,
             })
           }
-        />
+          />
 
         <Button
           type="submit"
           variant="contained"
           onClick={(e) => handleAddEntertainment(e)}
-        >
+          >
           {" "}
           Add
         </Button>
       </form>
     </div>
-  );
-};
-
+  
+  
+  ):(<>You are not admin</>)}
+  </>
+       
+      
+  )
+}
 export default AdminPage;

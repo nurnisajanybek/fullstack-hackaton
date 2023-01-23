@@ -9,6 +9,7 @@ export const useAuth = () => {
 
 const API = "http://34.123.240.158/account/";
 
+
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
@@ -42,6 +43,8 @@ const AuthContextProvider = ({ children }) => {
       setError(error.response.data.detail);
     }
   };
+
+
 
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));

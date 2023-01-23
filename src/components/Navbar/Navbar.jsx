@@ -17,18 +17,35 @@ import Button from "@mui/material/Button";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Container } from "@mui/system";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import { useAuth } from "../../contexts/AuthContextProvider";
+import { ADMIN, isAdmin } from "../../helpers/consts";
 const drawerWidth = 240;
-const navItems = [
+const navItem = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
   "Отзывы",
-  <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
-  "Избранная",
+ 
 ];
+const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
+ "Избранная",]
 
 function Navbar(props) {
   const { window } = props;
+  const { user,  checkAuth,  logout} = useAuth();
+  React.useEffect(()=>{
+    if(localStorage.getItem("token")){
+        checkAuth()
+    }
+ },[])
+
+console.log(user)
+const buttonStyle ={
+  color:"black  ",
+  display:"block",
+  textTransform: "capitalize",
+
+}
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -38,20 +55,28 @@ function Navbar(props) {
   };
 
   const drawer = (
+    
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Button
-          sx={{
-            color: "white",
-            backgroundColor: "black",
-            borderRadius: "30%",
-            fontWeight: "bold",
-            height: "100%",
-          }}
-        >
-          {" "}
-          Войти
-        </Button>
+      {
+            user? (
+             
+                    <Box  sx={{display:"flex"}}>
+                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+
+                    </Box>
+            
+            ): (
+                <Box sx={{display:"flex"}}>
+                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
+                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
+                </Box>
+            )
+          }
+       
+        
+        {/* {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Автор</Box>} */}
       </Typography>
       <Divider />
       <List>
@@ -62,12 +87,21 @@ function Navbar(props) {
             </ListItemButton>
           </ListItem>
         ))}
+        {navItem.map((item) => (
+          
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText   onClick={() => navigate("/reviews")} primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+ 
 
   return (
     <Container maxWidth="sm">
@@ -85,7 +119,7 @@ function Navbar(props) {
               <MenuIcon />
               <img
                 className="icon"
-                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
+                src="/icons/LOGO.png"
                 alt=""
               />
             </IconButton>
@@ -104,25 +138,52 @@ function Navbar(props) {
             </Typography>
 
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItem.map((item) => (
+
+                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   onClick={() => navigate("/reviews")}>
+                  {item}
+                </Button>
+              ))}
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}>
+
+                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   >
                   {item}
                 </Button>
               ))}
             </Box>
-            <Button
-              className="button"
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                borderRadius: "30%",
-                fontWeight: "bold",
-                height: "100%",
-              }}
-              onClick={() => navigate("/register")}
-            >
-              Войти
-            </Button>
+         
+           {user.email == isAdmin ? ( 
+            <Link 
+              style={{ 
+                color: "white", 
+                margin: "0 10px", 
+              
+              }} 
+              to="/admin" 
+            > 
+              Admin 
+            </Link> 
+          ) : null} 
+         
+                    {
+            user? ( 
+          
+                    <Box  className="logout"  sx={{display:"flex"}}>
+                      
+                       <Button sx={ buttonStyle} onClick={()=> navigate("/admin")} >Admin</Button>
+                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+
+                    </Box>
+            
+            ): (
+                <Box  className="logout" sx={{display:"flex"}}>
+                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
+                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
+                </Box>
+            )
+          }
+       
           </Toolbar>
         </AppBar>
         <Box component="nav">

@@ -73,6 +73,10 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
           setEditedHotel({ ...editedHotel, map_link: e.target.value })
         }
       />
+
+     
+      
+
       <TextField
         sx={{ marginTop: "10px" }}
         type="text"
@@ -91,6 +95,7 @@ const HotelUpdate = ({ hotel, setShowInps }) => {
           setEditedHotel({ ...editedHotel, price: e.target.value })
         }
       />
+
       <TextField
         sx={{ marginTop: "10px" }}
         type="text"

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { API } from "../helpers/consts";
 
 const servicesContext = createContext();
@@ -49,6 +49,7 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ServicesContextProvider = ({ children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const token = JSON.parse(localStorage.getItem("token"))
@@ -64,14 +65,14 @@ const ServicesContextProvider = ({ children }) => {
 
   const cache_config = {
     headers: {
-      "Content-type": "multipart/form-data",
+      "Content-Type": "application/json",
       "Cache-Control": "no-cache",
     },
   };
 
   // hotels
   const getHotels = async () => {
-    let { data } = await axios.get(`${API}hotel/${window.location.search}`);
+    let { data } = await axios.get(`${API}hotel/search/${window.location.search}`);
     console.log(data);
     let action = {
       type: "GET_HOTELS",
@@ -224,6 +225,18 @@ const ServicesContextProvider = ({ children }) => {
     }
   };
 
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(location.search);
+
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    const url = `${location.pathname}?${search.toString()}`;
+    navigate(url);
+  };
+
   const cloud = {
     getHotels,
     hotelList: state.hotelList,
@@ -247,6 +260,7 @@ const ServicesContextProvider = ({ children }) => {
     deleteEntertainment,
     updateEntertainment,
     itemCount: state.itemCount,
+    fetchByParams,
   };
   return (
     <servicesContext.Provider value={cloud}>
