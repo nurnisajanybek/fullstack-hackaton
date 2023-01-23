@@ -11,6 +11,8 @@ const INIT_STATE = {
   hotelDetails: {},
   restaurantList: [],
   restaurantDetails: {},
+  entertainmentList: [],
+  entertainmentDetails: {},
 };
 
 const reducer = (state = INIT_STATE, action) => {
@@ -27,7 +29,6 @@ const reducer = (state = INIT_STATE, action) => {
       return { ...state, entertainmentList: action.payload };
     case "GET_ENTERTAINMENT_DETAILS":
       return { ...state, entertainmentDetails: action.payload };
-
     default:
       return state;
   }
@@ -48,9 +49,17 @@ const ServicesContextProvider = ({ children }) => {
     },
   };
 
+  const cache_config = {
+    headers: {
+      "Content-type": "multipart/form-data",
+      "Cache-Control": "no-cache",
+    },
+  };
+
   // hotels
   const getHotels = async () => {
-    let { data } = await axios(`${API}hotel/`);
+    let { data } = await axios.get(`${API}hotel/`);
+    console.log(data);
     let action = {
       type: "GET_HOTELS",
       payload: data.results,
@@ -59,7 +68,7 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const getHotelDetails = async (id) => {
-    let { data } = await axios(`${API}hotel/${id}`);
+    let { data } = await axios.get(`${API}hotel/${id}/`);
     let action = {
       type: "GET_HOTEL_DETAILS",
       payload: data,
@@ -103,7 +112,7 @@ const ServicesContextProvider = ({ children }) => {
   // restaurants
 
   const getRestaurants = async () => {
-    let { data } = await axios(`${API}place/`);
+    let { data } = await axios.get(`${API}place/`);
     let action = {
       type: "GET_RESTAURANTS",
       payload: data.results,
@@ -112,7 +121,7 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const getRestaurantDetails = async (id) => {
-    let { data } = await axios(`${API}place/${id}`);
+    let { data } = await axios.get(`${API}place/${id}/`);
     let action = {
       type: "GET_RESTAURANT_DETAILS",
       payload: data,
@@ -129,9 +138,32 @@ const ServicesContextProvider = ({ children }) => {
     }
   };
 
+  const deleteRestaurant = async (id) => {
+    try {
+      let res = await axios.delete(`${API}place/${id}/`, config);
+      navigate("/place");
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const updateRestaurant = async (editedRestaurant) => {
+    try {
+      let res = await axios.patch(
+        `${API}place/${editedRestaurant.id}/`,
+        editedRestaurant,
+        config
+      );
+      getRestaurantDetails(editedRestaurant.id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   // entertainments
   const getEntertainments = async () => {
-    let { data } = await axios(`${API}fun/`);
+    let { data } = await axios.get(`${API}fun/`);
     let action = {
       type: "GET_ENTERTAINMENTS",
       payload: data.results,
@@ -140,7 +172,7 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const getEntertainmentDetails = async (id) => {
-    let { data } = await axios(`${API}place/${id}`);
+    let { data } = await axios.get(`${API}fun/${id}/`);
     let action = {
       type: "GET_ENTERTAINMENT_DETAILS",
       payload: data,
@@ -152,6 +184,28 @@ const ServicesContextProvider = ({ children }) => {
     try {
       let res = await axios.post(`${API}fun/`, newEntertainment, config);
       console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const deleteEntertainment = async (id) => {
+    try {
+      let res = await axios.delete(`${API}fun/${id}/`, config);
+      navigate("/fun");
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const updateEntertainment = async (editedEntertainment) => {
+    try {
+      let res = await axios.patch(
+        `${API}fun/${editedEntertainment.id}/`,
+        editedEntertainment,
+        config
+      );
+      getEntertainmentDetails(editedEntertainment.id);
     } catch (error) {
       console.log(error);
     }
@@ -170,11 +224,15 @@ const ServicesContextProvider = ({ children }) => {
     getRestaurantDetails,
     restaurantDetails: state.restaurantDetails,
     addRestaurant,
+    deleteRestaurant,
+    updateRestaurant,
     getEntertainments,
     entertainmentList: state.entertainmentList,
     getEntertainmentDetails,
     entertainmentDetails: state.entertainmentDetails,
     addEntertainment,
+    deleteEntertainment,
+    updateEntertainment,
   };
   return (
     <servicesContext.Provider value={cloud}>
