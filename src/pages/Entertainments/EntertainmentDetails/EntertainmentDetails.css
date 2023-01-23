@@ -1,0 +1,56 @@
+body {
+  background-color: #eeeeee !important;
+}
+.detail {
+  display: flex;
+  margin-bottom: 5%;
+  background-color: white;
+}
+.detail:hover {
+  box-shadow: 8px 10px 5px 2px rgba(0, 0, 255, 0.2);
+}
+.img1 {
+  width: 30%;
+}
+.detail1 {
+  margin-left: 5%;
+}
+.line {
+  margin-left: 5%;
+}
+@media all and (max-width: 768px) {
+  .detail {
+    display: block;
+  }
+  .img1 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 425px) {
+  .detail {
+    display: block;
+  }
+  .img1 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 375px) {
+  .detail {
+    display: block;
+  }
+  .img1 {
+    width: 100%;
+  }
+}
+@media all and (max-width: 320px) {
+  .detail {
+    display: block;
+  }
+  .img1 {
+    width: 100%;
+  }
+}
+
+.bottom-card-info {
+  display: flex;
+}
