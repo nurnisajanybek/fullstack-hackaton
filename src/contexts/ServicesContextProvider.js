@@ -13,20 +13,33 @@ const INIT_STATE = {
   restaurantDetails: {},
   entertainmentList: [],
   entertainmentDetails: {},
+  itemCount: 0,
 };
 
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "GET_HOTELS":
-      return { ...state, hotelList: action.payload };
+      return {
+        ...state,
+        hotelList: action.payload.results,
+        itemCount: action.payload.count,
+      };
     case "GET_HOTEL_DETAILS":
       return { ...state, hotelDetails: action.payload };
     case "GET_RESTAURANTS":
-      return { ...state, restaurantList: action.payload };
+      return {
+        ...state,
+        restaurantList: action.payload.results,
+        itemCount: action.payload.count,
+      };
     case "GET_RESTAURANT_DETAILS":
       return { ...state, restaurantDetails: action.payload };
     case "GET_ENTERTAINMENTS":
-      return { ...state, entertainmentList: action.payload };
+      return {
+        ...state,
+        entertainmentList: action.payload.results,
+        itemCount: action.payload.count,
+      };
     case "GET_ENTERTAINMENT_DETAILS":
       return { ...state, entertainmentDetails: action.payload };
     default:
@@ -58,11 +71,11 @@ const ServicesContextProvider = ({ children }) => {
 
   // hotels
   const getHotels = async () => {
-    let { data } = await axios.get(`${API}hotel/`);
+    let { data } = await axios.get(`${API}hotel/${window.location.search}`);
     console.log(data);
     let action = {
       type: "GET_HOTELS",
-      payload: data.results,
+      payload: data,
     };
     dispatch(action);
   };
@@ -96,7 +109,6 @@ const ServicesContextProvider = ({ children }) => {
   };
 
   const updateHotel = async (editedHotel) => {
-
     try {
       console.log(editedHotel);
       let res = await axios.patch(
@@ -108,7 +120,6 @@ const ServicesContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-
   };
 
   // restaurants
@@ -117,7 +128,7 @@ const ServicesContextProvider = ({ children }) => {
     let { data } = await axios.get(`${API}place/`);
     let action = {
       type: "GET_RESTAURANTS",
-      payload: data.results,
+      payload: data,
     };
     dispatch(action);
   };
@@ -168,7 +179,7 @@ const ServicesContextProvider = ({ children }) => {
     let { data } = await axios.get(`${API}fun/`);
     let action = {
       type: "GET_ENTERTAINMENTS",
-      payload: data.results,
+      payload: data,
     };
     dispatch(action);
   };
@@ -235,6 +246,7 @@ const ServicesContextProvider = ({ children }) => {
     addEntertainment,
     deleteEntertainment,
     updateEntertainment,
+    itemCount: state.itemCount,
   };
   return (
     <servicesContext.Provider value={cloud}>
