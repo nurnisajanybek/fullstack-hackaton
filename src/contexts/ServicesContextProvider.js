@@ -64,14 +64,14 @@ const ServicesContextProvider = ({ children }) => {
 
   const cache_config = {
     headers: {
-      "Content-type": "multipart/form-data",
+      "Content-Type": "application/json",
       "Cache-Control": "no-cache",
     },
   };
 
   // hotels
   const getHotels = async () => {
-    let { data } = await axios.get(`${API}hotel/${window.location.search}`);
+    let { data } = await axios.get(`${API}hotel/search/${window.location.search}`);
     console.log(data);
     let action = {
       type: "GET_HOTELS",

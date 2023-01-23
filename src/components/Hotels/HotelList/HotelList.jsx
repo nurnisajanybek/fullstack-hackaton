@@ -13,6 +13,7 @@ const options = ["Option 1", "Option 2"];
 const HotelList = () => {
   const { getHotels, hotelList, itemCount } = useServices();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState('')
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
   const count = Math.ceil(itemCount / itemsPerPage);
@@ -27,9 +28,10 @@ const HotelList = () => {
 
   useEffect(() => {
     setSearchParams({
+      q: search,
       page: page,
     });
-  }, [page]);
+  }, [page, search]);
 
   const handlePage = (p) => {
     setPage(p);
@@ -43,6 +45,7 @@ const HotelList = () => {
       <Container>
         <div className="div1">
           <div className="divv">
+            <div className="search_inps">
             <Autocomplete
               value={value}
               onChange={(event, newValue) => {
@@ -60,12 +63,14 @@ const HotelList = () => {
               )}
             />
 
+              <TextField sx={{ml: 5}} type="text" placeholder="search..." value={search} onChange={(e) => setSearch(e.target.value)} />
+            </div>
             {hotelList?.map((hotel, index) => (
               <HotelCard hotel={hotel} key={index} />
             ))}
           </div>
         </div>
-        {hotelList.length > 0 ? (
+        {hotelList?.length > 0 ? (
           <Pagination
             variant="outlined"
             shape="rounded"
