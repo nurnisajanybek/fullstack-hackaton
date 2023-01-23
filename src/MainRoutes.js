@@ -7,7 +7,7 @@ import Register from "./components/Register";
 import Reviews from "./components/reviews/Reviews";
 import Revievs from "./components/reviews/Reviews";
 import { useAuth } from "./contexts/AuthContextProvider";
-import { ADMIN } from "./helpers/consts";
+import { ADMIN, isAdmin } from "./helpers/consts";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import EntertainmentDetails from "./pages/Entertainments/EntertainmentDetails/EntertainmentDetails";
 import Entertainments from "./pages/Entertainments/Entertainments";
@@ -56,11 +56,6 @@ const MainRoutes = () => {
       id: 5,
     },
     {
-      link: "/register",
-      element: <Register />,
-      id: 6,
-    },
-    {
       link: "/login",
       element: <Login />,
       id: 7,
@@ -75,6 +70,11 @@ const MainRoutes = () => {
       element: <AboutUs />,
       id: 7,
     }, 
+      {
+        link: "/register",
+        element: <Register />,
+        id: 6,
+      },
     {
       link: "/reviews",
       element: <Reviews />,
@@ -101,7 +101,7 @@ const MainRoutes = () => {
               <Route
                 path={route.link}
                 element={
-                  user.email === ADMIN ? (
+                  user.email === isAdmin ? (
                     route.element
                   ) : (
                     <Navigate replace to="*" />

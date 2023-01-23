@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useAuth } from "../contexts/AuthContextProvider";
 import { Alert } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,6 +30,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+ 
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, setError } = useAuth();
@@ -99,13 +102,16 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={handleSave}
+              onClick={()=>{
+                handleSave();
+                navigate("/login")
+              }}
             >
               Sign in
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link onClick={()=>navigate("/forgotpassword")} href="" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>

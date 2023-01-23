@@ -20,7 +20,7 @@ import { Container } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import { ADMIN } from "../../helpers/consts";
+import { ADMIN, isAdmin } from "../../helpers/consts";
 const drawerWidth = 240;
 const navItem = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
@@ -32,7 +32,20 @@ const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
 
 function Navbar(props) {
   const { window } = props;
-  const { user} = useAuth();
+  const { user,  checkAuth,  logout} = useAuth();
+  React.useEffect(()=>{
+    if(localStorage.getItem("token")){
+        checkAuth()
+    }
+ },[])
+
+console.log(user)
+const buttonStyle ={
+  color:"black  ",
+  display:"block",
+  textTransform: "capitalize",
+
+}
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -45,20 +58,25 @@ function Navbar(props) {
     
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Button
-          sx={{
-            color: "white",
-            backgroundColor: "black",
-            borderRadius: "30%",
-            fontWeight: "bold",
-            height: "100%",
-          }}
-        >
-          {" "}
-          Войти
-        </Button>
+      {
+            user? (
+             
+                    <Box  sx={{display:"flex"}}>
+                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+
+                    </Box>
+            
+            ): (
+                <Box sx={{display:"flex"}}>
+                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
+                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
+                </Box>
+            )
+          }
+       
         
-        {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Автор</Box>}
+        {/* {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Автор</Box>} */}
       </Typography>
       <Divider />
       <List>
@@ -83,6 +101,7 @@ function Navbar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+ 
 
   return (
     <Container maxWidth="sm">
@@ -132,20 +151,8 @@ function Navbar(props) {
                 </Button>
               ))}
             </Box>
-            <Button
-              className="button"
-              sx={{
-                color: "white",
-                backgroundColor: "black",
-                borderRadius: "30%",
-                fontWeight: "bold",
-                height: "100%",
-              }}
-              onClick={() => navigate("/register")}
-            >
-              Войти
-            </Button>
-            {user.email == ADMIN ? ( 
+         
+           {user.email == isAdmin ? ( 
             <Link 
               style={{ 
                 color: "white", 
@@ -157,7 +164,26 @@ function Navbar(props) {
               Admin 
             </Link> 
           ) : null} 
-            {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Авторизация</Box>}
+         
+                    {
+            user? ( 
+          
+                    <Box  className="logout"  sx={{display:"flex"}}>
+                      
+                       <Button sx={ buttonStyle} onClick={()=> navigate("/admin")} >Admin</Button>
+                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+
+                    </Box>
+            
+            ): (
+                <Box  className="logout" sx={{display:"flex"}}>
+                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
+                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
+                </Box>
+            )
+          }
+       
           </Toolbar>
         </AppBar>
         <Box component="nav">

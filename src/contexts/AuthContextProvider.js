@@ -44,6 +44,8 @@ const AuthContextProvider = ({ children }) => {
     }
   };
 
+
+
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
     console.log(token);
