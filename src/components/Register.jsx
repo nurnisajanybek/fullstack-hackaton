@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { Alert } from "@mui/material";
 import { useAuth } from "../contexts/AuthContextProvider";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -38,14 +39,14 @@ const theme = createTheme();
 
 export default function Register() {
   const {register , error} = useAuth()
-
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   function handleSave() {
-    if (!email.trim() || !password.trim() || !passwordConfirm.trim()) {
+    if (!email.trim() ||  !password.trim() ||  !passwordConfirm.trim()) {
       alert("Заполните поля!");
       return;
     }
@@ -130,12 +131,12 @@ export default function Register() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+              <Link  href="#" variant="body2" onClick={()=>navigate("/forgotpassword")}>
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" onClick={()=>navigate("/register")}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

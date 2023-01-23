@@ -68,7 +68,7 @@ const HotelDetails = () => {
                 color: "white",
                 borderRadius: "10px",
                 marginRight: "3%",
-                marginTop: "-5%",
+                marginTop: "  10%",
                 marginBottom: "3%",
                 marginLeft: "60%",
               }}
@@ -81,7 +81,7 @@ const HotelDetails = () => {
                 backgroundColor: "black",
                 color: "white",
                 borderRadius: "10px",
-                marginTop: "-5%",
+                marginTop: "-28%",
                 marginBottom: "3%",
               }}
               onClick={() => deleteHotel(id)}

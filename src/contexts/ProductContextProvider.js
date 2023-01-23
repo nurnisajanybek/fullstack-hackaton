@@ -6,6 +6,12 @@ import { useNavigate } from "react-router-dom";
 const productContext = createContext();
 export const useProducts = () => useContext(productContext);
 
+const cartContext = createContext();
+
+export const useCart = () => {
+  return useContext(cartContext)
+}
+
 const INIT_STATE = {
   products: [],
   pages: 0,

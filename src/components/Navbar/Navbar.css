@@ -15,6 +15,7 @@
     margin-top: 5px;
 
 }
+
 .css-i4bv87-MuiSvgIcon-root{
     color: black;
 }
@@ -65,8 +66,16 @@ height: 50px;
     .css-4ikvch-MuiSvgIcon-root{
      display: none !important;
     }
+    .logout{
+        display: none;
+         }
     
     
+}
+@media all and (max-width: 315px){
+    .logout{
+        display: none;
+         }
 }
 @media all and (max-width: 315px){
 
@@ -78,6 +87,9 @@ height: 50px;
  }
  .css-i4bv87-MuiSvgIcon-root{
    margin-right: 10px !important;
+ }
+ .logout{
+display: none;
  }
  
  
