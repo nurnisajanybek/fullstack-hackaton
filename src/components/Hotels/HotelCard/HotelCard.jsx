@@ -12,18 +12,17 @@ import "./HotelCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-export default function HotelCard({ hotel, key }) {
+export default function HotelCard({ hotel }) {
   const theme = useTheme();
 
   const navigate = useNavigate();
 
   return (
-    <Box className="box-hotel" key={key}>
+    <Box className="box-hotel">
       <Card className="cards-hotels">
         <CardMedia
-         className="media-hotel"
+          className="media-hotel"
           component="img"
-         
           image={hotel.image}
         />
 
@@ -48,10 +47,10 @@ export default function HotelCard({ hotel, key }) {
             >
               {hotel.name}
             </Typography>
-            <Box className="boxes-number1" >
+            <Box className="boxes-number1">
               <br />
               <Box className="boxes-hotel">
-                <Typography  className="type-hotel" >{hotel.price}</Typography>
+                <Typography className="type-hotel">{hotel.price}</Typography>
                 <Button
                   className="btn-hotel"
                   onClick={() => navigate(`/hotels/${hotel.id}`)}
@@ -59,13 +58,11 @@ export default function HotelCard({ hotel, key }) {
                   Показать
                 </Button>
                 <div className="check"> </div>
-                
               </Box>
-              
+
               <hr className="hr" />
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
-                
                 <div className="rating">
                   {" "}
                   <span>Рейтинг</span>
@@ -74,17 +71,20 @@ export default function HotelCard({ hotel, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b className="hotel-adress">{hotel.address}</b>
+                  <a href={hotel.map_link} className="hotel-adress">
+                    {hotel.address}
+                  </a>
                 </div>
                 <div className="div">
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {hotel.hours}</span>
+                      <span className="text">Время работы : {hotel.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={hotel.hotel_link}></a>
-                    <span class="textt">Перейти на&nbsp;сайт отеля</span>
+                    <a href={hotel.hotel_link} className="textt">
+                      Перейти на&nbsp;сайт отеля
+                    </a>
                   </div>
                 </div>
               </Box>

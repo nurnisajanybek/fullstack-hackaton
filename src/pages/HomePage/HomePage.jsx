@@ -12,9 +12,10 @@ const HomePage = () => {
     <>
       <div className="first-block container">
         {/* first section */}
-        <a onClick={() => navigate("/hotels")} className="each-link">
-          <span>Отели</span>
-          <svg className="svg-active" viewBox="0 0 24 24" width="24px" height="24px" class="">
+        <a className="each-link">
+          <span onClick={() => navigate("/hotels")}>Отели</span>
+
+          <svg  className="svg-active"  viewBox="0 0 24 24" width="24px" height="24px" class="">
             <path
               className="icon6"
               fill-rule="evenodd"

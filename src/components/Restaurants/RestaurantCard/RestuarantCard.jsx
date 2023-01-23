@@ -25,7 +25,7 @@ export default function RestaurantCard({ place, key }) {
           className="media"
           component="img"
           sx={{ width: 250 }}
-          image={place?.image}
+          image={place.image}
         />
 
         <Box
@@ -47,20 +47,21 @@ export default function RestaurantCard({ place, key }) {
                 marginLeft: "12%",
               }}
             >
-              {place?.name}
+              {place.name}
             </Typography>
             <Box sx={{ display: "flex", width: "320px" }}>
               <br />
               <Box>
-                <Typography className="num">{place?.price}</Typography>
+                <Typography className="num">{place.price}</Typography>
                 <Button
                   className="btn"
-                  onClick={() => navigate(`/place/${place?.id}`)}
+                  onClick={() => navigate(`/place/${place.id}`)}
                 >
                   Показать
                 </Button>
                 <div className="check"> </div>
               </Box>
+
               <hr className="hr" />
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
@@ -72,17 +73,20 @@ export default function RestaurantCard({ place, key }) {
 
                 <div>
                   <LocationOnIcon />
-                  <b>{place?.address}</b>
+                  <a href={place.map_link} className="place-adress">
+                    {place.address}
+                  </a>
                 </div>
                 <div className="div">
                   <div>
                     <div>
                       <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                      <span class="text">Время работы : {place?.hours}</span>
+                      <span class="text">Время работы : {place.hours}</span>
                     </div>
                     <LanguageIcon sx={{ fontSize: "100%" }} />
-                    <a href={place?.place_link}></a>
-                    <span class="text">Посетить веб-сайт</span>
+                    <a href={place.place_link} class="textt">
+                      Перейти на&nbsp;сайт отеля
+                    </a>
                   </div>
                 </div>
               </Box>
