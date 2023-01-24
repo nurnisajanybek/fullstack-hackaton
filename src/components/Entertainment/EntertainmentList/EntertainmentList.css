@@ -4,3 +4,7 @@
 .div1 {
   display: flex;
 }
+.search_inps {
+  display: flex;
+  max-width: 90%;
+}

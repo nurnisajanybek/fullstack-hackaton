@@ -13,7 +13,7 @@ const options = [1, 2];
 const HotelList = () => {
   const { getHotels, hotelList, itemCount, fetchByParams } = useServices();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
   const count = Math.ceil(itemCount / itemsPerPage);
@@ -45,19 +45,25 @@ const HotelList = () => {
         <div className="div1">
           <div className="divv">
             <div className="search_inps">
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={value}
-              label="category"
-              onChange={(e) => fetchByParams('category', e.target.value)}
-            >
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={2}>2</MenuItem>
-              <MenuItem value={3}>3</MenuItem>
-            </Select>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={value}
+                label="category"
+                onChange={(e) => fetchByParams("category", e.target.value)}
+              >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+              </Select>
 
-              <TextField sx={{ml: 5}} type="text" placeholder="search..." value={search} onChange={(e) => setSearch(e.target.value)} />
+              <TextField
+                sx={{ ml: 5 }}
+                type="text"
+                placeholder="search..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
             </div>
             {hotelList?.map((hotel, index) => (
               <HotelCard hotel={hotel} key={index} />

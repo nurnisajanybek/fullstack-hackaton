@@ -72,7 +72,9 @@ const ServicesContextProvider = ({ children }) => {
 
   // hotels
   const getHotels = async () => {
-    let { data } = await axios.get(`${API}hotel/search/${window.location.search}`);
+    let { data } = await axios.get(
+      `${API}hotel/search/${window.location.search}`
+    );
     console.log(data);
     let action = {
       type: "GET_HOTELS",
@@ -126,7 +128,9 @@ const ServicesContextProvider = ({ children }) => {
   // restaurants
 
   const getRestaurants = async () => {
-    let { data } = await axios.get(`${API}place/`);
+    let { data } = await axios.get(
+      `${API}place/search/${window.location.search}`
+    );
     let action = {
       type: "GET_RESTAURANTS",
       payload: data,
@@ -177,7 +181,9 @@ const ServicesContextProvider = ({ children }) => {
 
   // entertainments
   const getEntertainments = async () => {
-    let { data } = await axios.get(`${API}fun/`);
+    let { data } = await axios.get(
+      `${API}fun/search/${window.location.search}`
+    );
     let action = {
       type: "GET_ENTERTAINMENTS",
       payload: data,
