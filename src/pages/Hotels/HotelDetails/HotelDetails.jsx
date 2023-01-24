@@ -10,8 +10,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HotelUpdate from "../../../components/Hotels/HotelUpdate/HotelUpdate";
 import { useAuth } from "../../../contexts/AuthContextProvider";
+import { isAdmin } from "../../../helpers/consts";
 
-const HotelDetails = () => {
+const HotelDetails = (hotel) => {
   const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
   const [showInps, setShowInps] = useState(false);
@@ -60,23 +61,22 @@ const HotelDetails = () => {
                   <a href={hotelDetails?.hotel_link} class="textt">
                     Перейти на&nbsp;сайт отеля
                   </a>
+                  
                 </div>
               </div>
             </Box>
-            </div>
-          </div>
-
-            {user == "admin@admin.com" ? (
+            
+            {isAdmin() ? (
               <>
                 <Button
                   sx={{
                     backgroundColor: "black",
                     color: "white",
                     borderRadius: "10px",
-                    marginRight: "3%",
-                    marginTop: "  10%",
-                    marginBottom: "3%",
-                    marginLeft: "60%",
+                    // marginRight: "3%",
+                    // marginTop: "  10%",
+                    // marginBottom: "3%",
+                    // marginLeft: "60%",
                   }}
                   onClick={() => setShowInps(!showInps)}
                   >
@@ -87,8 +87,8 @@ const HotelDetails = () => {
                     backgroundColor: "black",
                     color: "white",
                     borderRadius: "10px",
-                    marginTop: "-28%",
-                    marginBottom: "3%",
+                    // marginTop: "-28%",
+                    // marginBottom: "3%",
                   }}
                   onClick={() => deleteHotel(id)}
                   >
@@ -98,7 +98,11 @@ const HotelDetails = () => {
             ) : (
               <>You are not admin</>
             )}
-        ;
+            </div>
+            
+          </div>
+
+        
         <div className="bottom-card-info">
           <Coments />
           {showInps ? (

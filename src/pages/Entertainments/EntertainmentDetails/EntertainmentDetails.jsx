@@ -64,6 +64,7 @@ const EntertainmentDetails = () => {
                   </div>
                 </div>
               </Box>
+               
               { isAdmin() ? (
                 <div>
 
@@ -73,10 +74,10 @@ const EntertainmentDetails = () => {
                   backgroundColor: "black",
                   color: "white",
                   borderRadius: "10px",
-                  marginRight: "3%",
-                  marginTop: "3%",
-                  marginBottom: "3%",
-                  marginLeft: "60%",
+                  // marginRight: "3%",
+                  // marginTop: "3%",
+                  // marginBottom: "3%",
+                  // marginLeft: "60%",
                 }}
                 >
                 Edit
@@ -86,8 +87,8 @@ const EntertainmentDetails = () => {
                   backgroundColor: "black",
                   color: "white",
                   borderRadius: "10px",
-                  marginTop: "3%",
-                  marginBottom: "3%",
+                  // marginTop: "3%",
+                  // marginBottom: "3%",
                 }}
                 >
                 Delete

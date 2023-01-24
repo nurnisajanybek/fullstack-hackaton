@@ -1,7 +1,14 @@
 /* first block */
 .container {
+
   width: 80%;
   margin: 0 auto;
+  
+
+}
+
+.container-h2{
+  text-align: center;
 }
 
 .first-block {
@@ -151,6 +158,7 @@ a {
   justify-content: space-between;
   margin: 2% auto;
   width: 100%;
+
 }
 .test {
   display: flex;
@@ -181,6 +189,7 @@ a {
   flex-direction: column;
   transition: 150ms;
   cursor: pointer;
+  border: 3px solid black;
 }
 
 .test-card-rating :nth-of-type(2) {

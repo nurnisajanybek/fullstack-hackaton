@@ -92,42 +92,42 @@ const HomePage = () => {
         </div>
       </div>
       {/* third block*/}
-      <h2 className="container">Ваши последние поисковые запросы</h2>
+      <h2 className="container-h2" >Наши рекомендуемые места </h2>
       {/* forth block*/}
-      <h2 className="container">Вам также может понравиться</h2>
+      <h2 className="container-h2">Вам также может понравиться</h2>
       {/* test cards with rating */}
       <div className="container">
         <div className="test-block">
           {/* <div className="class1"> */}
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/217442989.jpg?k=6217cb43dd78c78daf0cda5cd6690d1db9c1d86acdc433a7221ebf983667b216&o=&hp=1"
               alt=""
             />
-            <span >(Place)</span>
-            <div>rating</div>
-            <span > (type) </span>
+            <span >(Garden Hotel & SPA)</span>
+         
+            <span > (Южная Магистраль пересекает ул. Баха. Эмилбека Айлчиева 61, 720047 Бишкек,) </span>
           </a>
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/03/4b/60/cosmopark.jpg?w=500&h=400&s=1"
               alt=""
             />
-            <span >(Place)</span>
-            <div>rating</div>
-            <span > (type) </span>
+            <span >(СosmopPark)</span>
+           
+            <span > (7 мкрн, ул. К.Маркса перес. ул. Донецкая, 58 Юнусалиев проспектиси, Бишкек) </span>
           </a>
           {/* </div> */}
           {/* <div className="class2"> */}
 
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://media-cdn.tripadvisor.com/media/photo-s/1c/80/5b/29/caption.jpg"
               alt=""
             />
-            <span >(Place)</span>
+            <span >(Облако 53)</span>
             <div>rating</div>
-            <span > (type) </span>
+            <span > (ул. Раззакова, 19, Бишкек 720000 Киргизия) </span>
           </a>
           {/* </div> */}
         </div>
