@@ -11,7 +11,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HotelUpdate from "../../../components/Hotels/HotelUpdate/HotelUpdate";
 import { useAuth } from "../../../contexts/AuthContextProvider";
 
-const HotelDetails = (hotel) => {
+const HotelDetails = () => {
   const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
   const [showInps, setShowInps] = useState(false);

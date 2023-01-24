@@ -11,6 +11,7 @@ import { ADMIN, isAdmin } from "./helpers/consts";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import EntertainmentDetails from "./pages/Entertainments/EntertainmentDetails/EntertainmentDetails";
 import Entertainments from "./pages/Entertainments/Entertainments";
+import FavoritesPage from "./pages/Favorites/FavoritesPage";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
@@ -48,38 +49,43 @@ const MainRoutes = () => {
     {
       link: "/fun",
       element: <Entertainments />,
-      id: 4,
+      id: 6,
     },
     {
       link: "/fun/:id",
       element: <EntertainmentDetails />,
-      id: 5,
+      id: 7,
     },
     {
       link: "/login",
       element: <Login />,
-      id: 7,
+      id: 8,
     },
     {
       link: "/admin",
       element: <AdminPage />,
-      id: 8,
+      id: 9,
     },
     {
       link: "/aboutus",
       element: <AboutUs />,
-      id: 7,
+      id: 10,
     }, 
       {
         link: "/register",
         element: <Register />,
-        id: 6,
+        id: 11,
       },
     {
       link: "/reviews",
       element: <Reviews />,
-      id: 7,
+      id: 12,
     },
+    {
+      link: "/favorites",
+      element: <FavoritesPage />,
+      id: 13,
+    }
   ];
 
   const PRIVATE_ROUTES = [

@@ -24,6 +24,7 @@
   color: black;
   cursor: pointer;
   background-color: var(--secondaryButtonFill);
+  transition: 150ms;
 }
 
 a {
@@ -82,16 +83,15 @@ a {
   left: 2%;
   top: 50%;
   margin-top: -14px;
-  transition: 200ms;
+  transition: 150ms;
 }
 
 .each-link:hover {
 
   color: #fff;
   background:black; 
-  tansition: all 0.9s linear;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 150ms linear;
+  -moz-transition: all 150ms linear;
   /* background-color: var(--secondaryButtonFill) */
      fill: currentColor;
 }

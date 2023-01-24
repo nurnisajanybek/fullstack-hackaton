@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useServices } from "../../../contexts/ServicesContextProvider";
 import "./RestaurantDetails.css";
@@ -8,10 +8,13 @@ import Coments from "../../../components/coments/Coments";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import RestaurantUpdate from "../../../components/Restaurants/RestaurantUpdate/RestaurantUpdate";
 
 const RestaurantDetails = () => {
-  const { getRestaurantDetails, restaurantDetails } = useServices();
+  const { getRestaurantDetails, restaurantDetails, deleteRestaurant } =
+    useServices();
   const { id } = useParams();
+  const [showInps, setShowInps] = useState(false);
 
   useEffect(() => {
     getRestaurantDetails(id);
@@ -56,8 +59,8 @@ const RestaurantDetails = () => {
                     </span>
                   </div>
                   <LanguageIcon sx={{ fontSize: "100%" }} />
-                  <a href={restaurantDetails?.place_link} class="textt">
-                    Перейти на сайт
+                  <a href={restaurantDetails?.restaurant_link} class="textt">
+                    Перейти на&nbsp;сайт отеля
                   </a>
                 </div>
               </div>
@@ -69,10 +72,11 @@ const RestaurantDetails = () => {
                 color: "white",
                 borderRadius: "10px",
                 marginRight: "3%",
-                marginTop: "3%",
+                marginTop: "-5%",
                 marginBottom: "3%",
                 marginLeft: "60%",
               }}
+              onClick={() => setShowInps(!showInps)}
             >
               Edit
             </Button>
@@ -81,16 +85,26 @@ const RestaurantDetails = () => {
                 backgroundColor: "black",
                 color: "white",
                 borderRadius: "10px",
-                marginTop: "3%",
+                marginTop: "-5%",
                 marginBottom: "3%",
               }}
+              onClick={() => deleteRestaurant(id)}
             >
               Delete
             </Button>
           </div>
         </div>
         ;
-        <Coments />
+        <div className="bottom-card-info">
+          <Coments />
+          {showInps ? (
+            <>
+              <RestaurantUpdate restaurant={restaurantDetails} />
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
       </Box>
     </Container>
   );
