@@ -8,6 +8,7 @@ import Coments from "../../../components/coments/Coments";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { isAdmin } from "../../../helpers/consts";
 
 const EntertainmentDetails = () => {
   const { getEntertainmentDetails, entertainmentDetails } = useServices();
@@ -61,6 +62,9 @@ const EntertainmentDetails = () => {
                   </div>
                 </div>
               </Box>
+              { isAdmin() ? (
+              <div>
+
 
               <Button
                 sx={{
@@ -72,7 +76,7 @@ const EntertainmentDetails = () => {
                   marginBottom: "3%",
                   marginLeft: "60%",
                 }}
-              >
+                >
                 Edit
               </Button>
               <Button
@@ -86,6 +90,11 @@ const EntertainmentDetails = () => {
               >
                 Delete
               </Button>
+                  </div>
+                  ) : (
+              null
+            )}
+
             </div>
           </div>
           ;

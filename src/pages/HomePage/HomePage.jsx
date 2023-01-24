@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import SingleBedIcon from "@mui/icons-material/SingleBed";
+import ForestTwoToneIcon from '@mui/icons-material/ForestTwoTone';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 
 const cards = [1, 2, 3, 4];
 
@@ -41,7 +43,7 @@ const HomePage = () => {
         </a>
 
         {/* third section */}
-        <a className="each-link">
+        <a className="each-link"  onClick={() => navigate("/place")}>
           <span >Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
@@ -59,7 +61,29 @@ const HomePage = () => {
       </div>
       {/* second block */}
       <div className="container second-block">
-        <div className="search-container"></div>
+        <div className="search-container">
+        <div className="best-trip-txt">
+            
+            <span className="bold"> Планируйте свои лучшие дни  <ForestTwoToneIcon/></span>
+            <h5 className="h5-bold" >Вместе с нами </h5>
+         
+           
+          </div>
+        <Button
+              className="explor"
+              sx={{
+                color: "black",
+                backgroundColor: "white",
+                borderRadius: "20px",
+                width: "25%",
+                fontWeight: "bold",
+                marginLeft:"10%"
+              }}
+              onClick={() => navigate("/aboutus")}
+            >
+            О нас  
+            </Button>
+        </div>
       </div>
       {/* third block*/}
       <h2 className="container">Ваши последние поисковые запросы</h2>
@@ -74,18 +98,18 @@ const HomePage = () => {
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
             />
-            <span className="bold">(Place)</span>
+            <span >(Place)</span>
             <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span > (type) </span>
           </a>
           <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
             />
-            <span className="bold">(Place)</span>
+            <span >(Place)</span>
             <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span > (type) </span>
           </a>
           {/* </div> */}
           {/* <div className="class2"> */}
@@ -95,9 +119,9 @@ const HomePage = () => {
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
               alt=""
             />
-            <span className="bold">(Place)</span>
+            <span >(Place)</span>
             <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span > (type) </span>
           </a>
           {/* </div> */}
         </div>
@@ -111,22 +135,8 @@ const HomePage = () => {
               media="(max-width: 400px)"
               srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
             ></source>
-            <span className="bold">Plan your best trip ever</span>
-            <span>We’ve got everything you need to go big in 2023.</span>
-            <Button
-              className="explor"
-              sx={{
-                color: "black",
-                backgroundColor: "white",
-                borderRadius: "20px",
-                width: "30%",
-                fontWeight: "bold",
-                height: "160%",
-              }}
-              onClick={() => navigate("/aboutus")}
-            >
-              Explore now
-            </Button>
+           
+           
           </div>
           <div className="best-trip-shadow"></div>
         </div>

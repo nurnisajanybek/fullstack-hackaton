@@ -88,6 +88,11 @@ const MainRoutes = () => {
       element: <AdminPage />,
       id: 1,
     },
+    {
+      link: "/editOneProduct/:id",
+      element: <AdminPage/>,
+      id: 2,
+    }
    
   ];
 

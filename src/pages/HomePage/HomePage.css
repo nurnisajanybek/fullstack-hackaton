@@ -37,16 +37,20 @@ a {
 
 /* second block */
 
+
+
 .second-block {
-  background: url(https://static.tacdn.com/img2/brand/home/homemar2022_dt_trans.png)
+  background: url(https://about-planet.ru/images/asia/strana/kirgizia/kirgizia7.jpg)
     no-repeat;
-  background-size: contain;
+  /* background-size: contain; */
   background-position: center;
-  height: 50vh;
-  display: flex;
+    /* width: 150%; */
+  height: 70vh;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */ 
+
 }
 .search {
   z-index: 3;
@@ -159,9 +163,12 @@ a {
   background-position: center;
   background-size: cover;
   color: white;
+
 }
 .test:hover {
-  opacity: 0.6;
+  opacity: 0.6; 
+  
+
 }
 /* test with rating  */
 .test-card-rating {
@@ -185,7 +192,24 @@ a {
 }
 
 .bold {
-  font-weight: bold;
+  /* font-weight: bold; */
+ width: 150% !important;
+font-weight: -10%;
+ margin-top: 50%;
+ color:white;
+ 
+border-radius: 20px;
+
+ 
+}
+.h5-bold{
+  color: white;
+ 
+  border-radius: 20px;
+  margin-top: 5px;
+  margin-left: 15%;
+  margin-bottom: 10px;
+   
 }
 /* best trip block */
 .best-trip-block {

@@ -6,10 +6,10 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function Search() {
   return (
-    <Stack spacing={2} sx={{ width: 600, borderRadius:"100px", marginLeft:"23%" }}>
+    <Stack  spacing={2} sx={{ width: 600, borderRadius:"100px", marginLeft:"23%" }}>
      
       <Autocomplete
-     
+     className='stack'
      freeSolo
      id="free-solo-2-demo"
      disableClearable
