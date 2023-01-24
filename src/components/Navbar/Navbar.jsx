@@ -1,4 +1,4 @@
-import * as React from "react";
+import React , {useEffect, useState}from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -21,6 +21,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { ADMIN, isAdmin } from "../../helpers/consts";
+import { Hidden, Menu, MenuItem } from "@mui/material";
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 const drawerWidth = 240;
 const navItem = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
@@ -31,25 +34,34 @@ const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
  "Избранная",]
 
 function Navbar(props) {
+  
   const { window } = props;
   const { user,  checkAuth,  logout} = useAuth();
-  React.useEffect(()=>{
+  
+  useEffect(()=>{
     if(localStorage.getItem("token")){
-        checkAuth()
+      checkAuth()
     }
- },[])
-
-console.log(user)
-const buttonStyle ={
-  color:"black  ",
-  display:"block",
-  textTransform: "capitalize",
-
-}
-
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  },[])
+  
+  console.log(user)
+  const buttonStyle ={
+    color:"black  ",
+    display:"block",
+    textTransform: "capitalize",
+    
+  }
+  
+  const [mobileOpen, setMobileOpen , ] = React.useState(false);
+  const [anchorEl, setAnchorEl] = useState(null)
   const navigate = useNavigate();
-
+  
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -58,18 +70,22 @@ const buttonStyle ={
     
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
+      {isAdmin() ? ( 
+              <Button   sx={{ color: "black", fontWeight: "bold" }}  hidden="false" onClick={()=> navigate("/admin")} > <AdminPanelSettingsOutlinedIcon />Admin</Button>
+          ) : <></>} 
       {
             user? (
              
-                    <Box  sx={{display:"flex"}}>
-                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                    <Box   sx={{ width:"15%", marginLeft:"15%"}}>
+                        <Typography  sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
                         <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
 
+                        <Button className="button"  sx={ buttonStyle}     onClick={()=> navigate("/admin")} >Admin</Button>
                     </Box>
             
             ): (
-                <Box sx={{display:"flex"}}>
-                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
+              <Box sx={{display:"flex"}}>
+                    <Button sx={ buttonStyle}  onClick={()=> navigate("/login")}>Login</Button>
                     <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
                 </Box>
             )
@@ -101,8 +117,7 @@ const buttonStyle ={
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
- 
-
+    
   return (
     <Container maxWidth="sm">
       <Box sx={{ display: "flex" }}>
@@ -151,38 +166,68 @@ const buttonStyle ={
                 </Button>
               ))}
             </Box>
-         
-           {user.email == isAdmin ? ( 
-            <Link 
-              style={{ 
-                color: "white", 
-                margin: "0 10px", 
-              
-              }} 
-              to="/admin" 
-            > 
-              Admin 
-            </Link> 
-          ) : null} 
-         
-                    {
-            user? ( 
-          
-                    <Box  className="logout"  sx={{display:"flex"}}>
-                      
-                       <Button sx={ buttonStyle} onClick={()=> navigate("/admin")} >Admin</Button>
-                        <Typography sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
-                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+            <IconButton className="iconbutton"
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle   className="iconbutton" />
+              </IconButton>
+              <Menu
+             
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                
 
+
+            <MenuItem onClick={handleClose} >
+              {isAdmin() ? ( 
+                <Button className="button"  sx={{ color: "black", fontWeight: "bold" }}  hidden="false" onClick={()=> navigate("/admin")} > <AdminPanelSettingsOutlinedIcon  />Admin</Button>
+             ) : <></>} 
+            </MenuItem>
+
+
+
+
+                    {
+                      user? ( 
+                        
+                        <Box  className="logout2"  sx={{display:"flex"}}>
+                      
+                    
+                          <MenuItem onClick={handleClose}>
+                        <Typography className="button"  sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
+                        <Button className="button2"  sx={ buttonStyle} onClick={logout} >Logout</Button>
+
+          </MenuItem>
                     </Box>
             
             ): (
-                <Box  className="logout" sx={{display:"flex"}}>
-                    <Button sx={ buttonStyle}    onClick={()=> navigate("/login")}>Login</Button>
-                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
+              <Box  sx={{display:"flex"}}>
+                      <MenuItem onClick={handleClose}>
+
+                    <Button sx={ buttonStyle} className="button"     onClick={()=> navigate("/login")}>Login</Button>
+                    <Button sx={ buttonStyle} className="button"   onClick={()=> navigate("/register")}>Register</Button>
+                      </MenuItem>
                 </Box>
             )
           }
+          </Menu>
        
           </Toolbar>
         </AppBar>

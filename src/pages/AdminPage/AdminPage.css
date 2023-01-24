@@ -50,7 +50,7 @@ background-color: white;
 }
 @media all and (max-width: 768px) {
   .admin-page{
-      width: 150%;
+      width: 100%;
   }
 }
 @media all and (max-width: 425px) {

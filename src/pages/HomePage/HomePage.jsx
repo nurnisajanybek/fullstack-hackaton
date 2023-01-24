@@ -3,6 +3,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import SingleBedIcon from "@mui/icons-material/SingleBed";
+import ForestTwoToneIcon from '@mui/icons-material/ForestTwoTone';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 
 const cards = [1, 2, 3, 4];
 
@@ -47,8 +49,8 @@ const HomePage = () => {
         </a>
 
         {/* third section */}
-        <a onClick={() => navigate("/place")} className="each-link">
-          <span>Рестораны</span>
+        <a  onClick={() => navigate("/place")} className="each-link">
+          <span >Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
@@ -65,45 +67,67 @@ const HomePage = () => {
       </div>
       {/* second block */}
       <div className="container second-block">
-        <div className="search-container"></div>
+        <div className="search-container">
+        <div className="best-trip-txt">
+            
+            <span className="bold"> Планируйте свои лучшие дни  <ForestTwoToneIcon/></span>
+            <h5 className="h5-bold" >Вместе с нами </h5>
+         
+           
+          </div>
+        <Button
+              className="explor"
+              sx={{
+                color: "black",
+                backgroundColor: "white",
+                borderRadius: "20px",
+                width: "25%",
+                fontWeight: "bold",
+                marginLeft:"10%"
+              }}
+              onClick={() => navigate("/aboutus")}
+            >
+            О нас  
+            </Button>
+        </div>
       </div>
       {/* third block*/}
-      <h2 className="container">Ваши последние поисковые запросы</h2>
+      <h2 className="container-h2" >Наши рекомендуемые места </h2>
       {/* forth block*/}
-      <h2 className="container">Вам также может понравиться</h2>
+      <h2 className="container-h2">Вам также может понравиться</h2>
       {/* test cards with rating */}
       <div className="container">
         <div className="test-block">
           {/* <div className="class1"> */}
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/217442989.jpg?k=6217cb43dd78c78daf0cda5cd6690d1db9c1d86acdc433a7221ebf983667b216&o=&hp=1"
               alt=""
             />
-            <span className="bold">(Place)</span>
-            <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span >(Garden Hotel & SPA)</span>
+         
+            <span > (Южная Магистраль пересекает ул. Баха. Эмилбека Айлчиева 61, 720047 Бишкек,) </span>
           </a>
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/03/4b/60/cosmopark.jpg?w=500&h=400&s=1"
               alt=""
             />
-            <span className="bold">(Place)</span>
-            <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span >(СosmopPark)</span>
+           
+            <span > (7 мкрн, ул. К.Маркса перес. ул. Донецкая, 58 Юнусалиев проспектиси, Бишкек) </span>
           </a>
           {/* </div> */}
           {/* <div className="class2"> */}
 
           <a className="test-card-rating">
             <img
-              src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/b0/ff/33/caption.jpg?w=600&h=600&s=1"
+              src="https://media-cdn.tripadvisor.com/media/photo-s/1c/80/5b/29/caption.jpg"
               alt=""
             />
-            <span className="bold">(Place)</span>
+            <span >(Облако 53)</span>
             <div>rating</div>
-            <span className="bold"> (type) </span>
+            <span > (ул. Раззакова, 19, Бишкек 720000 Киргизия) </span>
           </a>
           {/* </div> */}
         </div>
@@ -117,22 +141,8 @@ const HomePage = () => {
               media="(max-width: 400px)"
               srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
             ></source>
-            <span className="bold">Plan your best trip ever</span>
-            <span>We’ve got everything you need to go big in 2023.</span>
-            <Button
-              className="explor"
-              sx={{
-                color: "black",
-                backgroundColor: "white",
-                borderRadius: "20px",
-                width: "30%",
-                fontWeight: "bold",
-                height: "160%",
-              }}
-              onClick={() => navigate("/aboutus")}
-            >
-              Explore now
-            </Button>
+           
+           
           </div>
           <div className="best-trip-shadow"></div>
         </div>

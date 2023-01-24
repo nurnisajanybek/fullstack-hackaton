@@ -40,3 +40,23 @@
 text-align: center;
 font-size: 370%;
 }
+@media all and (max-width: 768px) {
+    .stack{
+        margin-right: 150px !important;
+margin-left: -20%;
+
+}
+.h1-h2{
+    width: 90%;
+}
+
+}
+
+@media all and (max-width: 768px) {
+    /* .stack{ */
+      /* width: 100% !important;
+    } */
+        .css-1x1oqqx-MuiStack-root{
+            width: 80% !important;
+        }
+}

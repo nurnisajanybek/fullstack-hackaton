@@ -7,7 +7,11 @@ import { Box, Container } from "@mui/system";
 import Coments from "../../../components/coments/Coments";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+
+import { isAdmin } from "../../../helpers/consts";
+
 import EntertainmentUpdate from "../../../components/Entertainment/EntertainmentUpdate/EntertainmentUpdate";
+
 
 const EntertainmentDetails = () => {
   const { getEntertainmentDetails, entertainmentDetails, deleteEntertainment } =
@@ -50,7 +54,7 @@ const EntertainmentDetails = () => {
                   {entertainmentDetails?.address}
                 </a>
               </div>
-              <div className="div">
+            
                 <div>
                   <div>
                     <CalendarMonthIcon sx={{ fontSize: "100%" }} />
@@ -59,39 +63,49 @@ const EntertainmentDetails = () => {
                     </span>
                   </div>
                 </div>
-              </div>
-            </Box>
+              </Box>
+               
+              { isAdmin() ? (
+                <div>
 
-            <Button
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "10px",
-                marginRight: "3%",
-                marginTop: "-5%",
-                marginBottom: "3%",
-                marginLeft: "60%",
-              }}
-              onClick={() => setShowInps(!showInps)}
-            >
-              Edit
-            </Button>
-            <Button
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "10px",
-                marginTop: "-5%",
-                marginBottom: "3%",
-              }}
-              onClick={() => deleteEntertainment(id)}
-            >
-              Delete
-            </Button>
+
+              <Button
+                sx={{
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "10px",
+                  // marginRight: "3%",
+                  // marginTop: "3%",
+                  // marginBottom: "3%",
+                  // marginLeft: "60%",
+                }}
+                >
+                Edit
+              </Button>
+              <Button
+                sx={{
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "10px",
+                  // marginTop: "3%",
+                  // marginBottom: "3%",
+                }}
+                >
+                Delete
+              </Button>
+                    </div>
+                  ) : (
+                    null
+                    )}
+
+            </div>
+
           </div>
-        </div>
-        ;
+
+ 
+        
         <div className="bottom-card-info">
+          </div>
           <Coments />
           {showInps ? (
             <>
@@ -99,8 +113,9 @@ const EntertainmentDetails = () => {
             </>
           ) : (
             <></>
-          )}
-        </div>
+            )}
+
+      
       </Box>
     </Container>
   );

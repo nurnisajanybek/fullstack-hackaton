@@ -9,11 +9,14 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import HotelUpdate from "../../../components/Hotels/HotelUpdate/HotelUpdate";
+import { useAuth } from "../../../contexts/AuthContextProvider";
+import { isAdmin } from "../../../helpers/consts";
 
-const HotelDetails = () => {
+const HotelDetails = (hotel) => {
   const { getHotelDetails, hotelDetails, deleteHotel } = useServices();
   const { id } = useParams();
   const [showInps, setShowInps] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     getHotelDetails(id);
@@ -31,7 +34,7 @@ const HotelDetails = () => {
             <hr />
             <Typography className="num">{hotelDetails?.price}</Typography>
             <hr />
-            <Typography>{hotelDetails?.info}</Typography>
+            <Typography className="hotel-info">{hotelDetails?.info}</Typography>
 
             <Box sx={{ width: "100% ", marginLeft: "10px" }}>
               <div className="rating">
@@ -58,39 +61,48 @@ const HotelDetails = () => {
                   <a href={hotelDetails?.hotel_link} class="textt">
                     Перейти на&nbsp;сайт отеля
                   </a>
+                  
                 </div>
               </div>
             </Box>
-
-            <Button
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "10px",
-                marginRight: "3%",
-                marginTop: "  10%",
-                marginBottom: "3%",
-                marginLeft: "60%",
-              }}
-              onClick={() => setShowInps(!showInps)}
-            >
-              Edit
-            </Button>
-            <Button
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "10px",
-                marginTop: "-28%",
-                marginBottom: "3%",
-              }}
-              onClick={() => deleteHotel(id)}
-            >
-              Delete
-            </Button>
+            
+            {isAdmin() ? (
+              <>
+                <Button
+                  sx={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "10px",
+                    // marginRight: "3%",
+                    // marginTop: "  10%",
+                    // marginBottom: "3%",
+                    // marginLeft: "60%",
+                  }}
+                  onClick={() => setShowInps(!showInps)}
+                  >
+                  Edit
+                </Button>
+                <Button
+                  sx={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "10px",
+                    // marginTop: "-28%",
+                    // marginBottom: "3%",
+                  }}
+                  onClick={() => deleteHotel(id)}
+                  >
+                  Delete
+                </Button>
+                  </>
+            ) : (
+              <>You are not admin</>
+            )}
+            </div>
+            
           </div>
-        </div>
-        ;
+
+        
         <div className="bottom-card-info">
           <Coments />
           {showInps ? (

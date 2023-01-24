@@ -8,7 +8,7 @@ const Reviews = () => {
         <div>
               <Container fixed>
 
-<Box>
+<Box className='h1-h2'>
  
     <h1 className='h1-reviews'>Оставьте отзыв о месте, которое Вы посетили</h1>
     <h4 className='h2-reviews'>О чем бы Вы хотели написать?</h4>
@@ -24,7 +24,7 @@ const Reviews = () => {
     
     
     <h1 className='h1-reviews1'>поделитесь своим опытом и  напишите отзыв</h1>
-        <Search/>
+        <Search className="stack"/>
     
        
 </Box>
