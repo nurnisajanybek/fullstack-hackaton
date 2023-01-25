@@ -9,3 +9,8 @@ export const checkStorage = (key) => {
     localStorage.setItem(key , '[]')
   }
 }
+
+export const averageRating = (ratings) => {
+  let sum_of_ratings = ratings?.reduce((acc, cur) => acc + +cur?.hotel_rating, 0);
+  return sum_of_ratings / ratings.length;
+}

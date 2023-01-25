@@ -13,12 +13,19 @@ const options = [1, 2];
 
 const HotelList = () => {
   const { getHotels, hotelList, itemCount, fetchByParams } = useServices();
-  const { getHotelRating } = useRating();
+  const { getHotelRating, hotelRatings, setRatingToHotel } = useRating();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
   const count = Math.ceil(itemCount / itemsPerPage);
+ 
+  const hotelRatingsDispatcher = (id) => {
+    let rated_hotels = hotelRatings.filter((hotel) => hotel.hotel_id === id);
+    if(rated_hotels){
+      return rated_hotels;
+    }
+  }
 
   useEffect(() => {
     getHotels();
@@ -42,6 +49,8 @@ const HotelList = () => {
 
   const [value, setValue] = React.useState(options[0]);
 
+  console.log(hotelRatings)
+  console.log(hotelList)
   return (
     <>
       <Container>
@@ -68,8 +77,8 @@ const HotelList = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            {hotelList?.map((hotel, index) => (
-              <HotelCard hotel={hotel} key={index} />
+            {hotelList?.reverse().map((hotel, index) => (
+              <HotelCard hotel={hotel} key={index} rating={hotelRatingsDispatcher(hotel.id)} />
             ))}
           </div>
         </div>

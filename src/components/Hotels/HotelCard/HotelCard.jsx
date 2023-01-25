@@ -9,27 +9,33 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "./HotelCard.css";
-import { Button } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useFavorites } from "../../../contexts/FavoritesContextProvider";
 import { useEffect } from "react";
-import { checkStorage } from "../../../helpers/consts";
+import { averageRating, checkStorage } from "../../../helpers/consts";
 import { useState } from "react";
+import { useRating } from "../../../contexts/RatingContextProvider";
 
-export default function HotelCard({ hotel }) {
+export default function HotelCard({ hotel, rating }) {
   const theme = useTheme();
   const { setStorage, removeFromStorage, checkForFav } = useFavorites();
 
+  
+  const { setRatingToHotel, getOneHotelRating, oneHotelRating } = useRating();
   const navigate = useNavigate();
 
   const [render, setRender] = useState(true);
 
   useEffect(() => {
     checkStorage("favorites");
+    // getOneHotelRating(hotel.id) request wasn't working
   }, []);
 
+  console.log(rating, `here ${hotel.name}`)
+  
   const handleLike = (key) => {
     if (checkForFav(hotel, key)) {
       removeFromStorage(hotel, key);
@@ -86,9 +92,15 @@ export default function HotelCard({ hotel }) {
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
                 <div className="rating">
-                  {" "}
-                  <span>Рейтинг</span>
-                  <span className="feedback">999 отзывов</span>
+                <Rating
+                  name="simple-controlled"
+                  value={averageRating(rating)}
+                  onChange={(event, newValue) => {
+                    setRatingToHotel(hotel.id, newValue);
+                    setRender(!render);
+                  }}
+                  // readOnly
+                />
                 </div>
 
                 <div>
