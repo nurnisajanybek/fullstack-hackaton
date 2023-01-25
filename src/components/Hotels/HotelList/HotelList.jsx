@@ -7,11 +7,13 @@ import { Container } from "@mui/system";
 import HotelCard from "../HotelCard/HotelCard";
 import { MenuItem, Pagination, Select } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
+import { useRating } from "../../../contexts/RatingContextProvider";
 
 const options = [1, 2];
 
 const HotelList = () => {
   const { getHotels, hotelList, itemCount, fetchByParams } = useServices();
+  const { getHotelRating } = useRating();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -20,6 +22,7 @@ const HotelList = () => {
 
   useEffect(() => {
     getHotels();
+    getHotelRating();
   }, []);
 
   useEffect(() => {

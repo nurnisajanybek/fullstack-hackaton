@@ -5,20 +5,23 @@ import Footer from "./components/Footer/Footer";
 import Login from "./components/Login";
 import ServicesContextProvider from "./contexts/ServicesContextProvider";
 import FavoritesContextProvider from "./contexts/FavoritesContextProvider";
+import RatingContextProvider from "./contexts/RatingContextProvider";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <FavoritesContextProvider>
-          <ServicesContextProvider>
-            {/* <CartContextProvider> */}
-            <Navbar />
-            <MainRoutes />
-            <Footer />
-            {/* </CartContextProvider> */}
-          </ServicesContextProvider>
-        </FavoritesContextProvider>
+        <RatingContextProvider>
+          <FavoritesContextProvider>
+            <ServicesContextProvider>
+              {/* <CartContextProvider> */}
+              <Navbar />
+              <MainRoutes />
+              <Footer />
+              {/* </CartContextProvider> */}
+            </ServicesContextProvider>
+          </FavoritesContextProvider>
+        </RatingContextProvider>
       </AuthContextProvider>
     </>
   );
