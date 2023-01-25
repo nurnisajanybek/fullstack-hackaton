@@ -1,13 +1,13 @@
-import React, { useReducer } from 'react';
-import { useContext } from 'react';
-import { API, checkStorage } from "../helpers/consts"
-import { createContext } from 'react';
-import axios from 'axios';
+import React, { useReducer } from "react";
+import { useContext } from "react";
+import { API, checkStorage } from "../helpers/consts";
+import { createContext } from "react";
+import axios from "axios";
 
 const favoritesContext = createContext();
 export const useFavorites = () => useContext(favoritesContext);
 
-const favoritesList = JSON.parse(localStorage.getItem('favorites'));
+const favoritesList = JSON.parse(localStorage.getItem("favorites"));
 
 // const init_state = {
 //   favoriteHotels: storage,
@@ -17,33 +17,32 @@ const favoritesList = JSON.parse(localStorage.getItem('favorites'));
 //   switch (action.type) {
 //     case "GET_FAV_HOTELS":
 //       return {...state, favoriteHotels: action.payload.results};
-  
+
 //     default:
 //       return state;
 //   }
 // }
 
-const FavoritesContextProvider = ({children}) => {
-  
-  const setStorage = (item, key = 'favorites') => {
-    console.log('here')
+const FavoritesContextProvider = ({ children }) => {
+  const setStorage = (item, key = "favorites") => {
+    console.log("here");
     checkStorage(key);
     let data = JSON.parse(localStorage.getItem(key));
     data.push(item);
     localStorage.setItem(key, JSON.stringify(data));
-  }
+  };
 
-  const removeFromStorage = (item, key = 'favorites') => {
+  const removeFromStorage = (item, key = "favorites") => {
     checkStorage(key);
     let data = JSON.parse(localStorage.getItem(key));
-    data = data.filter(elem => elem.id != item.id);
+    data = data.filter((elem) => elem.id != item.id);
     localStorage.setItem(key, JSON.stringify(data));
-  }
+  };
 
-  const checkForFav = (item, key = 'favorites') => {
-    let storage = JSON.parse(localStorage.getItem(key))
-    return storage.some((elem)=>elem.id == item.id);
-  }
+  const checkForFav = (item, key = "favorites") => {
+    let storage = JSON.parse(localStorage.getItem(key)) || [];
+    return storage.some((elem) => elem.id == item.id);
+  };
 
   // const [state, dispatch] = useReducer(reducer, init_state);
 
@@ -89,8 +88,6 @@ const FavoritesContextProvider = ({children}) => {
   //   }
   // }
 
-
-
   const values = {
     // getFavoriteHotels,
     // addHotelToFavorite,
@@ -100,7 +97,7 @@ const FavoritesContextProvider = ({children}) => {
     removeFromStorage,
     checkForFav,
     favoritesList,
-  }
+  };
   return (
     <favoritesContext.Provider value={values}>
       {children}

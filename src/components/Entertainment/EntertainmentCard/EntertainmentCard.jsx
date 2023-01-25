@@ -8,15 +8,36 @@ import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-
 import "./EntertainmentCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useFavorites } from "../../../contexts/FavoritesContextProvider";
+import { useEffect } from "react";
+import { checkStorage } from "../../../helpers/consts";
+import { useState } from "react";
 
 export default function EntertainmentCard({ fun, key }) {
   const theme = useTheme();
+  const { setStorage, removeFromStorage, checkForFav } = useFavorites();
 
   const navigate = useNavigate();
+
+  const [render, setRender] = useState(true);
+
+  useEffect(() => {
+    checkStorage("favorites");
+  }, []);
+
+  const handleLike = (key) => {
+    if (checkForFav(fun, key)) {
+      removeFromStorage(fun, key);
+    } else {
+      setStorage(fun, key);
+    }
+    setRender(!render);
+  };
 
   return (
     <Box className="box" key={key}>
@@ -91,10 +112,14 @@ export default function EntertainmentCard({ fun, key }) {
                 </div>
               </Box>
             </Box>
+            <Button onClick={() => handleLike("favorites")}>
+              {!checkForFav(fun, "favorites") ? (
+                <BookmarkBorderIcon />
+              ) : (
+                <BookmarkIcon />
+              )}
+            </Button>
           </CardContent>
-          <Box
-            sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-          ></Box>
         </Box>
       </Card>
     </Box>

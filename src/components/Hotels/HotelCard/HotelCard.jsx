@@ -11,11 +11,11 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "./HotelCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useFavorites } from "../../../contexts/FavoritesContextProvider";
 import { useEffect } from "react";
 import { checkStorage } from "../../../helpers/consts";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from "react";
 
 export default function HotelCard({ hotel }) {
@@ -23,21 +23,21 @@ export default function HotelCard({ hotel }) {
   const { setStorage, removeFromStorage, checkForFav } = useFavorites();
 
   const navigate = useNavigate();
-  
+
   const [render, setRender] = useState(true);
 
   useEffect(() => {
-    checkStorage('favorites');
-  }, [])
+    checkStorage("favorites");
+  }, []);
 
   const handleLike = (key) => {
-    if(checkForFav(hotel, key)){
+    if (checkForFav(hotel, key)) {
       removeFromStorage(hotel, key);
     } else {
       setStorage(hotel, key);
-    };
-    setRender(!render)
-  }
+    }
+    setRender(!render);
+  };
 
   return (
     <Box className="box-hotel">
@@ -111,13 +111,12 @@ export default function HotelCard({ hotel }) {
                 </div>
               </Box>
             </Box>
-            <Button onClick={() => handleLike('favorites')}>
-              {
-                !checkForFav(hotel, 'favorites') ? 
-                <FavoriteBorderIcon />
-                :
-                <FavoriteIcon />
-              }
+            <Button onClick={() => handleLike("favorites")}>
+              {!checkForFav(hotel, "favorites") ? (
+                <BookmarkBorderIcon />
+              ) : (
+                <BookmarkIcon />
+              )}
             </Button>
           </CardContent>
           {/* <Box

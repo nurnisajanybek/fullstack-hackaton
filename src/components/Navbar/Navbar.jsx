@@ -1,4 +1,4 @@
-import React , {useEffect, useState}from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -22,40 +22,39 @@ import "./Navbar.css";
 import { useAuth } from "../../contexts/AuthContextProvider";
 import { ADMIN, isAdmin } from "../../helpers/consts";
 import { Hidden, Menu, MenuItem } from "@mui/material";
-import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 const drawerWidth = 240;
 const navItem = [
   <DriveFileRenameOutlineIcon sx={{ marginLeft: "100%" }} />,
   "Отзывы",
- 
 ];
-const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
- "Избранное",]
+const navItems = [
+  <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
+  "Избранное",
+];
 
 function Navbar(props) {
-  
   const { window } = props;
-  const { user,  checkAuth,  logout} = useAuth();
-  
-  useEffect(()=>{
-    if(localStorage.getItem("token")){
-      checkAuth()
+  const { user, checkAuth, logout } = useAuth();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      checkAuth();
     }
-  },[])
-  
-  console.log(user)
-  const buttonStyle ={
-    color:"black  ",
-    display:"block",
+  }, []);
+
+  console.log(user);
+  const buttonStyle = {
+    color: "black  ",
+    display: "block",
     textTransform: "capitalize",
-    
-  }
-  
-  const [mobileOpen, setMobileOpen , ] = React.useState(false);
-  const [anchorEl, setAnchorEl] = useState(null)
+  };
+
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
-  
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -67,31 +66,49 @@ function Navbar(props) {
   };
 
   const drawer = (
-    
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-      {isAdmin() ? ( 
-              <Button   sx={{ color: "black", fontWeight: "bold" }}  hidden="false" onClick={()=> navigate("/admin")} > <AdminPanelSettingsOutlinedIcon />Admin</Button>
-          ) : <></>} 
-      {
-            user? (
-             
-                    <Box   sx={{ width:"15%", marginLeft:"15%"}}>
-                        <Typography  sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
-                        <Button sx={ buttonStyle} onClick={logout} >Logout</Button>
+        {isAdmin() ? (
+          <Button
+            sx={{ color: "black", fontWeight: "bold" }}
+            hidden="false"
+            onClick={() => navigate("/admin")}
+          >
+            {" "}
+            <AdminPanelSettingsOutlinedIcon />
+            Admin
+          </Button>
+        ) : (
+          <></>
+        )}
+        {user ? (
+          <Box sx={{ width: "15%", marginLeft: "15%" }}>
+            <Typography sx={{ alignSelf: "center", color: "black" }}>
+              {user}
+            </Typography>
+            <Button sx={buttonStyle} onClick={logout}>
+              Logout
+            </Button>
 
-                        <Button className="button"  sx={ buttonStyle}     onClick={()=> navigate("/admin")} >Admin</Button>
-                    </Box>
-            
-            ): (
-              <Box sx={{display:"flex"}}>
-                    <Button sx={ buttonStyle}  onClick={()=> navigate("/login")}>Login</Button>
-                    <Button sx={ buttonStyle}  onClick={()=> navigate("/register")}>Register</Button>
-                </Box>
-            )
-          }
-       
-        
+            <Button
+              className="button"
+              sx={buttonStyle}
+              onClick={() => navigate("/admin")}
+            >
+              Admin
+            </Button>
+          </Box>
+        ) : (
+          <Box sx={{ display: "flex" }}>
+            <Button sx={buttonStyle} onClick={() => navigate("/login")}>
+              Login
+            </Button>
+            <Button sx={buttonStyle} onClick={() => navigate("/register")}>
+              Register
+            </Button>
+          </Box>
+        )}
+
         {/* {user ? <Box>{user.email}</Box> : <Box sx={{color:"black",}}>Автор</Box>} */}
       </Typography>
       <Divider />
@@ -104,10 +121,12 @@ function Navbar(props) {
           </ListItem>
         ))}
         {navItem.map((item) => (
-          
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText   onClick={() => navigate("/reviews")} primary={item} />
+              <ListItemText
+                onClick={() => navigate("/reviews")}
+                primary={item}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -117,7 +136,7 @@ function Navbar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-    
+
   return (
     <Container maxWidth="sm">
       <Box sx={{ display: "flex" }}>
@@ -132,11 +151,7 @@ function Navbar(props) {
               sx={{ mr: 2, display: { sm: "none" } }}
             >
               <MenuIcon />
-              <img
-                className="icon"
-                src="/icons/LOGO.png"
-                alt=""
-              />
+              <img className="icon" src="/icons/LOGO.png" alt="" />
             </IconButton>
             <Typography
               variant="h6"
@@ -154,81 +169,106 @@ function Navbar(props) {
 
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItem.map((item) => (
-
-                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   onClick={() => navigate("/reviews")}>
+                <Button
+                  key={item}
+                  sx={{ color: "black", fontWeight: "bold" }}
+                  onClick={() => navigate("/reviews")}
+                >
                   {item}
                 </Button>
               ))}
               {navItems.map((item) => (
-
-                <Button key={item} sx={{ color: "black", fontWeight: "bold" }}   >
+                <Button
+                  onClick={() => navigate("/favorites")}
+                  key={item}
+                  sx={{ color: "black", fontWeight: "bold" }}
+                >
                   {item}
                 </Button>
               ))}
             </Box>
-            <IconButton className="iconbutton"
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle   className="iconbutton" />
-              </IconButton>
-              <Menu
-             
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
-                
+            <IconButton
+              className="iconbutton"
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleMenu}
+              color="inherit"
+            >
+              <AccountCircle className="iconbutton" />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>
+                {isAdmin() ? (
+                  <Button
+                    className="button"
+                    sx={{ color: "black", fontWeight: "bold" }}
+                    hidden="false"
+                    onClick={() => navigate("/admin")}
+                  >
+                    {" "}
+                    <AdminPanelSettingsOutlinedIcon />
+                    Admin
+                  </Button>
+                ) : (
+                  <></>
+                )}
+              </MenuItem>
 
-
-            <MenuItem onClick={handleClose} >
-              {isAdmin() ? ( 
-                <Button className="button"  sx={{ color: "black", fontWeight: "bold" }}  hidden="false" onClick={()=> navigate("/admin")} > <AdminPanelSettingsOutlinedIcon  />Admin</Button>
-             ) : <></>} 
-            </MenuItem>
-
-
-
-
-                    {
-                      user? ( 
-                        
-                        <Box  className="logout2"  sx={{display:"flex"}}>
-                      
-                    
-                          <MenuItem onClick={handleClose}>
-                        <Typography className="button"  sx={{alignSelf:"center" , color:"black"}}>{user}</Typography>
-                        <Button className="button2"  sx={ buttonStyle} onClick={logout} >Logout</Button>
-
-          </MenuItem>
-                    </Box>
-            
-            ): (
-              <Box  sx={{display:"flex"}}>
-                      <MenuItem onClick={handleClose}>
-
-                    <Button sx={ buttonStyle} className="button"     onClick={()=> navigate("/login")}>Login</Button>
-                    <Button sx={ buttonStyle} className="button"   onClick={()=> navigate("/register")}>Register</Button>
-                      </MenuItem>
+              {user ? (
+                <Box className="logout2" sx={{ display: "flex" }}>
+                  <MenuItem onClick={handleClose}>
+                    <Typography
+                      className="button"
+                      sx={{ alignSelf: "center", color: "black" }}
+                    >
+                      {user}
+                    </Typography>
+                    <Button
+                      className="button2"
+                      sx={buttonStyle}
+                      onClick={logout}
+                    >
+                      Logout
+                    </Button>
+                  </MenuItem>
                 </Box>
-            )
-          }
-          </Menu>
-       
+              ) : (
+                <Box sx={{ display: "flex" }}>
+                  <MenuItem onClick={handleClose}>
+                    <Button
+                      sx={buttonStyle}
+                      className="button"
+                      onClick={() => navigate("/login")}
+                    >
+                      Login
+                    </Button>
+                    <Button
+                      sx={buttonStyle}
+                      className="button"
+                      onClick={() => navigate("/register")}
+                    >
+                      Register
+                    </Button>
+                  </MenuItem>
+                </Box>
+              )}
+            </Menu>
           </Toolbar>
         </AppBar>
         <Box component="nav">

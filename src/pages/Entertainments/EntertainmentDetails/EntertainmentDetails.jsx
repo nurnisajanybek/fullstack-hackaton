@@ -11,13 +11,14 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { isAdmin } from "../../../helpers/consts";
 
 import EntertainmentUpdate from "../../../components/Entertainment/EntertainmentUpdate/EntertainmentUpdate";
-
+import { useAuth } from "../../../contexts/AuthContextProvider";
 
 const EntertainmentDetails = () => {
   const { getEntertainmentDetails, entertainmentDetails, deleteEntertainment } =
     useServices();
   const { id } = useParams();
   const [showInps, setShowInps] = useState(false);
+  const { user } = useAuth();
 
   useEffect(() => {
     getEntertainmentDetails(id);
@@ -54,58 +55,53 @@ const EntertainmentDetails = () => {
                   {entertainmentDetails?.address}
                 </a>
               </div>
-            
+
+              <div>
                 <div>
-                  <div>
-                    <CalendarMonthIcon sx={{ fontSize: "100%" }} />
-                    <span class="text">
-                      Время работы : {entertainmentDetails?.hours}
-                    </span>
-                  </div>
+                  <CalendarMonthIcon sx={{ fontSize: "100%" }} />
+                  <span class="text">
+                    Время работы : {entertainmentDetails?.hours}
+                  </span>
                 </div>
-              </Box>
-               
-              { isAdmin() ? (
-                <div>
+              </div>
+            </Box>
 
-
-              <Button
-                sx={{
-                  backgroundColor: "black",
-                  color: "white",
-                  borderRadius: "10px",
-                  // marginRight: "3%",
-                  // marginTop: "3%",
-                  // marginBottom: "3%",
-                  // marginLeft: "60%",
-                }}
+            {isAdmin() ? (
+              <>
+                <Button
+                  sx={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "10px",
+                    // marginRight: "3%",
+                    // marginTop: "  10%",
+                    // marginBottom: "3%",
+                    // marginLeft: "60%",
+                  }}
+                  onClick={() => setShowInps(!showInps)}
                 >
-                Edit
-              </Button>
-              <Button
-                sx={{
-                  backgroundColor: "black",
-                  color: "white",
-                  borderRadius: "10px",
-                  // marginTop: "3%",
-                  // marginBottom: "3%",
-                }}
+                  Edit
+                </Button>
+                <Button
+                  sx={{
+                    backgroundColor: "black",
+                    color: "white",
+                    borderRadius: "10px",
+                    // marginTop: "-28%",
+                    // marginBottom: "3%",
+                  }}
+                  onClick={() => deleteEntertainment(id)}
                 >
-                Delete
-              </Button>
-                    </div>
-                  ) : (
-                    null
-                    )}
-
-            </div>
-
+                  Delete
+                </Button>
+              </>
+            ) : (
+              <>You are not admin</>
+            )}
           </div>
+        </div>
 
- 
-        
         <div className="bottom-card-info">
-          </div>
           <Coments />
           {showInps ? (
             <>
@@ -113,9 +109,8 @@ const EntertainmentDetails = () => {
             </>
           ) : (
             <></>
-            )}
-
-      
+          )}
+        </div>
       </Box>
     </Container>
   );

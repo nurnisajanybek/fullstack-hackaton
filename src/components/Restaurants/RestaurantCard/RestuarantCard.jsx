@@ -8,15 +8,36 @@ import Typography from "@mui/material/Typography";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LanguageIcon from "@mui/icons-material/Language";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import "./RestuarantCard.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../../../contexts/FavoritesContextProvider";
+import { useEffect } from "react";
+import { useState } from "react";
+import { checkStorage } from "../../../helpers/consts";
 
 export default function RestaurantCard({ place, key }) {
   const theme = useTheme();
+  const { setStorage, removeFromStorage, checkForFav } = useFavorites();
 
   const navigate = useNavigate();
+
+  const [render, setRender] = useState(true);
+
+  useEffect(() => {
+    checkStorage("favorites");
+  }, []);
+
+  const handleLike = (key) => {
+    if (checkForFav(place, key)) {
+      removeFromStorage(place, key);
+    } else {
+      setStorage(place, key);
+    }
+    setRender(!render);
+  };
 
   return (
     <Box className="box" key={key}>
@@ -91,10 +112,14 @@ export default function RestaurantCard({ place, key }) {
                 </div>
               </Box>
             </Box>
+            <Button onClick={() => handleLike("favorites")}>
+              {!checkForFav(place, "favorites") ? (
+                <BookmarkBorderIcon />
+              ) : (
+                <BookmarkIcon />
+              )}
+            </Button>
           </CardContent>
-          <Box
-            sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-          ></Box>
         </Box>
       </Card>
     </Box>
