@@ -44,7 +44,6 @@ function Navbar(props) {
     }
   }, []);
 
-  console.log(user);
   const buttonStyle = {
     color: "black  ",
     display: "block",

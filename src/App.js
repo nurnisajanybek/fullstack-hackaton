@@ -6,22 +6,25 @@ import Login from "./components/Login";
 import ServicesContextProvider from "./contexts/ServicesContextProvider";
 import FavoritesContextProvider from "./contexts/FavoritesContextProvider";
 import RatingContextProvider from "./contexts/RatingContextProvider";
+import CommentContextProvider from "./contexts/CommentContextProvider";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
-        <RatingContextProvider>
-          <FavoritesContextProvider>
-            <ServicesContextProvider>
-              {/* <CartContextProvider> */}
-              <Navbar />
-              <MainRoutes />
-              <Footer />
-              {/* </CartContextProvider> */}
-            </ServicesContextProvider>
-          </FavoritesContextProvider>
-        </RatingContextProvider>
+        <CommentContextProvider>
+          <RatingContextProvider>
+            <FavoritesContextProvider>
+              <ServicesContextProvider>
+                {/* <CartContextProvider> */}
+                <Navbar />
+                <MainRoutes />
+                <Footer />
+                {/* </CartContextProvider> */}
+              </ServicesContextProvider>
+            </FavoritesContextProvider>
+          </RatingContextProvider>
+        </CommentContextProvider>
       </AuthContextProvider>
     </>
   );

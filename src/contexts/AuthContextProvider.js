@@ -48,7 +48,6 @@ const AuthContextProvider = ({ children }) => {
 
   async function checkAuth() {
     let token = JSON.parse(localStorage.getItem("token"));
-    console.log(token);
     try {
       const Authorization = `Bearer ${token.access}`;
 
@@ -70,8 +69,6 @@ const AuthContextProvider = ({ children }) => {
       let username = localStorage.getItem("username");
 
       setUser(username);
-
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
