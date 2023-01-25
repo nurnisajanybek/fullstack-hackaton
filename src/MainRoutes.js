@@ -12,6 +12,7 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import EntertainmentDetails from "./pages/Entertainments/EntertainmentDetails/EntertainmentDetails";
 import Entertainments from "./pages/Entertainments/Entertainments";
 import FavoritesPage from "./pages/Favorites/FavoritesPage";
+import PaymentForm from "./pages/Favorites/PaymentForm";
 import HomePage from "./pages/HomePage/HomePage";
 import HotelDetails from "./pages/Hotels/HotelDetails/HotelDetails";
 import Hotels from "./pages/Hotels/Hotels";
@@ -84,6 +85,11 @@ const MainRoutes = () => {
     {
       link: "/favorites",
       element: <FavoritesPage />,
+      id: 13,
+    },
+    {
+      link: "/creditcard",
+      element: <PaymentForm />,
       id: 13,
     }
   ];

@@ -1,8 +1,12 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
-import { useFavorites } from "../../contexts/FavoritesContextProvider";
+import { useNavigate } from "react-router-dom";
+import { useCart, useFavorites } from "../../contexts/FavoritesContextProvider";
 
 const FavoritesPage = () => {
+  const  {cart} = useCart()
+ const  navigate = useNavigate()
   const { favoritesList } = useFavorites();
   useEffect(() => {
     favoritesList();
@@ -15,6 +19,8 @@ const FavoritesPage = () => {
           <h3>{fav_hotel?.name}</h3>
         </>
       ))}
+
+<Button onClick={()=> navigate(`/creditcard`)} >BUY NOW FOR {cart?.totalPrice}</Button>
     </div>
   );
 };

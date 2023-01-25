@@ -9,6 +9,12 @@ export const useFavorites = () => useContext(favoritesContext);
 
 const favoritesList = () => JSON.parse(localStorage.getItem("favorites"));
 
+
+
+export const useCart = () => {
+  return useContext(favoritesContext )
+}
+
 const FavoritesContextProvider = ({ children }) => {
   const setStorage = (item, key = "favorites") => {
     checkStorage(key);
