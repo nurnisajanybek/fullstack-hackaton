@@ -9,6 +9,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import LanguageIcon from "@mui/icons-material/Language";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import RestaurantUpdate from "../../../components/Restaurants/RestaurantUpdate/RestaurantUpdate";
+import { isAdmin } from "../../../helpers/consts";
 
 const RestaurantDetails = () => {
   const { getRestaurantDetails, restaurantDetails, deleteRestaurant } =
@@ -65,19 +66,27 @@ const RestaurantDetails = () => {
                 </div>
               </div>
             </Box>
+              {isAdmin() ? (
+            <div>
 
-            <Button
-              sx={{
-                backgroundColor: "black",
-                color: "white",
-                borderRadius: "10px",
-                marginRight: "3%",
-                marginTop: "-5%",
-                marginBottom: "3%",
-                marginLeft: "60%",
-              }}
-              onClick={() => setShowInps(!showInps)}
-            >
+
+
+
+
+                
+                
+                <Button
+                sx={{
+                  backgroundColor: "black",
+                  color: "white",
+                  borderRadius: "10px",
+                  marginRight: "3%",
+                  marginTop: "-5%",
+                  marginBottom: "3%",
+                  marginLeft: "60%",
+                }}
+                onClick={() => setShowInps(!showInps)}
+                >
               Edit
             </Button>
             <Button
@@ -89,9 +98,11 @@ const RestaurantDetails = () => {
                 marginBottom: "3%",
               }}
               onClick={() => deleteRestaurant(id)}
-            >
+              >
               Delete
             </Button>
+              </div>
+              ):null}
           </div>
         </div>
         ;
