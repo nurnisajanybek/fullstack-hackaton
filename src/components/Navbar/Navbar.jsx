@@ -31,7 +31,7 @@ const navItem = [
  
 ];
 const navItems = [ <FavoriteBorderIcon sx={{ marginLeft: "100%" }} />,
- "Избранная",]
+ "Избранное",]
 
 function Navbar(props) {
   

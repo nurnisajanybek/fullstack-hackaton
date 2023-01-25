@@ -3,16 +3,17 @@ import { useEffect } from 'react';
 import { useFavorites } from '../../contexts/FavoritesContextProvider';
 
 const FavoritesPage = () => {
-  const { getFavoriteHotels, favoriteHotels } = useFavorites();
+  const { favoritesList } = useFavorites();
   
-  useEffect(() => {
-    getFavoriteHotels();
-  }, [])
-
-  console.log(favoriteHotels)
   return (
-    <div>
-      fav
+    <div className='container'>
+      {
+        favoritesList?.map((fav_hotel) => (
+          <>
+            <h3>{fav_hotel?.name}</h3>
+          </>
+        ))
+      }
     </div>
   );
 };
