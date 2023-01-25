@@ -7,15 +7,12 @@ export const useRating = () => useContext(ratingContext);
 
 const init_state = {
   hotelRatings: [],
-  oneHotelRating: {},
 }
 
 const reducer = (state = init_state, action) => {
   switch(action.type){
     case "GET_HOTEL_RATINGS":
       return {...state, hotelRatings: action.payload};
-    case "GET_ONE_HOTEL_RATING":
-      return {...state, oneHotelRating: action.payload};
     default:
       return state;
   }
@@ -47,22 +44,6 @@ const RatingContextProvider = ({ children }) => {
     }
   };
 
-  const getOneHotelRating = async (id) => {
-    try {
-      let { data } = await axios(`${API}hotel_rating/${id}/`, config)
-      dispatch({
-        type: "GET_ONE_HOTEL_RATING",
-        payload: data,
-      })
-    } catch (error) {
-      dispatch({
-        type: "GET_ONE_HOTEL_RATING",
-        payload: {},
-      })
-      console.log(error)
-    }
-  }
-
   const setRatingToHotel = async (id, rating) => {
     try {
       let request_obj = {
@@ -70,6 +51,7 @@ const RatingContextProvider = ({ children }) => {
         hotel_id: id,
       }
       let res = await axios.post(`${API}hotel_rating/`, request_obj, config)
+      getHotelRating();
       console.log(res)
     } catch (error) {
       console.log(error)
@@ -80,8 +62,6 @@ const RatingContextProvider = ({ children }) => {
     getHotelRating,
     hotelRatings: state.hotelRatings,
     setRatingToHotel,
-    getOneHotelRating,
-    oneHotelRating: state.oneHotelRating,
   };
   return (
     <ratingContext.Provider value={values}>{children}</ratingContext.Provider>

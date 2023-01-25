@@ -7,29 +7,19 @@ import { Container } from "@mui/system";
 import HotelCard from "../HotelCard/HotelCard";
 import { MenuItem, Pagination, Select } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
-import { useRating } from "../../../contexts/RatingContextProvider";
 
 const options = [1, 2];
 
 const HotelList = () => {
   const { getHotels, hotelList, itemCount, fetchByParams } = useServices();
-  const { getHotelRating, hotelRatings, setRatingToHotel } = useRating();
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const itemsPerPage = 6;
   const count = Math.ceil(itemCount / itemsPerPage);
- 
-  const hotelRatingsDispatcher = (id) => {
-    let rated_hotels = hotelRatings.filter((hotel) => hotel.hotel_id === id);
-    if(rated_hotels){
-      return rated_hotels;
-    }
-  }
 
   useEffect(() => {
     getHotels();
-    getHotelRating();
   }, []);
 
   useEffect(() => {
@@ -49,8 +39,6 @@ const HotelList = () => {
 
   const [value, setValue] = React.useState(options[0]);
 
-  console.log(hotelRatings)
-  console.log(hotelList)
   return (
     <>
       <Container>
@@ -78,7 +66,7 @@ const HotelList = () => {
               />
             </div>
             {hotelList?.reverse().map((hotel, index) => (
-              <HotelCard hotel={hotel} key={index} rating={hotelRatingsDispatcher(hotel.id)} />
+              <HotelCard hotel={hotel} key={index} />
             ))}
           </div>
         </div>

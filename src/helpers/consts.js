@@ -12,7 +12,7 @@ export const checkStorage = (key) => {
 
 export const averageRating = (ratings) => {
   let sum_of_ratings = ratings?.reduce((acc, cur) => acc + +cur?.hotel_rating, 0);
-  return sum_of_ratings / ratings.length;
+  return Math.ceil(sum_of_ratings / ratings.length);
 }
 
 export const getDateAndTime = (given_date) => {
