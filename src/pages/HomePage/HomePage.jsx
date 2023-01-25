@@ -133,24 +133,26 @@ const HomePage = () => {
         </div>
       </div>
       {/* before fifth block button for layout of best trips */}
-      <div className="container">
+      {/* <div className="container">
         <div className="best-trip-block">
           <div className="best-trip-txt">
             <source
-              className="picture"
+              // className="picture"
               media="(max-width: 400px)"
-              srcset="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=400&amp;h=600&amp;s=1 1x,https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/79/1c/09/caption.jpg?w=800&amp;h=1100&amp;s=1 2x"
+              srcset="https://tripplanet.ru/wp-content/uploads/asia/kyrgyzstan/bishkek/dostoprimechatelnosti-bishkeka.jpg"
             ></source>
            
            
           </div>
           <div className="best-trip-shadow"></div>
         </div>
-      </div>
+      </div> */}
       {/* fifth block*/}
+
+      <img className="img-bishkek" src="https://tripplanet.ru/wp-content/uploads/asia/kyrgyzstan/bishkek/dostoprimechatelnosti-bishkeka.jpg" alt="" />
       <div className="container">
         <h2 className="h2-home">
-          Лучшие направления для Вашего следующего отпуска
+          Лучшие направления для Вашего следующего отпуска по всему кыргызстану 
         </h2>
         {/* <div>
           {cards.map((card) => (
@@ -173,20 +175,20 @@ const HomePage = () => {
 
           <div className="test">
             <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
+            Иссык-Куль  — бессточное озеро  Кыргызстана 
             </h2>
           </div>
           {/* </div> */}
           {/* <div className="class2"> */}
 
-          <div className="test">
+          <div className="test1">
             <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
+            Современная горнолыжная база "Каракол"
             </h2>
           </div>
-          <div className="test">
+          <div className="test2">
             <h2 className="test-title">
-              Йеллоустонский национальный парк, Вайоминг
+            Священная гора Сулайман-Тоо
             </h2>
             {/* </div> */}
           </div>
@@ -197,9 +199,9 @@ const HomePage = () => {
         <div className="sixth-block-left">
           <img
             className="sova"
-            src="https://static.tacdn.com/img2/travelers_choice/TC_logomark_solid_cream.svg"
+            src="/icons/help.png"
           />
-          <h2 className="h2-travel">Travellers' Choice: лучшее из лучшего</h2>
+          <h2 className="h2-travel">  TAPTYM_KG Choice: лучшее из лучшего</h2>
         </div>
         <img
           className="sixth-block-right"

@@ -9,6 +9,7 @@
 
 .container-h2{
   text-align: center;
+  font-weight: 900;
 }
 
 .first-block {
@@ -52,6 +53,7 @@ a {
     no-repeat;
   /* background-size: contain; */
   background-position: center;
+  margin-top: -5%;
     /* width: 150%; */
   height: 70vh;
   /* display: flex;
@@ -151,6 +153,11 @@ a {
 .sova {
   width: 40%;
 }
+.img-bishkek{
+ margin-left: 10%;
+ 
+}
+ 
 /* test */
 .test-block {
   display: flex;
@@ -166,11 +173,43 @@ a {
 
   padding-left: 1%;
   padding-top: 10%;
-  background: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cf/f9/eb/caption.jpg?w=600&h=600&s=1&cx=941&cy=299&chk=v1_18cfa51ea9b832b15689")
-    no-repeat;
+  background: url("https://vivid-travel.kz/assets/images/tours/issykul-novyj/mob3.jpg");
   background-position: center;
   background-size: cover;
   color: white;
+  border: 3px solid rgb(77, 29, 29);
+  border-radius: 10px;
+
+}
+.test1 {
+  display: flex;
+  width: 300px;
+
+  padding-left: 1%;
+  padding-top: 10%;
+  background: url("https://www.kapriz.kg/images/design/slide1/karakol/karakol-05.jpg");
+  background-position: center;
+  background-size: cover;
+  color: rgb(58, 57, 57);
+  border: 3px solid rgb(77, 29, 29);
+  border-radius: 10px;
+
+  
+
+}
+
+.test2 {
+  display: flex;
+  width: 300px;
+
+  padding-left: 1%;
+  padding-top: 10%;
+  background: url("https://img.tourister.ru/files/2/2/4/3/7/2/6/4/original.jpg");
+  background-position: center;
+  background-size: cover;
+  color: rgb(241, 238, 238);
+  border: 3px solid rgb(77, 29, 29);
+  border-radius: 10px;
 
 }
 .test:hover {
@@ -251,6 +290,10 @@ border-radius: 20px;
   width: 100%;
   background-color: rgba(100, 100, 111, 0);
 }
+.h2-home{
+  font-weight: 900;
+  color: rgb(65, 24, 24);
+}
 
 @media all and (max-width: 768px) {
   .best-trip-txt:nth-of-type(1) {
@@ -285,6 +328,7 @@ border-radius: 20px;
   }
   .h2-home {
     margin-top: -20%;
+
   }
   .test {
     width: 30%;
