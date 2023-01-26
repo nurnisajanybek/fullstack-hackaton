@@ -1,13 +1,14 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart, useFavorites } from "../../contexts/FavoritesContextProvider";
 
-const FavoritesPage = () => {
-  const  {cart} = useCart()
- const  navigate = useNavigate()
+const FavoritesPage = ({ hotel }) => {
+  const { cart } = useCart();
+  const navigate = useNavigate();
   const { favoritesList } = useFavorites();
+
   useEffect(() => {
     favoritesList();
   }, []);
@@ -17,10 +18,13 @@ const FavoritesPage = () => {
       {favoritesList()?.map((fav_hotel) => (
         <>
           <h3>{fav_hotel?.name}</h3>
+          <img style={{ width: "30%" }} src={fav_hotel?.image} alt="" />
         </>
       ))}
 
-<Button onClick={()=> navigate(`/creditcard`)} >BUY NOW FOR {cart?.totalPrice}</Button>
+      <Button onClick={() => navigate(`/creditcard`)}>
+        BUY NOW FOR {cart?.totalPrice}
+      </Button>
     </div>
   );
 };

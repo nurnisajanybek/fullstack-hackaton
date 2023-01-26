@@ -23,7 +23,6 @@ export default function HotelCard({ hotel }) {
   const theme = useTheme();
   const { setStorage, removeFromStorage, checkForFav } = useFavorites();
 
-  
   const { setRatingToHotel, getHotelRating, hotelRatings } = useRating();
   const navigate = useNavigate();
 
@@ -33,7 +32,7 @@ export default function HotelCard({ hotel }) {
     checkStorage("favorites");
     getHotelRating();
   }, []);
-  
+
   const handleLike = (key) => {
     if (checkForFav(hotel, key)) {
       removeFromStorage(hotel, key);
@@ -43,7 +42,8 @@ export default function HotelCard({ hotel }) {
     setRender(!render);
   };
 
-  const thisHotelRatings = () => hotelRatings.filter(rating => rating.hotel_id == hotel.id);
+  const thisHotelRatings = () =>
+    hotelRatings.filter((rating) => rating.hotel_id == hotel.id);
 
   return (
     <Box className="box-hotel">
@@ -92,15 +92,15 @@ export default function HotelCard({ hotel }) {
 
               <Box sx={{ width: "100% ", marginLeft: "10px" }}>
                 <div className="rating">
-                <Rating
-                  name="simple-controlled"
-                  value={averageRating(thisHotelRatings())}
-                  onChange={(event, newValue) => {
-                    setRatingToHotel(hotel.id, newValue);
-                    setRender(!render);
-                  }}
-                  // readOnly
-                />
+                  <Rating
+                    name="simple-controlled"
+                    value={averageRating(thisHotelRatings())}
+                    onChange={(event, newValue) => {
+                      setRatingToHotel(hotel.id, newValue);
+                      setRender(!render);
+                    }}
+                    // readOnly
+                  />
                 </div>
 
                 <div>
@@ -131,9 +131,6 @@ export default function HotelCard({ hotel }) {
               )}
             </Button>
           </CardContent>
-          {/* <Box
-            sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
-          ></Box> */}
         </Box>
       </Card>
     </Box>

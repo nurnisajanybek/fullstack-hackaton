@@ -3,8 +3,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./HomePage.css";
 import SingleBedIcon from "@mui/icons-material/SingleBed";
-import ForestTwoToneIcon from '@mui/icons-material/ForestTwoTone';
-import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import ForestTwoToneIcon from "@mui/icons-material/ForestTwoTone";
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 
 const cards = [1, 2, 3, 4];
 
@@ -49,8 +49,8 @@ const HomePage = () => {
         </a>
 
         {/* third section */}
-        <a  onClick={() => navigate("/place")} className="each-link">
-          <span >Рестораны</span>
+        <a onClick={() => navigate("/place")} className="each-link">
+          <span>Рестораны</span>
 
           <svg viewBox="0 0 24 24" width="24px" height="24px">
             <path
@@ -68,31 +68,31 @@ const HomePage = () => {
       {/* second block */}
       <div className="container second-block">
         <div className="search-container">
-        <div className="best-trip-txt">
-            
-            <span className="bold"> Планируйте свои лучшие дни  <ForestTwoToneIcon/></span>
-            <h5 className="h5-bold" >Вместе с нами </h5>
-         
-           
+          <div className="best-trip-txt">
+            <span className="bold">
+              {" "}
+              Планируйте свои лучшие дни <ForestTwoToneIcon />
+            </span>
+            <h5 className="h5-bold">Вместе с нами </h5>
           </div>
-        <Button
-              className="explor"
-              sx={{
-                color: "black",
-                backgroundColor: "white",
-                borderRadius: "20px",
-                width: "25%",
-                fontWeight: "bold",
-                marginLeft:"10%"
-              }}
-              onClick={() => navigate("/aboutus")}
-            >
-            О нас  
-            </Button>
+          <Button
+            className="explor"
+            sx={{
+              color: "black",
+              backgroundColor: "white",
+              borderRadius: "20px",
+              width: "25%",
+              fontWeight: "bold",
+              marginLeft: "10%",
+            }}
+            onClick={() => navigate("/aboutus")}
+          >
+            О нас
+          </Button>
         </div>
       </div>
       {/* third block*/}
-      <h2 className="container-h2" >Наши рекомендуемые места </h2>
+      <h2 className="container-h2">Наши рекомендуемые места </h2>
       {/* forth block*/}
       <h2 className="container-h2">Вам также может понравиться</h2>
       {/* test cards with rating */}
@@ -104,18 +104,26 @@ const HomePage = () => {
               src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/217442989.jpg?k=6217cb43dd78c78daf0cda5cd6690d1db9c1d86acdc433a7221ebf983667b216&o=&hp=1"
               alt=""
             />
-            <span >(Garden Hotel & SPA)</span>
-         
-            <span > (Южная Магистраль пересекает ул. Баха. Эмилбека Айлчиева 61, 720047 Бишкек,) </span>
+            <span>(Garden Hotel & SPA)</span>
+
+            <span>
+              {" "}
+              (Южная Магистраль пересекает ул. Баха. Эмилбека Айлчиева 61,
+              720047 Бишкек,){" "}
+            </span>
           </a>
           <a className="test-card-rating">
             <img
               src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/03/4b/60/cosmopark.jpg?w=500&h=400&s=1"
               alt=""
             />
-            <span >(СosmopPark)</span>
-           
-            <span > (7 мкрн, ул. К.Маркса перес. ул. Донецкая, 58 Юнусалиев проспектиси, Бишкек) </span>
+            <span>(СosmopPark)</span>
+
+            <span>
+              {" "}
+              (7 мкрн, ул. К.Маркса перес. ул. Донецкая, 58 Юнусалиев
+              проспектиси, Бишкек){" "}
+            </span>
           </a>
           {/* </div> */}
           {/* <div className="class2"> */}
@@ -125,9 +133,9 @@ const HomePage = () => {
               src="https://media-cdn.tripadvisor.com/media/photo-s/1c/80/5b/29/caption.jpg"
               alt=""
             />
-            <span >(Облако 53)</span>
+            <span>(Облако 53)</span>
             <div>rating</div>
-            <span > (ул. Раззакова, 19, Бишкек 720000 Киргизия) </span>
+            <span> (ул. Раззакова, 19, Бишкек 720000 Киргизия) </span>
           </a>
           {/* </div> */}
         </div>
@@ -148,11 +156,16 @@ const HomePage = () => {
         </div>
       </div> */}
       {/* fifth block*/}
-
-      <img className="img-bishkek" src="https://tripplanet.ru/wp-content/uploads/asia/kyrgyzstan/bishkek/dostoprimechatelnosti-bishkeka.jpg" alt="" />
+      <div className="img-container">
+        <img
+          className="img-bishkek"
+          src="https://tripplanet.ru/wp-content/uploads/asia/kyrgyzstan/bishkek/dostoprimechatelnosti-bishkeka.jpg"
+          alt=""
+        />
+      </div>
       <div className="container">
         <h2 className="h2-home">
-          Лучшие направления для Вашего следующего отпуска по всему кыргызстану 
+          Лучшие направления для Вашего следующего отпуска по всему кыргызстану
         </h2>
         {/* <div>
           {cards.map((card) => (
@@ -175,7 +188,7 @@ const HomePage = () => {
 
           <div className="test">
             <h2 className="test-title">
-            Иссык-Куль  — бессточное озеро  Кыргызстана 
+              Иссык-Куль — бессточное озеро Кыргызстана
             </h2>
           </div>
           {/* </div> */}
@@ -183,13 +196,11 @@ const HomePage = () => {
 
           <div className="test1">
             <h2 className="test-title">
-            Современная горнолыжная база "Каракол"
+              Современная горнолыжная база "Каракол"
             </h2>
           </div>
           <div className="test2">
-            <h2 className="test-title">
-            Священная гора Сулайман-Тоо
-            </h2>
+            <h2 className="test-title">Священная гора Сулайман-Тоо</h2>
             {/* </div> */}
           </div>
         </div>
@@ -197,11 +208,8 @@ const HomePage = () => {
       {/* sixth block*/}
       <div className="sixth-block ">
         <div className="sixth-block-left">
-          <img
-            className="sova"
-            src="/icons/help.png"
-          />
-          <h2 className="h2-travel">  TAPTYM_KG Choice: лучшее из лучшего</h2>
+          <img className="sova" src="/icons/help.png" />
+          <h2 className="h2-travel"> TAPTYM_KG Choice: лучшее из лучшего</h2>
         </div>
         <img
           className="sixth-block-right"
